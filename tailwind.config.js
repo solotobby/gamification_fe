@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         customBlue: '#0665D0',
+        customGray: '#F3F3F3'
       },
       fontFamily: {
         'bricolage-grotesque': ['Bricolage Grotesque', 'sans-serif'],

@@ -14,7 +14,7 @@ const header = () => {
             </div>
 
             <p>Login</p>
-            <button className="text-white rounded-full bg-customBlue">Sign up for free</button>
+            <button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button>
         </div>
     )
 }
