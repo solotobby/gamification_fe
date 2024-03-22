@@ -1,11 +1,9 @@
 const header = () => {
     return (
-        <div className="flex items-center my-9 justify-evenly">
-            <div>
-                <h1>Logo</h1>
-            </div>
+        <div className="flex items-center my-9 justify-evenly ">
 
-            <div className="flex space-x-2">
+            <img src="/public/images/freebyzlogo-blue.png" alt="freebyz-logo" />
+            <div className="flex gap-8">
                 <p>Home</p>
                 <p>Make money</p>
                 <p>FAQs</p>
@@ -13,8 +11,10 @@ const header = () => {
                 <p>Contact</p>
             </div>
 
-            <p>Login</p>
-            <button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button>
+            <div className="flex items-center gap-6">
+                <p>Login</p>
+                <button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button>
+            </div>
         </div>
     )
 }
