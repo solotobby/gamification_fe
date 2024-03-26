@@ -40,4 +40,14 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  .feature-item {
+    color: gray;
+    cursor: pointer;
+}
+
+.feature-item.active {
+    color: black;
+    font-weight: bold;
+}
   

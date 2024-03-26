@@ -1,4 +1,20 @@
-const Work_online = () => {
+import { useState, useEffect } from "react";
+
+const WorkOnline = () => {
+    const [imageIndex, setImageIndex] = useState(0);
+    const images = ["/images/prince-akachi-i2hoD-C2RUA-unsplash-removebg-preview 1.png", "/images/christian-buehner-JQFHdpOKz2k-unsplash-removebg-preview 1.png",
+    "/images/stephanie-liverani-Zz5LQe-VSMY-unsplash-removebg-preview 1.png"];
+
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setImageIndex(prevIndex => (prevIndex + 1) % images.length);
+        }, 6000);
+
+        
+        return () => clearInterval(interval);
+    }, [images.length]);
+
     return (
         <div className="flex flex-col justify-center background-map">
             <div className="container relative flex items-center justify-between">
@@ -11,6 +27,10 @@ const Work_online = () => {
                 </div>
 
                 <div className="relative w-[40%] shrink-0 flex justify-end">
+                   
+                    <img src={images[imageIndex]} alt="akachi" className="w-full h-auto" />
+
+                   
                     <span className="absolute right-0 top-[30%] z-10 p-4 flex flex-col items-center shadow-xl border-[1px] border-slate-100 bg-white rounded-md ">
                         <img src="/images/greenwallet.png" alt="green-wallet" />
                         <h1>#10,000.00</h1>
@@ -25,11 +45,10 @@ const Work_online = () => {
                         </div>
                         <p className="mt-3">#500,000.00</p>
                     </span>
-                    <img  src="/images/prince-akachi-i2hoD-C2RUA-unsplash-removebg-preview 1.png" alt="akachi" className="w-full h-auto" />
                 </div>
             </div>
         </div>
     )
 }
 
-export default Work_online;
+export default WorkOnline;

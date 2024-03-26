@@ -1,4 +1,4 @@
-const Job_numbers = () => {
+const JobNumbers = () => {
     return (
         <div className="container flex items-center justify-around mt-20">
             <div className="max-w-sm p-6 bg-white rounded-lg shadow-md">
@@ -25,4 +25,4 @@ const Job_numbers = () => {
     )
 }
 
-export default Job_numbers;
+export default JobNumbers;

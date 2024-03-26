@@ -1,4 +1,4 @@
-const Lock_funds = () => {
+const LockFunds = () => {
     return (
        <div className="flex items-center justify-center mt-10" style={{ marginRight: '25%' }}>
         <img src="/public/images/arrow-right.png"  alt="right-arrow"  className="mr-4 "/>
@@ -10,4 +10,4 @@ const Lock_funds = () => {
     )
 }
 
-export default Lock_funds;
+export default LockFunds;
