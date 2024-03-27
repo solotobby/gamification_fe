@@ -2,7 +2,7 @@ const header = () => {
     return (
         <div className="flex items-center my-9 justify-evenly ">
 
-            <img src="/public/images/freebyzlogo-blue.png" alt="freebyz-logo" />
+            <img src="/images/freebyzlogo-blue.png" alt="freebyz-logo" />
             <div className="flex gap-8">
                 <p>Home</p>
                 <p>Make money</p>

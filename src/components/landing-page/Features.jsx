@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { features } from '../../data/homeData';
 import '../../styles/features.scss'
 
@@ -22,7 +22,7 @@ const Features = () => {
                         </div>
                     ))}
                 </div>
-                <img src="/public/images/we.png" alt="we-image" />
+                <img src="/images/we.png" alt="we-image" />
             </div>
         </div>
     );
