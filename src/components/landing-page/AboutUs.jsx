@@ -13,9 +13,9 @@ const AboutUs = () => {
             </div>
             
             <div className="flex justify-center gap-6 mt-8">
-                <img src="/public/images/keyboard.png" alt="keyboard-image" />
-                <img src="/public/images/keyboard2.png" alt="keyboard-image2" />
-                <img src="/public/images/dollar.png" alt="dollar-image" />
+                <img src="/images/keyboard.png" alt="keyboard-image" />
+                <img src="/images/keyboard2.png" alt="keyboard-image2" />
+                <img src="/images/dollar.png" alt="dollar-image" />
             </div>
 
             <div className="mt-8">

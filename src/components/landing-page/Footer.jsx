@@ -6,15 +6,15 @@ const Footer = () => {
                 <p className="w-2/4 mt-8 text-4xl font-medium leading-10 text-center">Sign up today and start earning in naira and dollars!</p>
                 <p className="w-3/4 mt-6 text-center">Start getting that extra income from the comfort of your home by creating an account for free.</p>
                 <span className="flex">
-                    <img src="/public/images/arrow-left.png" alt="arrows" />
+                    <img src="/images/arrow-left.png" alt="arrows" />
                     <button className="px-4 py-2 mt-6 text-white rounded-full bg-customBlue">Sign up for free</button>
-                    <img src="/public/images/arrow2.png" alt="arrows" />
+                    <img src="/images/arrow2.png" alt="arrows" />
                 </span>
             </div>
             <div className="mt-8 bg-customBlue">
                 <div className="container flex justify-around p-10">
                     <div>
-                        <img src="/public/images/Freebyz-logo-white.png" alt="freebyz-logo" />
+                        <img src="/images/Freebyz-logo-white.png" alt="freebyz-logo" />
                     </div>
 
                     <div className="text-white ">
