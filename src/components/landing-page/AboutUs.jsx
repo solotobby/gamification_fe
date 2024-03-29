@@ -39,7 +39,7 @@ const AboutUs = () => {
             <JobNumbers />
           
         </div>
-                <OurGoal />
+            <OurGoal />
             </div>
     )
 }

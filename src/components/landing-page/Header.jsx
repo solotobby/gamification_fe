@@ -1,14 +1,15 @@
+import { Link } from "react-router-dom";
 const header = () => {
     return (
         <div className="flex items-center my-9 justify-evenly ">
 
-            <img src="/images/freebyzlogo-blue.png" alt="freebyz-logo" />
+           <Link to='/'> <img src="/images/freebyzlogo-blue.png" alt="freebyz-logo" /></Link>
             <div className="flex gap-8">
-                <p>Home</p>
-                <p>Make money</p>
-                <p>FAQs</p>
-                <p>About us</p>
-                <p>Contact</p>
+                <Link to="/">Home</Link>
+                <Link>Make money</Link>
+                <Link to='/contact-us'>FAQs</Link>
+                <Link  to='/about-us'>About us</Link>
+                <Link  to='/contact-us'>Contact</Link>
             </div>
 
             <div className="flex items-center gap-6">

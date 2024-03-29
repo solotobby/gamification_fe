@@ -11,8 +11,10 @@ const OurGoal = () => {
                             it also a platform built to inspire you to get knowledge, be kind to the world and extend a helping hand.
                             The goal is a build a community that is ready to give value and earn from it.
                         </p>
+                    </div >
+                    <div className="w-1/3 p-4">
+                         <img src="/images/Clapping.png" alt="ourgoal-image" className="w-full h-auto" />
                     </div>
-                    <img src="/images/Clapping.png" alt="ourgoal-image" className="w-1/3 h-10" />
                 </div>
             </div>
     )

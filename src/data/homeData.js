@@ -8,10 +8,6 @@ export const features = [
         description: 'Secure your hard-earned profits with our Safe Lock feature!'
     },
     {
-        title: 'Banners ads',
-        description: 'Explore lucrative opportunities and earn daily in dollar and naira with our enticing banner ads!'
-    },
-    {
         title: 'Referral bonuses',
         description: 'Get N500 on each referral and instant bonus of N5,000 when you reach 50 verified referral limit.'
     },

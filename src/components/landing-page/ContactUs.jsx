@@ -14,7 +14,7 @@ const ContactUs = () => {
         <div className="container mt-8">
             <h1 className="mt-8 text-4xl font-medium leading-10 text-center">Contact our friendly team</h1>
             <p className='mb-8 text-center'>Get in touch and let’s see how we can help you.</p>
-            <div className='flex justify-between'>
+            <div className='flex items-center justify-between'>
                 <div className='p-5 border border-gray-500'>
                     <img src="/images/mail-icon.png" alt="mail-icon" className='mb-12' />
                     <h2>Contact support</h2>
