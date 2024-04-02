@@ -1,31 +1,40 @@
-import { kickstartJourney } from "../../data/homeData";
+import { useState } from "react";
+import { testimonial } from "../../data/homeData";
 
 const TrustUs = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handleNext = () => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % testimonial.length);
+    };
+
+    const handlePrevious = () => {
+        setCurrentIndex(prevIndex => (prevIndex - 1 + testimonial.length) % testimonial.length);
+    };
+
     return (
         <div className="py-8 mt-8 bg-blue-500">
             <div className="container">
-            <p className="w-3/4 mx-auto mt-20 text-5xl font-medium leading-10 text-center text-white font-bricolage-grotesque">Don’t take our word for it. Over 100k people trust us.</p>
-            <p className="my-8 text-center text-white mt-">We don’t just say it, we put it to action and take pride in delivering results to all our users.</p>
-                {/* <div className="flex gap-4 ">
-                    {
-                        kickstartJourney.map((el, i) => (
-                            <div key={i} className="flex-grow p-5 bg-customGray">
-                                <p className='text-3xl font-medium leading-10'>{el.title}</p>
-                                <p>{el.description}</p>
-                                <img src={el.image} alt="kickstar-image" />
-                            </div>
-                        ))
-                    }
-                </div>
-                <button className="p-4 my-8 text-white rounded-full bg-customBlue">Sign up for free</button> */}
+                <p className="w-3/4 mx-auto mt-20 text-5xl font-medium leading-10 text-center text-white font-bricolage-grotesque">Don’t take our word for it. Over 100k people trust us.</p>
+                <p className="my-8 text-center text-white mt-">We don’t just say it, we put it to action and take pride in delivering results to all our users.</p>
+
                 <div className="w-1/2 mx-auto mb-10 bg-white p-14">
-                    <h1>“I earn steady income on Freebyz by performing a simple social media tasks,
-                    I also use my earnings to buy airtime. It is fast and reliable. Sign up now to get started.”</h1>
-                    <h2 className="pt-6">- Salau Muhibat Nifemi Oyefusi</h2>
+                    <h1>{testimonial[currentIndex].testimony}</h1>
+                    <h2 className="pt-6">- {testimonial[currentIndex].person}</h2>
+                    <img className="mt-3 w-11" src={testimonial[currentIndex].platform} alt="platform" />
                 </div>
-    </div>
+
+                <div className="flex justify-center gap-4">
+                    <button onClick={handlePrevious}>
+                        <img src="/public/images/left-button.png" alt="left-button" />
+                    </button>
+                    <button onClick={handleNext}>
+                        <img src="/public/images/right-button.png" alt="rightbutton" />
+                    </button>
+                </div>
+            </div>
         </div>
-    )
+    );
 };
 
 export default TrustUs;

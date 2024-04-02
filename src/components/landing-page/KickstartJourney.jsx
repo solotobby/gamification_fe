@@ -11,7 +11,7 @@ const KickstartJourney = () => {
                             <div key={i} className="flex-grow p-5 bg-customGray">
                                 <p className='text-3xl font-medium leading-10'>{el.title}</p>
                                 <p>{el.description}</p>
-                                <img src={el.image} alt="kickstar-image" />
+                                <img src={el.image} alt="kickstart-journey-image" />
                             </div>
                         ))
                     }

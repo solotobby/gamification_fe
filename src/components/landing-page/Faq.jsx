@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { faq } from "../../data/homeData";
 
 const Faq = () => {
@@ -8,11 +9,6 @@ const Faq = () => {
         const updatedOpenState = [...isOpen];
         updatedOpenState[index] = !updatedOpenState[index];
         setIsOpen(updatedOpenState);
-    };
-
-    
-     const navigateToFullFaq = () => {
-        history.push("/faq");
     };
 
     return (
@@ -30,8 +26,10 @@ const Faq = () => {
                         {isOpen[i] && <p>{el.description}</p>}
                     </div>
                 ))}
-                <p onClick={navigateToFullFaq} className="text-blue-500 cursor-pointer">Can’t find what you’re looking for? See more questions</p>
                 
+                <p>
+                    Can’t find what you’re looking for? <Link to="/contact-us" className="text-blue-500 cursor-pointer">See more questions</Link>
+                </p>
             </div>
         </div>
     );

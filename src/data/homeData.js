@@ -101,4 +101,43 @@ export const faq = [
         title: 'How do I withdraw my funds',
         description: "You can withdraw your funds in Naira or in Dollars. To Withdraw your funds, Login to your dashboard and click on wallet, select 'Withdraw', enter the amount you want to withdraw and select Local bank withdrawal or Paypal withdraw. Your funds will be processed immediately or latest on Friday of that week. Please note that the minimum withdrawal is N2,500 (for naira wallets) and $5 (for dollar wallets). Should you have further questions, feel free to get across to us."
     }
+
+]
+
+export const testimonial = [
+    {
+        testimony: 'I earn steady income on Freebyz by performing a simple social media tasks, I also use my earnings to buy airtime. It is fast and reliable. Sign up now to get started',
+        person: ' Salau Muhibat Nifemi Oyefusi',
+        platform: '/images/facebook-icon.png'
+    },
+    {
+        testimony: 'With Freebyz, I earn with my social media handles by just liking, follow or simply comment and I get paid, the interesting thing with Freebyz is that you can buy Airtime of your choice with you available balance and receive it instantly. On two occasion, I have bought MTN airtime and got it instantly. Freebyz all the way.',
+        person: ' Adolphus Augustine Owolo',
+        platform: '/images/facebook-icon.png'
+    },
+    {
+        testimony: 'I have used Freebyz to make money online and have been paid directly to my account severally. I also earn money on every friend I refer.',
+        person: 'Friday Mathias Friday',
+        platform: '/images/facebook-icon.png'
+    },
+    {
+        testimony: 'I can recommend Freebyz for you to make small small money online everyday.',
+        person: ' Juliet',
+        platform: '/images/facebook-icon.png'
+    },
+    {
+        testimony: 'I am witness to it, it is working absolutely fine',
+        person: '  tochuckuwadika1',
+        platform: '/images/ticktock-icon.png'
+    },
+    {
+        testimony: 'It is a good platform to make money online',
+        person: 'mulero58',
+        platform: '/images/ticktock-icon.png'
+    },
+    {
+        testimony: 'It is a good platform to make money onlineI highly recommend this website to everyone...Wonder website ever...Great thanks to the creator, earning my money steady.',
+        person: 'richytech7',
+        platform: '/images/ticktock-icon.png'
+    },
 ]
