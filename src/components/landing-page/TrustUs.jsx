@@ -26,10 +26,10 @@ const TrustUs = () => {
 
                 <div className="flex justify-center gap-4">
                     <button onClick={handlePrevious}>
-                        <img src="/public/images/left-button.png" alt="left-button" />
+                        <img src="/images/left-button.png" alt="left-button" />
                     </button>
                     <button onClick={handleNext}>
-                        <img src="/public/images/right-button.png" alt="rightbutton" />
+                        <img src="/images/right-button.png" alt="rightbutton" />
                     </button>
                 </div>
             </div>
