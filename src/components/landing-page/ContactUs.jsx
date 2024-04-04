@@ -11,17 +11,17 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="container mt-8">
+        <div className="container mt-8 ">
             <h1 className="mt-8 text-4xl font-medium leading-10 text-center">Contact our friendly team</h1>
             <p className='mb-8 text-center'>Get in touch and let’s see how we can help you.</p>
-            <div className='flex items-center justify-between'>
-                <div className='p-5 border border-gray-500'>
+            <div className='flex flex-col items-center justify-between md:flex-row'>
+                <div className='p-5 mb-4 border border-gray-500 md:mb-0 md:mr-4'>
                     <img src="/images/mail-icon.png" alt="mail-icon" className='mb-12' />
                     <h2>Contact support</h2>
                     <h3>We would love to attend to your needs and concern. Just send us a mail.</h3>
                     <p>Send us an email</p>
                 </div>
-                <p>or</p>
+                <p className="mb-4 md:mb-0">or</p>
                 <div className='p-5 border border-gray-500'>
                     <img src="/images/chat-con.png" alt="chat-icon" className='mb-12' />
                     <h2>Live chat</h2>

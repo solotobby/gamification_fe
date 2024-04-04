@@ -12,18 +12,20 @@ const Faq = () => {
     };
 
     return (
-        <div>
-            <div className="container w-1/2 mt-8 text-center">
-                <p className="mb-8 text-4xl font-medium leading-10">Frequently asked questions</p>
+        <div className="container mx-auto mt-8">
+            <div className="text-center">
+                <p className="mb-8 text-3xl font-medium leading-8 md:text-4xl">Frequently asked questions</p>
                 {faq.slice(0, 4).map((el, i) => ( 
-                    <div key={i} className="flex-grow p-5 mb-4 bg-customGray">
+                    <div key={i} className="p-4 mb-4 bg-customGray">
                         <div className="flex items-center justify-between">
-                            <p className='text-2xl'>{el.title}</p>
-                            <button onClick={() => toggleDescription(i)} className="text-2xl">
+                            <p className='text-lg md:text-2xl'>{el.title}</p>
+                            <button onClick={() => toggleDescription(i)} className="text-lg md:text-2xl">
                                 {isOpen[i] ? '-' : '+'}
                             </button>
                         </div>
-                        {isOpen[i] && <p>{el.description}</p>}
+                        {isOpen[i] && (
+                            <p className="text-sm text-left md:text-base">{el.description}</p>
+                        )}
                     </div>
                 ))}
                 
