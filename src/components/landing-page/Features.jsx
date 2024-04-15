@@ -4,7 +4,7 @@ import '../../styles/features.scss';
 
 const Features = () => {
     const [activeFeature, setActiveFeature] = useState(0);
-    const [mobileActiveFeature, setMobileActiveFeature] = useState(0); // State for mobile active feature
+    const [mobileActiveFeature, setMobileActiveFeature] = useState(0);
 
     const handlePaginationClick = (index) => {
         setActiveFeature(index);
@@ -51,7 +51,7 @@ const Features = () => {
                             key={i}
                             className={`feature-item ${activeFeature === i ? 'active' : ''} ${window.innerWidth <= 768 ? 'mobile-only' : ''} ${window.innerWidth <= 768 ? (mobileActiveFeature === i ? 'active' : '') : ''}`}
                             onClick={() => window.innerWidth > 768 && setActiveFeature(i)}
-                            onMouseEnter={() => setActiveFeature(i)} // Change active feature on hover for desktop
+                            onMouseEnter={() => setActiveFeature(i)}
                             style={{ display: window.innerWidth <= 768 ? (mobileActiveFeature === i ? 'block' : 'none') : 'block' }}
                         >
                             <p className='text-3xl font-medium leading-10'>{el.title}</p>

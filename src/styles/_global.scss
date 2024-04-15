@@ -57,6 +57,17 @@ body {
     background-repeat: no-repeat;
   }
 
+  .background-map2 {
+    background-image: url('/images/map-blue.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media screen and (max-width: 768px) {
+      background-image: unset;
+    }
+  }
+
   .feature-item {
     color: gray;
     cursor: pointer;
@@ -86,19 +97,10 @@ body {
   transform: translateX(0);
 }
 
-// .side-bar {
-//   position: fixed;
-//   z-index: 100;
-//   top: 5rem;
-//   left: 0;
-//   height: auto;
-//   width: 100vw;
-//   background-color: white;
-//   padding: 2rem;
-//   transform: translateX(-100%);
-//   transition: all 0.5s ease-in-out;
-//   z-index: 200;
-// }
+
+.h-atm-card {
+  height: 85mm; 
+}
 
 .swiper {
   width: 100%;

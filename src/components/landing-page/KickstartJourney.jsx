@@ -5,7 +5,7 @@ import { Navigation, Pagination } from "swiper/modules";
 const KickstartJourney = () => {
     return (
         <div className="container mt-8">
-            {/* <p className="w-3/4 mt-20 text-2xl font-medium leading-10 font-bricolage-grotesque md:text-5xl">Kick-start your journey to financial emancipation</p> */}
+            
             <p className="w-full mt-20 text-2xl font-medium leading-10 font-bricolage-grotesque md:text-5xl md:w-3/4">
                 Kick-start your journey to financial emancipation
             </p>
@@ -55,8 +55,8 @@ const KickstartJourney = () => {
 
                 
                 <div className='relative flex h-8 md:hidden'>
-                    <img className="" src="/public/images/left-button.png" alt="" />
-                    <img src="/public/images/right-button.png" alt="" />
+                    <img className="" src="/images/left-button.png" alt="" />
+                    <img src="/images/right-button.png" alt="" />
                    
                     <div className="flex items-center justify-center w-full gap-8">
                         <button className="items-center p-2 border-2 border-solid prevs-buttons border-sky-500" >

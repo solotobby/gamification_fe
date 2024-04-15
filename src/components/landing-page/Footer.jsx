@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <div >
-            <div className="container flex flex-col items-center justify-center mt-10">
-                <p className="w-full px-4 mt-8 text-4xl font-medium leading-10 text-center md:w-2/4 md:mt-8 md:text-5xl md:leading-10">Sign up today and start earning in naira and dollars!</p>
+            <div className="container flex flex-col items-center justify-center mt-20">
+                <p className="w-full px-4 mt-8 text-4xl font-medium leading-10 text-center md:w-3/4 md:mt-8 md:text-5xl md:leading-10">Sign up today and start earning in naira and dollars!</p>
                 <p className="w-full px-4 mt-4 text-base text-center md:w-3/4 md:mt-6 md:text-lg">Start getting that extra income from the comfort of your home by creating an account for free.</p>
 
             <span className="flex items-center gap-8 md:gap-8">
@@ -51,7 +51,7 @@ const Footer = () => {
                         <p>All copyright © reserved by Freebyz 2024</p>
                         <p>Freebyz By Dominahl Technology LLC</p>
                     </div>
-                    <div className="flex gap-4 pb-8">
+                    <div className="flex gap-4 pb-8 md:gap-8">
                         <img src="/images/freebyz-facebook.png" alt="facebook-icon" className="w-6" />
                         <img src="/images/freebyz-ig.png" alt="instagram-icon" className="w-6" />
                         <img src="/images/freebyz-x.png" alt="twitter-icon" className="w-6" />

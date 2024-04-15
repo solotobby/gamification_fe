@@ -23,10 +23,10 @@ const TrustUs = () => {
                 <p className="w-full mx-auto mt-20 text-3xl font-medium leading-10 text-center text-white font-bricolage-grotesque md:w-3/4 md:text-5xl">Don’t take our word for it. Over 100k people trust us.</p>
                 <p className="my-8 text-center text-white">We don’t just say it, we put it to action and take pride in delivering results to all our users.</p>
 
-                <div className="w-full p-8 mx-auto mb-10 bg-white rounded-lg shadow-lg md:w-1/2 md:p-14 h-96">
+                <div className="relative w-full p-8 mx-auto mb-10 bg-white rounded-lg shadow-lg md:w-1/2 md:p-14 h-96">
                     <h1 className="md:text-sm">{testimonial[currentIndex].testimony}</h1>
                     <h2 className="pt-4 text-sm md:text-base">- {testimonial[currentIndex].person}</h2>
-                    <img className="w-10 mt-3" src={testimonial[currentIndex].platform} alt="platform" />
+                    <img className="absolute w-10 bottom-4 left-10" src={testimonial[currentIndex].platform} alt="platform" />
                 </div>
 
                 <div className="flex justify-center gap-2 md:gap-4">
