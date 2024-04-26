@@ -8,9 +8,10 @@ import TermsOfUse from './components/landing-page/TermsOfUse.jsx';
 import PrivacyPolicy from './components/landing-page/PrivacyPolicy.jsx';
 import ForgotPassword from './components/landing-page/ForgotPassword.jsx';
 import Login from './components/landing-page/Login.jsx';
-import Signup from './components/landing-page/SignUp.jsx';
+import Register from './components/landing-page/Register.jsx';
 import Otp from './components/landing-page/Otp.jsx';
 import ResetPassword from './components/landing-page/ResetPassword.jsx';
+import Dashboard from './components/landing-page/Dashboard.jsx';
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
         <Route path="/about-us" element={<><Header /><AboutUs /><Footer /></>} />
         <Route path="/terms-of-use" element={<><Header /><TermsOfUse /><Footer /></>} />
         <Route path="/privacy-policy" element={<><Header /><PrivacyPolicy /><Footer /></>} />
+        <Route path="/dashboard" element={<><Header /><Dashboard /><Footer /></>} />
         
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/otp" element={<Otp />} />
         <Route path="/reset-password" element={<ResetPassword />} />

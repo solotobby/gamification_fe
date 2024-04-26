@@ -15,7 +15,7 @@ const Header = () => {
                     <Link to="/make-money" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Make money</Link>
                     <Link to='/about-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>About us</Link>
                     <Link to='/contact-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Contact</Link>
-                    <Link to="/signup" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Sign up for free</Link>
+                    <Link to="/register" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Sign up for free</Link>
                     <Link to="/login" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Login</Link>
                 </div>
                 <div className="items-center hidden gap-6 md:flex">
@@ -26,7 +26,7 @@ const Header = () => {
                 </div>
                 <div className="items-center hidden gap-6 md:flex">
                     <Link to="/login" ><button className="py-2">Login</button></Link>
-                    <Link to="/signup"><button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
+                    <Link to="/register"><button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
                 </div>
             </div>
         </div>

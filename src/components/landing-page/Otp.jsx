@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 
 const Otp = () => {
     const [countdown, setCountdown] = useState(60);
     const [otpCode, setOtpCode] = useState('');
     const [countdownActive, setCountdownActive] = useState(true);
+    const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (countdownActive) {
@@ -15,7 +18,6 @@ const Otp = () => {
                 }
             }, 1000);
 
-          
             return () => clearTimeout(timer);
         }
     }, [countdown, countdownActive]);
@@ -29,9 +31,37 @@ const Otp = () => {
         setCountdownActive(true);
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch('http://app.e-portal.com.ng/api/validate/otp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ otp: otpCode }),
+            });
+
+            if (response.ok) {
+                navigate('/reset-password');
+            } else {
+                const responseData = await response.json();
+                if (responseData.message === "Otp is not correct, please request another one") {
+                    setErrorMessage(responseData.message);
+                } else {
+                    console.error('Failed to verify OTP');
+                }
+            }
+        } catch (error) {
+            console.error('Error verifying OTP:', error);
+        }
+    };
+
     const countdownColor = 'text-blue-500';
     const resendPlaceholderText = countdownActive ? `Resend code in ${String(Math.floor(countdown / 60)).padStart(2, '0')}:${String(countdown % 60).padStart(2, '0')}` : 'Resend code now';
 
+   
     return (
         <div className="flex">
             <div className="pl-10 w-[30%] bg-customBlue left-class h-svh shrink-0 background-map2">
@@ -42,7 +72,7 @@ const Otp = () => {
             <div className="flex flex-col mx-auto mt-40 login-content">
                 <h2 className="text-3xl font-bold">OTP authentication</h2>
                 <p className="text-gray-400">Kindly enter the 6-digit OTP code sent to your email address.</p>
-                <form className="mt-10">
+                <form className="mt-10" onSubmit={handleSubmit}>
                     <div className="relative flex flex-col form-group">
                         <label htmlFor="otp-code">Enter code</label>
                         <input 
@@ -70,7 +100,7 @@ const Otp = () => {
                     >
                         Verify OTP
                     </button>
-
+                    <div className="mt-2 text-red-500">{errorMessage}</div>
                     <p className="mt-10">Back to Log in</p>
                 </form>
             </div>

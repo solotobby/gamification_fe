@@ -1,13 +1,24 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Register = () => {
     const [countries, setCountries] = useState([]);
-    const [selectedCountry, setSelectedCountry] = useState('Nigeria');
+  
     const [selectedDialingCode, setSelectedDialingCode] = useState('+234');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [referralCode, setReferralCode] = useState('');
+   
+    const [values, setValues] = useState({
+        "email" : "",
+        "first_name" : "",
+        "last_name" : "",
+        "country" : "Nigeria",
+        "phone" : "",
+        "password" : "",
+        "password_confirmation" : "",
+        "source" : "Facebook",
+        "ref_id" : ""
+    });
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
     const [passwordStrength, setPasswordStrength] = useState({
         length: false,
         uppercase: false,
@@ -16,15 +27,20 @@ const Signup = () => {
         number: false
     });
 
+    const handleInputValues = (e) => {
+        const {value, name} = e.target
+        setValues((prev)=> {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
-        const formData = new FormData(e.target);
-        const formObject = {};
-        formData.forEach((value, key) => {
-            formObject[key] = value;
-        });
-    
+        
+        const formObject = {...values};
         try {
             const response = await fetch('http://app.e-portal.com.ng/api/register', {
                 method: 'POST',
@@ -34,11 +50,17 @@ const Signup = () => {
                 body: JSON.stringify(formObject),
             });
     
-            if (!response.ok) {
-                throw new Error('Failed to register');
-            }
+            const data = await response.json();
     
-           
+            if (response.status === 201) {
+               
+                console.log('Registration successful:', data);
+                navigate('/login');
+            } else {
+                
+                console.error('Failed to register:', data);
+                
+            }
         } catch (error) {
             console.error('Error registering:', error);
             
@@ -65,37 +87,19 @@ const Signup = () => {
 
 
     const handleCountryChange = (e) => {
-        const selectedCountry = e.target.value;
-        setSelectedCountry(selectedCountry);
+       
     
-        const selectedCountryObject = countries.find(country => country.country === selectedCountry);
+        const selectedCountryObject = countries.find(country => country.country === values.country);
     
         if (selectedCountryObject) {
             setSelectedDialingCode(selectedCountryObject.dialing_code);
         }
     };
 
-    const handleConfirmPasswordChange = (e) => {
-        setConfirmPassword(e.target.value);
-    };
-
-    const handleReferralCodeChange = (e) => {
-        setReferralCode(e.target.value);
-    };
+   
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
-    };
-
-    const handlePasswordChange = (e) => {
-        const password = e.target.value;
-        setPasswordStrength({
-            length: password.length >= 8,
-            uppercase: /[A-Z]/.test(password),
-            lowercase: /[a-z]/.test(password),
-            specialCharacter: /[!@#$%^&*(),.?":{}|<>]/.test(password),
-            number: /\d/.test(password)
-        });
     };
 
     const calculatePasswordStrength = () => {
@@ -109,6 +113,19 @@ const Signup = () => {
             return "Strong";
         }
     };
+
+    useEffect(() => {
+        if (values.password) {
+            setPasswordStrength({
+                length: values.password.length >= 8,
+                uppercase: /[A-Z]/.test(values.password),
+                lowercase: /[a-z]/.test(values.password),
+                specialCharacter: /[!@#$%^&*(),.?":{}|<>]/.test(values.password),
+                number: /\d/.test(values.password)
+            });
+            calculatePasswordStrength()
+        }
+    }, [values]);
 
     const getRadioColor = (checked) => {
         return checked ? '#28A23F' : '';
@@ -134,20 +151,20 @@ const Signup = () => {
                         <div className="flex gap-20">
                             <div className="flex flex-col form-group">
                                 <label htmlFor="first-name">First name</label>
-                                <input type="text" id="first-name" name="first-name" className="w-full rounded-md" />
+                                <input type="text" id="first-name" name="first_name" className="w-full rounded-md" value={values.first_name} onChange={handleInputValues} />
                             </div>
                             <div className="flex flex-col form-group ">
                                 <label htmlFor="last-name">Last name</label>
-                                <input type="text" id="Last-name" name="last-name" className="w-full rounded-md" />
+                                <input type="text" id="Last-name" name="last_name" className="w-full rounded-md" value={values.last_name} onChange={handleInputValues}  />
                             </div>
                         </div>
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="email-address">Email address</label>
-                            <input type="text" id="email-address" name="email-address" className="rounded-md" />
+                            <input type="text" id="email-address" name="email" className="rounded-md" value={values.email} onChange={handleInputValues}  />
                         </div>
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="country">Country</label>
-                            <select id="country" name="country" value={selectedCountry} onChange={handleCountryChange} className="rounded-md">
+                            <select id="country" name="country" value={values.country} onChange={handleCountryChange} className="rounded-md">
                                 {countries.map((country, index) => (
                                     <option key={index} value={country.country}>
                                         {country.flag} {country.country}
@@ -157,15 +174,15 @@ const Signup = () => {
                         </div>
 
                         <div className="flex gap-4 mt-4">
-                            <select id="phone-code" name="phone-code" className="w-24 rounded-md" value={selectedDialingCode} readOnly>
+                            <select id="phone-code" name="phone" className="w-24 rounded-md" value={selectedDialingCode} readOnly>
                                 <option value={selectedDialingCode}>{selectedDialingCode}</option>
                             </select>
-                            <input type="text" id="phone-number" name="phone-number" className="w-full rounded-md" placeholder="Enter your phone number" />
+                            <input type="text" id="phone-number" name="phone" className="w-full rounded-md" placeholder="Enter your phone number" value={values.phone} onChange={handleInputValues}  />
                         </div>
                         <div className="relative flex flex-col mt-4 form-group">
                             <label htmlFor="password">Password</label>
                             <div className="relative">
-                                <input type={showPassword ? 'text' : 'password'} id="password" name="password" placeholder="Password (minimum of 8 characters)" style={{ width: '100%' }} className="rounded-md" onChange={handlePasswordChange} />
+                                <input type={showPassword ? 'text' : 'password'} id="password" name="password" placeholder="Password (minimum of 8 characters)" style={{ width: '100%' }} className="rounded-md" value={values.password} onChange={handleInputValues} />
                                 <div className="absolute top-0 mt-3 right-4">
                                     {showPassword ? (
                                         <img src="/images/show-password.png" alt="hide-password" className="cursor-pointer" onClick={togglePasswordVisibility} />
@@ -203,16 +220,16 @@ const Signup = () => {
                         </div>
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="confirm-password">Confirm Password</label>
-                            <input type="password" id="confirm-password" name="confirm-password" value={confirmPassword} onChange={handleConfirmPasswordChange} className="rounded-md" />
+                            <input type="password" id="confirm-password" name="password_confirmation"  className="rounded-md" value={values.password_confirmation} onChange={handleInputValues} />
                         </div>
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="referral-code">Referral Code(Optional)</label>
-                            <input type="text" id="referral-code" name="referral-code" className="rounded-md" />
+                            <input type="text" id="referral-code" name="ref_id" className="rounded-md" value={values.ref_id} onChange={handleInputValues} />
                         </div>
                         
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="how-heard">How did you hear about Freebyz?</label>
-                            <select id="how-heard" name="how-heard" className="rounded-md">
+                            <select id="how-heard" name="source" className="rounded-md">
                                 <option value="">Select one</option>
                                 <option value="Facebook">Facebook</option>
                                 <option value="WhatsApp">WhatsApp</option>
@@ -225,14 +242,7 @@ const Signup = () => {
                             </select>
                         </div>
 
-                        <div className="flex items-center mt-4">
-                            <input type="checkbox" id="agree-checkbox" name="agree-checkbox" />
-                            <label htmlFor="agree-checkbox" className="ml-2">
-                                I have read, understood, and agreed to Freebyz
-                                <Link to="/privacy-policy" className="text-blue-500"> Privacy policy </Link>
-                                and terms of use.
-                            </label>
-                        </div>
+                        
                         <div className="flex my-8">
                             <button className="px-4 py-2 text-white bg-blue-500 rounded-full" type="submit">Sign up</button>
                             <p className="mx-8">or</p>
@@ -243,9 +253,17 @@ const Signup = () => {
                         </div>
                     </div>
                 </form>
+                <div className="flex items-center mt-4">
+                            <input type="checkbox" id="agree-checkbox" name="agree-checkbox" />
+                            <label htmlFor="agree-checkbox" className="ml-2">
+                                I have read, understood, and agreed to Freebyz
+                                <Link to="/privacy-policy" className="text-blue-500"> Privacy policy </Link>
+                                and terms of use.
+                            </label>
+                        </div>
             </div>
         </div>
     );
 }
 
-export default Signup;
+export default Register;
