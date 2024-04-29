@@ -12,6 +12,7 @@ import Register from './components/landing-page/Register.jsx';
 import Otp from './components/landing-page/Otp.jsx';
 import ResetPassword from './components/landing-page/ResetPassword.jsx';
 import Dashboard from './components/landing-page/Dashboard.jsx';
+import Sidenav from './components/dashboard/SideNav.jsx';
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
         <Route path="/otp" element={<Otp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/sidenav" element={<Sidenav />} />
+        
       </Routes>
     </Router>
   );
