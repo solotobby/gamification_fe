@@ -12,11 +12,6 @@ const TrustUs = () => {
         setCurrentIndex(prevIndex => (prevIndex - 1 + testimonial.length) % testimonial.length);
     };
 
-    const shouldDisplayRightBorder = currentIndex !== testimonial.length - 1;
-
-    
-    const shouldDisplayLeftBorder = currentIndex !== 0;
-
     return (
         <div className="py-8 mt-8 bg-blue-500">
             <div className="container">
@@ -25,16 +20,16 @@ const TrustUs = () => {
 
                 <div className="relative w-full p-8 mx-auto mb-10 bg-white rounded-lg shadow-lg md:w-1/2 md:p-14 h-96">
                     <h1 className="md:text-sm">{testimonial[currentIndex].testimony}</h1>
-                    <h2 className="pt-4 text-sm md:text-base">- {testimonial[currentIndex].person}</h2>
-                    <img className="absolute w-10 bottom-4 left-10" src={testimonial[currentIndex].platform} alt="platform" />
+                    <h2 className="pt-6 text-sm md:text-base">- {testimonial[currentIndex].person}</h2>
+                    <img className="absolute w-10 bottom-10 left-10" src={testimonial[currentIndex].platform} alt="platform" />
                 </div>
 
                 <div className="flex justify-center gap-2 md:gap-4">
-                    <button className={`border-2 border-white rounded-full p-1 md:p-2 ${shouldDisplayLeftBorder ? 'border-opacity-100' : 'opacity-0'} ${shouldDisplayRightBorder ? '' : 'md:opacity-100'}`} onClick={handlePrevious}>
-                        <img src="/images/left-button.png" alt="left-button" className="w-6 h-6 md:w-8 md:h-8" />
+                    <button className={`rounded-full p-1 md:p-1`} onClick={handlePrevious}>
+                        <img src="/images/testimonial-left-button.png" alt="left-button" className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
-                    <button className={`border-2 border-white rounded-full p-1 md:p-2 ${shouldDisplayRightBorder ? 'border-opacity-100' : 'opacity-0'} ${shouldDisplayLeftBorder ? '' : 'md:opacity-100'}`} onClick={handleNext}>
-                        <img src="/images/right-button.png" alt="right-button" className="w-6 h-6 md:w-8 md:h-8" />
+                    <button className={`rounded-full p-1 md:p-1`} onClick={handleNext}>
+                        <img src="/images/testimonial-right-button.png" alt="right-button" className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
                 </div>
             </div>

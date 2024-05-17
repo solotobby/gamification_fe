@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
+import { Link } from "react-router-dom";
+
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -62,14 +64,17 @@ const ForgotPassword = () => {
                         type="submit" 
                         disabled={!isEmailEntered}
                     >
-                        Continue
+                        Send Reset Link
                     </button>
-                    <p className="mt-10">Back to Log in</p>
+                    <p className="mt-10"><Link to="/login" className="text-blue-500 ">Back to Log in</Link></p>
+                    
                 </form>
             </div>
 
             <div>
-                <p className="mx-8 mt-10">Don't have an account? Sign up</p>
+                <p className="mx-8 mt-10">Don&apos;t have an account? <Link to="/register" className="text-blue-500">Sign up</Link></p>
+                
+
             </div>
         </div>
     );

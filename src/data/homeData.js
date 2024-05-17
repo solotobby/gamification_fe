@@ -141,3 +141,80 @@ export const testimonial = [
         platform: '/images/ticktock-icon.png'
     },
 ]
+
+export const dashMenuItems = [
+    // {
+    //     icon: '/images/freebyzlogo-blue.png',
+    //     url: '/'
+    // },
+    {
+        icon: '/images/dashboard-icon.png',
+        name: 'Dashboard',
+        url: '/'
+    },
+    {
+        icon: '/images/safelock.png',
+        name: 'Safelock funds',
+        url: '/interviews'
+    },
+    {
+        icon: 'images/bannerads.png',
+        name: 'Banner Ads',
+        url: '/jobs',
+        dropdown: 'images/dropdown.png'
+    },
+    {
+        icon: 'images/jobs.png',
+        name: 'Jobs',
+        url: '/settings',
+        dropdown: 'images/dropdown.png'
+    },
+    {
+        icon: '/images/campaign.png',
+        name:  'Campaigns',
+        url: '/',
+        dropdown: 'images/dropdown.png'
+    },
+    {
+        icon: '/images/wallet.png',
+        name: 'Wallet',
+        url: '/',
+        dropdown: 'images/dropdown.png'
+    },
+    {
+        icon: '/images/referral.png',
+        name: 'Referral',
+        url: '/'
+    },
+    {
+        icon: '/images//badge.png',
+        name: ' Badge',
+        url: '/'
+    },{
+        icon: '/images/currency-converter.png',
+        name: 'Currency converter',
+        url: '/'
+    },{
+        icon: '/images/transaction-list.png',
+        name: 'Transaction List',
+        url: '/'
+    },{
+        icon: '/images/tutorials.png',
+        name: ' Tutorials',
+        url: '/',
+        dropdown: 'images/dropdown.png'
+    },{
+        icon: '/images/talk-to-us.png',
+        name: 'Talk to us',
+        url: '/'
+    },{
+        icon: '/images/knowledge.png',
+        name: 'Knowlege base',
+        url: '/'
+    },{
+        icon: '/images/logout.png',
+        name: 'Logout',
+        url: '/'
+    },
+
+]

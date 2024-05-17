@@ -5,6 +5,7 @@ const ResetPassword = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [isButtonBlue, setIsButtonBlue] = useState(false);
+    const [error, setError] = useState(null);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
@@ -20,6 +21,34 @@ const ResetPassword = () => {
         setIsButtonBlue(password.trim() !== '' || e.target.value.trim() !== '');
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch('http://app.e-portal.com.ng/api/resset/password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    token: 'KzF6MAljg1bEYbODhrutiyCbCPAQWvtHv6HP0uV4WwJvlNhvCJfLkISZUoEOewXw',
+                    password,
+                    password_confirmation: confirmPassword,
+                }),
+            });
+
+            if (!response.ok) {
+                const errorMessage = await response.text();
+                throw new Error(errorMessage);
+            }
+
+            // Password reset successful, you may redirect the user or show a success message
+            console.log('Password reset successful');
+        } catch (error) {
+            setError(error.message);
+        }
+    };
+    
     return (
         <div className="flex">
             <div className="pl-10 w-[30%] bg-customBlue left-class h-svh shrink-0 background-map2">
@@ -30,7 +59,7 @@ const ResetPassword = () => {
             <div className="flex flex-col mx-auto mt-40 login-content">
                 <h2 className="text-3xl font-bold">Reset your password</h2>
                 <p className="text-gray-400">Your new password must be different from previously used passwords.</p>
-                <form className="mt-10">
+                <form className="mt-10" onSubmit={handleSubmit}>
                     <div className="relative flex flex-col form-group">
                         <label htmlFor="new-password">New Password</label>
                         <input 
@@ -69,7 +98,7 @@ const ResetPassword = () => {
                         Reset Password
                     </button>
 
-                    <p className="mt-10">Back to Log in</p>
+                    <p className="mt-10 text-blue-500">Back to Log in</p>
                 </form>
             </div>
 

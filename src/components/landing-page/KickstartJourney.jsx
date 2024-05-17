@@ -71,7 +71,7 @@ const KickstartJourney = () => {
             
             
 
-            <button className="p-4 my-8 text-white rounded-full bg-customBlue">Sign up for free</button>
+            <button className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">Sign up for free</button>
         </div>
 
         
