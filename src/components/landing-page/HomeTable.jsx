@@ -64,7 +64,7 @@ const HomeTable = () => {
                                                 <p className="text-xl font-bold md:text-4xl">#{transaction.amount}</p>
                                                 <p className="mt-2 text-sm">{withdrawal}</p>
                                             </div>
-                                            <p className="text-sm">{new Date(transaction.created_at).toLocaleString()}</p>
+                                            <p className="text-sm">{new Date(transaction.created_at).toLocaleDateString('en-GB')}</p>
                                         </div>
                                     </div>
                                     <div className="mt-auto">
