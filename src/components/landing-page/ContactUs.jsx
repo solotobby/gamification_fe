@@ -14,15 +14,15 @@ const ContactUs = () => {
         <div className="container mt-8 ">
             <h1 className="mt-8 text-4xl font-medium leading-10 text-center">Contact our friendly team</h1>
             <p className='mb-8 text-center'>Get in touch and let’s see how we can help you.</p>
-            <div className='flex flex-col items-center justify-between md:flex-row'>
-                <div className='p-5 mb-4 border border-gray-500 md:mb-0 md:mr-4'>
+            <div className='relative grid w-3/4 grid-cols-1 gap-12 mx-auto md:grid-cols-2'>
+                <div className='w-full h-full p-5 border border-gray-500 shrink-0'>
                     <img src="/images/mail-icon.png" alt="mail-icon" className='mb-12' />
                     <h2>Contact support</h2>
                     <h3>We would love to attend to your needs and concern. Just send us a mail.</h3>
                     <p>Send us an email</p>
                 </div>
-                <p className="mb-4 md:mb-0">or</p>
-                <div className='p-5 border border-gray-500'>
+                <p className="absolute mb-4 -translate-x-1/2 -translate-y-1/2 md:mb-0 top-1/2 left-1/2">or</p>
+                <div className='w-full h-full p-5 border border-gray-500 shrink-0'>
                     <img src="/images/chat-con.png" alt="chat-icon" className='mb-12' />
                     <h2>Live chat</h2>
                     <h3>Start a chat here and someone from the team would be in touch with to you.</h3>

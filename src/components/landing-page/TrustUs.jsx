@@ -25,10 +25,10 @@ const TrustUs = () => {
                 </div>
 
                 <div className="flex justify-center gap-2 md:gap-4">
-                    <button className={`rounded-full p-1 md:p-1`} onClick={handlePrevious}>
+                    <button className={`rounded-full p-1 md:p-1 border-2 border-transparent transition-all duration-200 hover:border-white`} onClick={handlePrevious}>
                         <img src="/images/testimonial-left-button.png" alt="left-button" className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
-                    <button className={`rounded-full p-1 md:p-1`} onClick={handleNext}>
+                    <button className={`rounded-full p-1 md:p-1 border-2 border-transparent transition-all duration-200 hover:border-white`} onClick={handleNext}>
                         <img src="/images/testimonial-right-button.png" alt="right-button" className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
                 </div>

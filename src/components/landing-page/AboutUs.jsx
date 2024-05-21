@@ -6,13 +6,13 @@ const AboutUs = () => {
             <div>
                     <div className="container">
                         <div className="flex flex-col items-center justify-between text-xl md:flex md:flex-row md:items-start md:justify-between md:text-sm">
-                            <h1 className="mt-20 text-4xl font-medium leading-10 w-fit md:text-3xl">We are making it easy for you to make money legitimately. </h1>
-                            <p className="mt-20 text-sm">Freebyz is an affiliate marketing and remote jobs portal by Dominahl Technology LLC.
+                            <h1 className="mt-20 text-4xl font-medium leading-10 md:text-3xl md:w-[45%] w-full">We are making it easy for you to make money legitimately. </h1>
+                            <p className="mt-20 text-sm md:w-[45%] w-full">Freebyz is an affiliate marketing and remote jobs portal by Dominahl Technology LLC.
                             Freebyz is a project borne out of our keen passion to connect small and medium scale businesses,
                             creators and entrepreneurs globally with online workers who will work and earn money online legitimately.</p>
                     </div> 
                 
-                    <div className="flex justify-center gap-6 mt-8">
+                    <div className="flex justify-between gap-6 mt-8">
                         <img src="/images/keyboard.png" alt="keyboard-image" />
                      
                         <img src="/images/keyboard2.png" alt="keyboard-image2" className="hidden md:block" />
