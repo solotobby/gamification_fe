@@ -18,7 +18,7 @@ const Faq = () => {
                 {faq.slice(0, 4).map((el, i) => ( 
                     <div key={i} className="p-4 mb-4 bg-customGray">
                         <div className="flex items-center justify-between">
-                            <p className='text-lg md:text-2xl'>{el.title}</p>
+                            <p className='pb-3 text-lg md:text-2xl'>{el.title}</p>
                             <button onClick={() => toggleDescription(i)} className="text-lg md:text-2xl">
                                 {isOpen[i] ? '-' : '+'}
                             </button>
@@ -29,7 +29,7 @@ const Faq = () => {
                     </div>
                 ))}
                 
-                <p>
+                <p className="pt-6">
                     Can’t find what you’re looking for? <Link to="/contact-us" className="text-blue-500 cursor-pointer">See more questions</Link>
                 </p>
             </div>

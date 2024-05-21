@@ -20,37 +20,37 @@ const Footer = () => {
                     </div>
                   <div className="grid grid-cols-2 gap-10 lg:flex-grow lg:grid-cols-4 lg:gap-3">
                     <div className="text-sm text-white md:text-xl">
-                            <h1 className="my-4 font-bold">Quick links</h1>
+                            <h1 className="my-4 font-bold font-inter">Quick links</h1>
                             <div className="flex flex-col gap-2">
-                                <p >Home</p>
-                                <p >Make money</p>
-                                <p >Login</p>
-                                <p >Sign up</p>
+                                <p className="text-base font-inter">Home</p>
+                                <p className="text-base font-inter">Make money</p>
+                                <p className="text-base font-inter">Login</p>
+                                <p className="text-base font-inter">Sign up</p>
                             </div>
                         </div>
 
                         <div className="text-sm text-white md:text-xl">
-                            <h1 className="my-4 font-bold">Company</h1>
+                            <h1 className="my-4 font-bold font-inter">Company</h1>
                             <div className="flex flex-col gap-2">
-                                <Link to='/about-us' >About us</Link>
-                                <p >Track record</p>
-                                <Link to='/contact-us' >FAQs</Link>
+                                <Link to='/about-us' className="text-base font-inter">About us</Link>
+                                <p className="text-base font-inter">Track record</p>
+                                <Link to='/contact-us' className="text-base font-inter">FAQs</Link>
                             </div>
                         </div>
 
                         <div className="text-sm text-white md:text-xl">
-                            <h1 className="my-4 font-bold">Legal</h1>
+                            <h1 className="my-4 font-bold font-inter">Legal</h1>
                             <div className="flex flex-col gap-2">
-                                <Link to='/terms-of-use' >Terms of use</Link>
-                                <Link to='/privacy-policy' >Privacy policy</Link>
+                                <Link to='/terms-of-use' className="text-base font-inter" >Terms of use</Link>
+                                <Link to='/privacy-policy' className="text-base font-inter">Privacy policy</Link>
                             </div>
                         </div>
 
                         <div className="text-sm text-white md:text-xl">
-                            <h1 className="my-4 font-bold">Contact</h1>
+                            <h1 className="my-4 font-bold font-inter">Contact</h1>
                             <div className="flex flex-col gap-2">
-                                <p>Contact support</p>
-                                <p>Live chat</p>
+                                <p className="text-base font-inter">Contact support</p>
+                                <p className="text-base font-inter">Live chat</p>
                             </div>
                         </div>
                   </div>
@@ -60,13 +60,13 @@ const Footer = () => {
 
                 <div className="container flex flex-col justify-between mt-6 md:flex-row ">
                     <div className="mb-4 text-white md:mb-0">
-                        <p>All copyright © reserved by Freebyz 2024</p>
-                        <p>Freebyz By Dominahl Technology LLC</p>
+                        <p className="text-base font-inter">All copyright © reserved by Freebyz 2024</p>
+                        <p className="text-base font-inter">Freebyz By Dominahl Technology LLC</p>
                     </div>
                     <div className="flex gap-4 pb-8 md:gap-8">
-                        <img src="/images/freebyz-facebook.png" alt="facebook-icon" className="w-4 h-4" />
-                        <img src="/images/freebyz-ig.png" alt="instagram-icon" className="w-4 h-4" />
-                        <img src="/images/freebyz-x.png" alt="twitter-icon" className="w-4 h-4" />
+                        <img src="/images/facebook.png" alt="facebook-icon" className="w-5 h-5" />
+                        <img src="/images/freebyz-ig.png" alt="instagram-icon" className="w-5 h-5" />
+                        <img src="/images/freebyz-x.png" alt="twitter-icon" className="w-5 h-5" />
                     </div>
                 </div>
             </div>
