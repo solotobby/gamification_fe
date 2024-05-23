@@ -11,7 +11,7 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="container mt-8 ">
+        <div className="container pt-5 mt-8 md:pt-16">
             <h1 className="mt-8 text-4xl font-medium leading-10 text-center">Contact our friendly team</h1>
             <p className='mb-8 text-center'>Get in touch and let’s see how we can help you.</p>
             <div className='relative grid w-3/4 grid-cols-1 gap-12 mx-auto md:grid-cols-2'>

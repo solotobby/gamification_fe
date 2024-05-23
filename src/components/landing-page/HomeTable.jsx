@@ -61,7 +61,7 @@ const HomeTable = () => {
                                     <div className="flex-grow ">
                                         <div className="flex justify-between mb-4">
                                             <div className="flex flex-col">
-                                                <p className="text-xl font-bold md:text-4xl">#{transaction.amount}</p>
+                                                <p className="text-xl font-bold md:text-4xl">&#8358;{transaction.amount}</p>
                                                 <p className="mt-2 text-sm">{withdrawal}</p>
                                             </div>
                                             <p className="text-sm">{new Date(transaction.created_at).toLocaleDateString('en-GB')}</p>

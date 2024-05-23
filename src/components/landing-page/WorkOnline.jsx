@@ -32,7 +32,7 @@ const WorkOnline = () => {
 
                     <span className="absolute right-0 top-[30%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-xl border-[1px] border-slate-100 bg-white rounded-md">
                         <img src="/images/greenwallet.png" alt="green-wallet" />
-                        <h2 className="text-sm md:text-base">#10,000.00</h2>
+                        <h2 className="text-sm md:text-base">&#8358;10,000.00</h2>
                         <p className="text-sm md:text-base">Payout successful</p>
                     </span>
 
@@ -42,7 +42,7 @@ const WorkOnline = () => {
                             <button className="px-2 py-1 text-sm text-white rounded-full bg-customBlue">Withdraw</button>
                             <div className="container my-4 border-t border-red"></div>
                         </div>
-                        <p className="mt-3">#500,000.00</p>
+                        <p className="mt-3">&#8358;500,000.00</p>
                     </span>
                 </div>
             </div>

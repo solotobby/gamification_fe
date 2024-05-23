@@ -22,10 +22,12 @@ const Footer = () => {
                     <div className="text-sm text-white md:text-xl">
                             <h1 className="my-4 font-bold font-inter">Quick links</h1>
                             <div className="flex flex-col gap-2">
-                                <p className="text-base font-inter">Home</p>
-                                <p className="text-base font-inter">Make money</p>
-                                <p className="text-base font-inter">Login</p>
-                                <p className="text-base font-inter">Sign up</p>
+                               
+                                <Link to='/' className="text-base font-inter">Home</Link>
+                                <Link to='/' className="text-base font-inter">Make money</Link>
+                                <Link to='/login' className="text-base font-inter">Login</Link>
+                                <Link to='/' className="text-base font-inter">Make money</Link>
+                                <Link to='/register' className="text-base font-inter">Sign up</Link>
                             </div>
                         </div>
 
@@ -49,8 +51,8 @@ const Footer = () => {
                         <div className="text-sm text-white md:text-xl">
                             <h1 className="my-4 font-bold font-inter">Contact</h1>
                             <div className="flex flex-col gap-2">
-                                <p className="text-base font-inter">Contact support</p>
-                                <p className="text-base font-inter">Live chat</p>
+                            <Link to='/' className="text-base font-inter">Contact support</Link>
+                            <Link to='/' className="text-base font-inter">Live chat</Link>
                             </div>
                         </div>
                   </div>

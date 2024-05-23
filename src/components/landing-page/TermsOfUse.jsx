@@ -1,6 +1,6 @@
 const TermsOfUse = () => {
     return (
-        <div className="container">
+        <div className="container pt-10 md:pt-20">
             <h1 className="my-8 text-3xl font-bold">Terms of use</h1>
             <div className="text-lg leading-relaxed">
                 <p className="mb-4 font-inter">

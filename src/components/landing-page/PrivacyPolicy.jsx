@@ -15,8 +15,8 @@ const PrivacyPolicy = () => {
         ref.current.scrollIntoView()
     }
     return (
-        <div className="container flex gap-10">
-            <div className="flex-col hidden my-8 md:flex">
+        <div className="container relative min-h-screen pt-24">
+            <div className="md:fixed flex-col hidden my-8 md:flex w-[15rem] h-full relative">
                 <h1 className="mb-4 font-bold">Privacy policy</h1>
                 <span className="mb-4" onClick={() => goToRef(overviewRef)}>Overview</span>
                 <span className="mb-4" onClick={()=>goToRef(consent)}>Consent</span>
@@ -29,8 +29,8 @@ const PrivacyPolicy = () => {
                 <span className="mb-4" onClick={()=>goToRef(gdprRef)}>GDPR Data Protection Rights</span>
                 <span className="mb-4 " onClick={() => goToRef(childInfoRef)}>Children&#39;s Information</span>
             </div>
-            <div>
-                <div className="container">
+            <div className="md:ml-[15rem] ml-0">
+                <div className="pl-10">
                     <h1 className="my-8 text-3xl font-bold">Privacy policy</h1>
                     <div ref={overviewRef}>
                         <h2 className="my-8 text-2xl font-bold">
@@ -55,7 +55,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <p className="mb-4 text-2xl font-bold">Consent</p>
-                    <p className="mb-4" ref={cconsent}>
+                    <p className="mb-4" ref={consent}>
                         By using our website, you hereby consent to our Privacy policy and agree to its terms.
                     </p>
                     <p className="mb-4 text-2xl font-bold">Information we collect</p>

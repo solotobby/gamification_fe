@@ -72,7 +72,7 @@ const DashboarDollar = () => {
                     <div className="p-4 mt-8 bg-blue-300">
                         <div className="flex justify-between ">
                             <p>UNLOCK ₦15,000 BIG BONUS ON PALMPAY</p>
-                            <p>#15.00</p>
+                            <p>&#8358;15.00</p>
                         </div>
                         <div className="flex justify-between mt-12">
                             <p>Facebook jobs</p>
@@ -82,7 +82,7 @@ const DashboarDollar = () => {
                     <div className="p-4 mt-8 bg-blue-300">
                         <div className="flex justify-between ">
                             <p>UNLOCK ₦15,000 BIG BONUS ON PALMPAY</p>
-                            <p>#15.00</p>
+                            <p>&#8358;15.00</p>
                         </div>
                         <div className="flex justify-between mt-12">
                             <p>Facebook jobs</p>
@@ -92,7 +92,7 @@ const DashboarDollar = () => {
                     <div className="p-4 mt-8 bg-blue-300">
                         <div className="flex justify-between ">
                             <p>UNLOCK ₦15,000 BIG BONUS ON PALMPAY</p>
-                            <p>#15.00</p>
+                            <p>&#8358;15.00</p>
                         </div>
                         <div className="flex justify-between mt-12">
                             <p>Facebook jobs</p>
@@ -105,7 +105,7 @@ const DashboarDollar = () => {
                     <div className="p-4 mt-8 bg-blue-300">
                         <div className="flex justify-between ">
                             <p>UNLOCK ₦15,000 BIG BONUS ON PALMPAY</p>
-                            <p>#15.00</p>
+                            <p>&#8358;15.00</p>
                         </div>
                         <div className="flex justify-between mt-12">
                             <p>Facebook jobs</p>
@@ -115,7 +115,7 @@ const DashboarDollar = () => {
                     <div className="p-4 mt-8 bg-blue-300">
                         <div className="flex justify-between ">
                             <p>UNLOCK ₦15,000 BIG BONUS ON PALMPAY</p>
-                            <p>#15.00</p>
+                            <p>&#8358;15.00</p>
                         </div>
                         <div className="flex justify-between mt-12">
                             <p>Facebook jobs</p>
