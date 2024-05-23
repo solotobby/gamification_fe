@@ -3,12 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [countries, setCountries] = useState([]);
-    const [selectedDialingCode, setSelectedDialingCode] = useState('+234'); // Default dialing code for Nigeria
+    const [selectedDialingCode, setSelectedDialingCode] = useState('+234');
     const [values, setValues] = useState({
         "email": "",
         "first_name": "",
         "last_name": "",
-        "country": "Nigeria", // Default country
+        "country": "Nigeria",
         "phone": "",
         "password": "",
         "password_confirmation": "",
@@ -16,7 +16,7 @@ const Register = () => {
         "ref_id": ""
     });
     const [showPassword, setShowPassword] = useState(false);
-    const [isTypingPassword, setIsTypingPassword] = useState(false)
+    const [isTypingPassword, setIsTypingPassword] = useState(false);
     const navigate = useNavigate();
     const [passwordStrength, setPasswordStrength] = useState({
         length: false,
@@ -34,7 +34,14 @@ const Register = () => {
         }));
     };
 
-    
+    const handlePasswordChange = (e) => {
+        const { value } = e.target;
+        setIsTypingPassword(true);
+        setValues((prev) => ({
+            ...prev,
+            password: value
+        }));
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -117,7 +124,6 @@ const Register = () => {
                 specialCharacter: /[!@#$%^&*(),.?":{}|<>]/.test(values.password),
                 number: /\d/.test(values.password)
             });
-            calculatePasswordStrength();
         }
     }, [values.password]);
 
@@ -176,7 +182,7 @@ const Register = () => {
                         <div className="relative flex flex-col mt-4 form-group">
                             <label htmlFor="password">Password</label>
                             <div className="relative">
-                                <input type={showPassword ? 'text' : 'password'} id="password" name="password" placeholder="Password (minimum of 8 characters)" style={{ width: '100%' }} className="rounded-md" value={values.password} onChange={handleInputValues} />
+                                <input type={showPassword ? 'text' : 'password'} id="password" name="password" placeholder="Password (minimum of 8 characters)" style={{ width: '100%' }} className="rounded-md" value={values.password} onChange={handlePasswordChange} />
                                 <div className="absolute top-0 mt-3 right-4">
                                     {showPassword ? (
                                         <img src="/images/show-password.png" alt="hide-password" className="cursor-pointer" onClick={togglePasswordVisibility} />
@@ -185,7 +191,6 @@ const Register = () => {
                                     )}
                                 </div>
                             </div>
-                            
                             {isTypingPassword && (
                                 <div className="gap-4 mt-2">
                                     <div>
