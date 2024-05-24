@@ -54,20 +54,7 @@ const KickstartJourney = () => {
                 </div>
 
                 
-                <div className='relative flex h-8 md:hidden'>
-                    <img className="" src="/images/left-button.png" alt="" />
-                    <img src="/images/right-button.png" alt="" />
-                   
-                    <div className="flex items-center justify-center w-full gap-8">
-                        <button className="items-center p-2 border-2 border-solid prevs-buttons border-sky-500" >
-                            &#60;
-                        </button>
-                        <button className="p-2 border-2 border-solid nexts-buttons border-sky-500" >
-                            &#62;
-                        </button>
-                    </div>
-                </div>
-
+                
             
             
 
