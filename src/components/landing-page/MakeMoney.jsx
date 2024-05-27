@@ -80,7 +80,7 @@ const MakeMoney = () => {
             </div>
 
             <div className="container flex flex-col items-center justify-between gap-24 pt-20 md:flex-row">
-                <img src="/public/images/man-with-phone.png" alt="man-holding-a-phone" className="md:w-[30%]" />
+                <img src="/images/man-with-phone.png" alt="man-holding-a-phone" className="md:w-[30%]" />
                 <div className="overflow-hidden md:w-96">
                     <p className="pb-2">Did you know you are sitting and living with potential millions every day?</p>
                     <p className="pb-2">A lot of your Friends (on the same WhatsApp group (old friends, church, mosque, association, etc), Telegram group and Facebook/Twitter/TikTok have not heard about Freebyz and you can make money (through them) just by telling them about Freebyz.</p>
@@ -102,7 +102,7 @@ const MakeMoney = () => {
                     <p className="py-2">It will be LOUD if you refer friends who can verify their dollar wallets (Imagine getting $1.5 referral bonus on 1000 persons).</p>
                     <p className="py-2">Don&apos;t panic, you&apos;re not losing anything by trying! You may just be on your own if you don&apos;t try. Copy your referral link now and stop sitting on MONEY! Good Luck!</p>
                 </div>
-                <img src="/public/images/holding-hands.png" alt="two-people-holding-hands" />
+                <img src="/images/holding-hands.png" alt="two-people-holding-hands" />
             </div>
         </div>
     )
