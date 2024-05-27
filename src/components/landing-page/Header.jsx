@@ -12,7 +12,7 @@ const Header = () => {
                 <div className={`md:hidden side-bar ${menuOpen ? 'show' : ''}`}>
                     <p onClick={() => setMenuOpen(!menuOpen)}>X</p>
                     <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Home</Link>
-                    <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Make money</Link>
+                    <Link to="/make-money" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Make money</Link>
                     <Link to='/about-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>About us</Link>
                     <Link to='/contact-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Contact</Link>
                     <Link to="/register" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Sign up for free</Link>
@@ -20,7 +20,7 @@ const Header = () => {
                 </div>
                 <div className="items-center hidden gap-6 md:flex">
                     <Link to="/" className="py-2">Home</Link>
-                    <Link to="/" className="py-2">Make money</Link>
+                    <Link to="/make-money" className="py-2">Make money</Link>
                     <Link to='/about-us' className="py-2">About us</Link>
                     <Link to='/contact-us' className="py-2">Contact</Link>
                 </div>

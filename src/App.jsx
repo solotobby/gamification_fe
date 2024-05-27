@@ -15,6 +15,8 @@ import Dashboard from './components/landing-page/Dashboard.jsx';
 import Sidenav from './components/dashboard/SideNav.jsx';
 import DashboarDollar from './components/dashboard/DashboarDollar.jsx';
 import ResetLinkSent from './components/landing-page/ResetLinkSent.jsx';
+import MakeMoney from './components/landing-page/MakeMoney.jsx';
+
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
         <Route path="/terms-of-use" element={<><Header /><TermsOfUse /><Footer /></>} />
         <Route path="/privacy-policy" element={<><Header /><PrivacyPolicy /><Footer /></>} />
         <Route path="/dashboard" element={<><Header /><Dashboard /><Footer /></>} />
+        <Route path="/" element={<><Header /><Dashboard /><Footer /></>} />
+        <Route path="/make-money" element={<><Header /><MakeMoney /><Footer /></>} />
+
         
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -36,8 +41,7 @@ function App() {
         <Route path="/sidenav" element={<Sidenav />} />
         <Route path="/dashboard-dollar" element={<DashboarDollar />} />
         <Route path="/reset-link" element={<ResetLinkSent />} />
-        
-        
+
       </Routes>
     </Router>
   );
