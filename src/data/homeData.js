@@ -171,9 +171,15 @@ export const dashMenuItems = [
     },
     {
         icon: '/images/campaign.png',
-        name:  'Campaigns',
+        name: 'Campaigns',
         url: '/',
-        dropdown: 'images/dropdown.png'
+        dropdown: 'images/dropdown.png',
+        subMenuItems: [
+            { name: 'Create Campaign', url: '/create-campaign' },
+            { name: 'View Campaigns', url: '/view-campaigns' },
+            { name: 'Approved Campaigns', url: '/approved-campaigns' },
+            { name: 'Denied Campaigns', url: '/denied-campaigns' }
+        ]
     },
     {
         icon: '/images/wallet.png',

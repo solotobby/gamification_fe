@@ -4,11 +4,11 @@ const Footer = () => {
         <div >
             <div className="container flex flex-col items-center justify-center mt-20">
                 <p className="w-full px-4 mt-8 text-4xl font-medium leading-10 text-center md:w-3/4 md:mt-8 md:text-5xl md:leading-10">Sign up today and start earning in naira and dollars!</p>
-                <p className="w-full px-4 mt-4 text-base text-center md:w-3/4 md:mt-6 md:text-lg">Start getting that extra income from the comfort of your home by creating an account for free.</p>
+                <p className="w-full px-4 mt-4 text-base text-center md:w-3/4 md:mt-6 md:text-base">Start getting that extra income from the comfort of your home by creating an account for free.</p>
 
                 <span className="flex items-center gap-8 md:gap-8">
                     <img className="w-16 md:w-auto" src="/images/arrow-left.png" alt="left-arrow" />
-                    <button className="px-4 py-2 text-sm text-white rounded-full bg-customBlue md:px-2 md:py-2 md:text-xl">Sign up for free</button>
+                    <button className="px-4 py-2 text-base text-white rounded-full bg-customBlue md:px-2 md:py-2 md:text-xl">Sign up for free</button>
                     <img className="w-16 md:w-auto" src="/images/arrow2.png" alt="right-arrow" />
                 </span>
             </div>
@@ -19,7 +19,7 @@ const Footer = () => {
                         <img src="/images/Freebyz-logo-white.png" alt="freebyz-logo"/>
                     </div>
                   <div className="grid grid-cols-2 gap-10 lg:flex-grow lg:grid-cols-4 lg:gap-3">
-                    <div className="text-sm text-white md:text-xl">
+                    <div className="text-base text-white md:text-xl">
                             <h1 className="my-4 font-bold font-inter">Quick links</h1>
                             <div className="flex flex-col gap-2">
                                
@@ -30,7 +30,7 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        <div className="text-sm text-white md:text-xl">
+                        <div className="text-base text-white md:text-xl">
                             <h1 className="my-4 font-bold font-inter">Company</h1>
                             <div className="flex flex-col gap-2">
                                 <Link to='/about-us' className="text-base font-inter">About us</Link>
@@ -39,7 +39,7 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        <div className="text-sm text-white md:text-xl">
+                        <div className="text-base text-white md:text-xl">
                             <h1 className="my-4 font-bold font-inter">Legal</h1>
                             <div className="flex flex-col gap-2">
                                 <Link to='/terms-of-use' className="text-base font-inter" >Terms of use</Link>
@@ -47,7 +47,7 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        <div className="text-sm text-white md:text-xl">
+                        <div className="text-base text-white md:text-xl">
                             <h1 className="my-4 font-bold font-inter">Contact</h1>
                             <div className="flex flex-col gap-2">
                             <Link to='/' className="text-base font-inter">Contact support</Link>

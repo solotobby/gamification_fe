@@ -56,8 +56,8 @@ const Layout = (props) => {
                     </span>
                     <div className="flex flex-col ">
                         <Link to="/dashboard" className="flex gap-3 items-cente">
-                            {/* <span className="flex items-center justify-center w-10 h-10 text-lg font-semibold text-white bg-black rounded-full ">JN</span> */}
-                            <span className="flex flex-col text-sm font-normal ">
+                            {/* <span className="flex items-center justify-center w-10 h-10 text-base font-semibold text-white bg-black rounded-full ">JN</span> */}
+                            <span className="flex flex-col text-base font-normal ">
                           
                                 <span className="text-black ">Dashboard</span>
                             </span>
@@ -92,15 +92,15 @@ const Layout = (props) => {
                             
                         </span>
                         <div className={` transition-all duration-300 absolute z-40 rounded-md right-0 top-10 w-28 bg-white shadow-md ${dropdownOpen ? ' max-h-[80vh] py-2 flex flex-col gap-2' : ' max-h-0 hidden'}`}>
-                            <span className="flex items-center gap-2 px-2 text-sm transition-all duration-300 cursor-pointer text-slate-600 hover:bg-orange-400 hover:bg-opacity-50">
+                            <span className="flex items-center gap-2 px-2 text-base transition-all duration-300 cursor-pointer text-slate-600 hover:bg-orange-400 hover:bg-opacity-50">
                                
                                 Settings
                             </span>
-                            <span className="flex items-center gap-2 px-2 text-sm transition-all duration-300 cursor-pointer text-slate-600 hover:bg-orange-400 hover:bg-opacity-50">
+                            <span className="flex items-center gap-2 px-2 text-base transition-all duration-300 cursor-pointer text-slate-600 hover:bg-orange-400 hover:bg-opacity-50">
                                
                                 Profile
                             </span>
-                            <span className="flex items-center gap-2 px-2 text-sm transition-all duration-300 cursor-pointer text-slate-700 hover:bg-orange-400 hover:bg-opacity-50">
+                            <span className="flex items-center gap-2 px-2 text-base transition-all duration-300 cursor-pointer text-slate-700 hover:bg-orange-400 hover:bg-opacity-50">
                                
                                 Logout
                             </span>

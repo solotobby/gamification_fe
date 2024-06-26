@@ -88,8 +88,8 @@ const Otp = () => {
                             />
                             {!otpCode && (
                                 <div className="absolute inset-y-0 right-0 flex items-center">
-                                    <div className="mt-8 mr-4 text-sm">
-                                        <p className={`text-sm ${countdownColor} cursor-pointer`} onClick={countdownActive ? null : handleResendCode}>{resendPlaceholderText}</p>
+                                    <div className="mt-8 mr-4 text-base">
+                                        <p className={`text-base ${countdownColor} cursor-pointer`} onClick={countdownActive ? null : handleResendCode}>{resendPlaceholderText}</p>
                                     </div>
                                 </div>
                             )}

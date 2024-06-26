@@ -15,8 +15,8 @@ const KickstartJourney = () => {
             <div className="hidden gap-4 md:flex">
                 {kickstartJourney.map((el, i) => (
                     <div key={i} className="flex-grow p-5 bg-customGray">
-                        <p className='text-3xl font-medium leading-10 md:text-lg'>{el.title}</p>
-                        <p className="md:text-sm">{el.description}</p>
+                        <p className='text-3xl font-medium leading-10 md:text-base'>{el.title}</p>
+                        <p className="md:text-base">{el.description}</p>
                         <img src={el.image} alt="kickstart-journey-image" />
                     </div>
                 ))}
@@ -44,8 +44,8 @@ const KickstartJourney = () => {
                     {kickstartJourney.map((el, i) => (
                         <SwiperSlide key={i} >
                             <div className="w-full p-5 bg-customGray h-120">
-                                <p className='text-3xl font-medium leading-10 md:text-lg'>{el.title}</p>
-                                <p className="md:text-sm">{el.description}</p>
+                                <p className='text-3xl font-medium leading-10 md:text-base'>{el.title}</p>
+                                <p className="md:text-base">{el.description}</p>
                                 <img src={el.image} alt="kickstart-journey-image" />
                             </div>
                         </SwiperSlide>

@@ -16,6 +16,8 @@ import Sidenav from './components/dashboard/SideNav.jsx';
 import DashboarDollar from './components/dashboard/DashboarDollar.jsx';
 import ResetLinkSent from './components/landing-page/ResetLinkSent.jsx';
 import MakeMoney from './components/landing-page/MakeMoney.jsx';
+import  CreateCampaign from './components/dashboard/CreateCampaign.jsx'
+import ViewCampaign from './components/dashboard/ViewCampaign.jsx';
 
 
 function App() {
@@ -41,6 +43,9 @@ function App() {
         <Route path="/sidenav" element={<Sidenav />} />
         <Route path="/dashboard-dollar" element={<DashboarDollar />} />
         <Route path="/reset-link" element={<ResetLinkSent />} />
+        <Route path="/create-campaign" element={<CreateCampaign />} />
+        <Route path="/view-campaign" element={<ViewCampaign />} />
+       
 
       </Routes>
     </Router>

@@ -5,9 +5,9 @@ const AboutUs = () => {
     return (
             <div>
                     <div className="container pt-3 md:pt-12">
-                        <div className="flex flex-col items-center justify-between text-xl md:flex md:flex-row md:items-start md:justify-between md:text-sm">
+                        <div className="flex flex-col items-center justify-between text-xl md:flex md:flex-row md:items-start md:justify-between md:text-base">
                             <h1 className="mt-20 text-4xl font-medium leading-10 md:text-3xl md:w-[45%] w-full">We are making it easy for you to make money legitimately. </h1>
-                            <p className="mt-20 text-sm md:w-[45%] w-full">Freebyz is an affiliate marketing and remote jobs portal by Dominahl Technology LLC.
+                            <p className="mt-20 text-base md:w-[45%] w-full">Freebyz is an affiliate marketing and remote jobs portal by Dominahl Technology LLC.
                             Freebyz is a project borne out of our keen passion to connect small and medium scale businesses,
                             creators and entrepreneurs globally with online workers who will work and earn money online legitimately.</p>
                     </div> 

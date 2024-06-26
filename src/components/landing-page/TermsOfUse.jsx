@@ -2,7 +2,7 @@ const TermsOfUse = () => {
     return (
         <div className="container pt-10 md:pt-20">
             <h1 className="my-8 text-3xl font-bold">Terms of use</h1>
-            <div className="text-lg leading-relaxed">
+            <div className="text-base leading-relaxed">
                 <p className="mb-4 font-inter">
                 1. By signing up to Freebyz, you agree to create a wallet where you can either make money as an affiliate/social media worker
                 or a business owner/creator/entrepreneur who wants to post online social media and special digital jobs for online workers.

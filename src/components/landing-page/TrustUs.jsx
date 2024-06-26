@@ -19,8 +19,8 @@ const TrustUs = () => {
                 <p className="my-8 text-center text-white">We don’t just say it, we put it to action and take pride in delivering results to all our users.</p>
 
                 <div className="relative w-full p-8 mx-auto mb-10 bg-white rounded-lg shadow-lg md:w-1/2 md:p-14 h-96">
-                    <h1 className="text-sm md:text-lg lg:text-base font-inter">"{testimonial[currentIndex].testimony}"</h1>
-                    <h2 className="pt-6 text-sm md:text-base">- {testimonial[currentIndex].person}</h2>
+                    <h1 className="text-base md:text-base lg:text-base font-inter">"{testimonial[currentIndex].testimony}"</h1>
+                    <h2 className="pt-6 text-base md:text-base">- {testimonial[currentIndex].person}</h2>
                     <img className="absolute w-10 bottom-10 left-10" src={testimonial[currentIndex].platform} alt="platform" />
                 </div>
 
