@@ -46,32 +46,28 @@ const SideBar = forwardRef(({ sidebarOpen }, ref) => {
     const renderRoutes = useCallback((route) => {
         const { name, url, icon, dropdown, subMenuItems } = route;
         const isActive = (pathname !== '/' && url !== '/' && pathname.includes(url)) || (pathname === "/" && url === "/");
-
+    
         return (
             <li className="text-base font-medium cursor-pointer" key={name}>
-                <div className="flex items-center justify-between">
-                    <Link
-                        to={subMenuItems ? '#' : url}
-                        className={`flex items-center gap-3 py-3 w-auto pl-5 truncate transition-all duration-150 ${
-                            isActive ? "bg-slate-200 bg-opacity-80 text-blue-900" : "text-gray-500 hover:text-blue-900 hover:bg-slate-100"
-                        }`}
-                        onClick={() => subMenuItems && toggleDropdown(name)}
-                    >
-                        <span className={`text-gray-500 cursor-pointer ${isActive ? 'text-blue-900' : ''}`}>
-                            <img src={icon} alt={name} className="icon" />
-                        </span>
+                <Link
+                    to={subMenuItems ? '#' : url}
+                    className={`flex items-center justify-between gap-3 py-3 w-full px-5 truncate transition-all duration-150 ${
+                        isActive ? "bg-slate-200 bg-opacity-80 text-blue-900" : "text-gray-500 hover:text-blue-900 hover:bg-slate-100"
+                    }`}
+                    onClick={() => subMenuItems && toggleDropdown(name)}
+                >
+                    <div className="flex items-center gap-3">
+                        <img src={icon} alt={name} className="icon" />
                         <span
                             className={`transition-all duration-150 ${isActive ? 'text-blue-900' : 'text-gray-500'}`}
                         >
                             {name}
                         </span>
-                    </Link>
+                    </div>
                     {dropdown && (
-                        <span className={`text-gray-500 cursor-pointer ${isActive ? 'text-blue-900' : ''}`} onClick={() => toggleDropdown(name)}>
-                            <img src={dropdown} alt={name} className="icon" />
-                        </span>
+                        <img src={dropdown} alt={`${name} dropdown`} className="icon" />
                     )}
-                </div>
+                </Link>
                 {dropdown && openDropdowns[name] && renderSubMenuItems(subMenuItems)}
             </li>
         );

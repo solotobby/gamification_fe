@@ -146,7 +146,7 @@ const CreateCampaign = () => {
     );
 
     const renderDescriptionContent = () => (
-        <div>
+        <div className='h-screen overflow-y-auto'>
             <div className='flex gap-2 mb-6'>
                 <img src="/public/images/back-arrow.png" onClick={() => setActiveTab('information')} alt="arrow-back" />
                 <p >Back</p>

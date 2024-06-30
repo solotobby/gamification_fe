@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 const Sidenav = () => {
     const [isCampaignsOpen, setIsCampaignsOpen] = useState(false);
+    const [isWalletOpen, setIsWalletOpen] = useState(false);
+    const [isJobsOpen, setIsJobsOpen] = useState(false);
     const toggleCampaigns = () => setIsCampaignsOpen(!isCampaignsOpen);
+    const toggleWallet = () => setIsWalletOpen(!isWalletOpen);
    
 
     return (
@@ -29,10 +32,10 @@ const Sidenav = () => {
             </div>
             {isCampaignsOpen && (
                 <div className="mb-4 ml-8">
-                    <Link to="/create-campaign" className="block mb-2">Create Campaign</Link>
-                    <Link to="/view-campaign" className="block mb-2">View Campaigns</Link>
-                    <Link to="/approved-campaigns" className="block mb-2">Approved Campaigns</Link>
-                    <Link to="/denied-campaigns" className="block">Denied Campaigns</Link>
+                    <Link to="/dashboard-dollar/create-campaign" className="block mb-2">Create Campaign</Link>
+                    <Link to="/dashboard-dollar/view-campaign" className="block mb-2">View Campaigns</Link>
+                    <Link to="/dashboard-dollar/approved-campaign" className="block mb-2">Approved Campaigns</Link>
+                    <Link to="/dashboard-dollar/denied-campaign" className="block">Denied Campaigns</Link>
                 </div>
             )}
 
@@ -41,14 +44,29 @@ const Sidenav = () => {
                 <p className="mx-4">Jobs</p>
                 <img src="/images/dropdown.png" alt="dropdown" />
             </div>
+            {isJobsOpen && (
+                <div className="mb-4 ml-8">
+                    <Link to="/available-jobs" className="block mb-2">Available jobs</Link>
+                    <Link to="/my-jobs" className="block mb-2">My jobs</Link>
+                    <Link to="/completed-jobs" className="block mb-2">Completed jobs</Link>
+                    <Link to="/disputed-jobs" className="block">Disputed jobs</Link>
+                </div>
+            )}
             
 
-            <div className="flex items-center mb-4 cursor-pointer" >
+            <div className="flex items-center mb-4 cursor-pointer" onClick={toggleWallet}>
                 <img src="/images/Wallet.png" alt="wallet-icon" />
                 <p className="mx-4">Wallet</p>
                 <img src="/images/dropdown.png" alt="dropdown" />
             </div>
-            
+            {isWalletOpen && (
+                <div className="mb-4 ml-8">
+                    <Link to="/dashboard-dollar/wallet" className="block mb-2">Your wallet</Link>
+                    <Link to="/dashboard-dollar/withdrawal-request" className="block mb-2">Withdrawal requests</Link>
+                 
+                </div>
+            )}
+
             <div className="flex mb-4">
                 <img src="/images/referral.png" alt="referral-icon" />
                 <p className="mx-4">Referral</p>

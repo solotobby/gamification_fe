@@ -167,7 +167,13 @@ export const dashMenuItems = [
         icon: 'images/jobs.png',
         name: 'Jobs',
         url: '/settings',
-        dropdown: 'images/dropdown.png'
+        dropdown: 'images/dropdown.png',
+        subMenuItems: [
+            { name: 'Available jobs', url: '/available-jobs' },
+            { name: 'My jobs', url: '/my-jobs' },
+            { name: 'Completed jobs', url: '/completed-jobs' },
+            { name: 'Disputed jobs', url: '/disputed-jobs' }
+        ]
     },
     {
         icon: '/images/campaign.png',
@@ -175,17 +181,21 @@ export const dashMenuItems = [
         url: '/',
         dropdown: 'images/dropdown.png',
         subMenuItems: [
-            { name: 'Create Campaign', url: '/create-campaign' },
-            { name: 'View Campaigns', url: '/view-campaigns' },
-            { name: 'Approved Campaigns', url: '/approved-campaigns' },
-            { name: 'Denied Campaigns', url: '/denied-campaigns' }
+            { name: 'Create Campaign', url: '/dashboard-dollar/create-campaign' },
+            { name: 'View Campaigns', url: '/dashboard-dollar/view-campaign' },
+            { name: 'Approved Campaigns', url: '/dashboard-dollar/approved-campaign' },
+            { name: 'Denied Campaigns', url: '/dashboard-dollar/denied-campaign' }
         ]
     },
     {
         icon: '/images/wallet.png',
         name: 'Wallet',
         url: '/',
-        dropdown: 'images/dropdown.png'
+        dropdown: 'images/dropdown.png',
+        subMenuItems: [
+            { name: 'Your wallet', url: '/dashboard-dollar/your-wallet' },
+            { name: 'Withdrawal requests', url: '/dashboard-dollar/withdrawal-request' }
+        ]
     },
     {
         icon: '/images/referral.png',
