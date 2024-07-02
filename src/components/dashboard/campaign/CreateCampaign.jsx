@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Layout from '../pageLayout';
+import Layout from '../../pageLayout';
 
 const CreateCampaign = () => {
     const [activeTab, setActiveTab] = useState('information');

@@ -1,4 +1,4 @@
-import Layout from "../pageLayout";
+import Layout from "../../pageLayout";
 
 const ApprovedCampaign = () => {
     return (

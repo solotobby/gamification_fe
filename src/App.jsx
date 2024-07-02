@@ -16,15 +16,18 @@ import Sidenav from './components/dashboard/SideNav.jsx';
 import DashboarDollar from './components/dashboard/DashboarDollar.jsx';
 import ResetLinkSent from './components/landing-page/ResetLinkSent.jsx';
 import MakeMoney from './components/landing-page/MakeMoney.jsx';
-import  CreateCampaign from './components/dashboard/CreateCampaign.jsx'
-import ViewCampaign from './components/dashboard/ViewCampaign.jsx';
-import ApprovedCampaign from './components/dashboard/ApprovedCampaign.jsx';
-import DeniedCampaign from './components/dashboard/DeniedCampaign.jsx';
-import YourWallet from './components/dashboard/YourWallet.jsx';
-import WithdrawalRequests from './components/dashboard/WithdrawalRequests.jsx';
+import  CreateCampaign from './components/dashboard/campaign/CreateCampaign.jsx'
+import ViewCampaign from './components/dashboard/campaign/ViewCampaign.jsx';
+import ApprovedCampaign from './components/dashboard/campaign/ApprovedCampaign.jsx';
+import DeniedCampaign from './components/dashboard/campaign/DeniedCampaign.jsx';
+import YourWallet from './components/dashboard/wallet/YourWallet.jsx';
+import WithdrawalRequests from './components/dashboard/wallet/WithdrawalRequests.jsx';
 import DashboardNaira from './components/dashboard/DashboadNaira.jsx';
 import FirstJob from './components/dashboard/FirstJob.jsx';
-import AvailableJobs from './components/dashboard/AvailableJobs.jsx';
+import AvailableJobs from './components/dashboard/jobs/AvailableJobs.jsx';
+import MyJobs from './components/dashboard/jobs/MyJobs.jsx';
+import CompletedJobs from './components/dashboard/jobs/CompletedJobs.jsx';
+import DisputedJobs from './components/dashboard/jobs/DisputedJobs.jsx';
 
 
 function App() {
@@ -59,6 +62,11 @@ function App() {
         <Route path="/dashboard-dollar/withdrawal-request" element={<  WithdrawalRequests />} />
         <Route path="/first-job" element={<  FirstJob />} />
         <Route path="/available-jobs" element={< AvailableJobs />} />
+        <Route path="/my-jobs" element={<  MyJobs />} />
+        <Route path="/completed-jobs" element={<  CompletedJobs />} />
+        <Route path="/disputed-jobs" element={<  DisputedJobs />} />
+
+      
         
         
        

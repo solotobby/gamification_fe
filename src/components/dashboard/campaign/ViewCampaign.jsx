@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Layout from "../pageLayout";
+import Layout from "../../pageLayout";
 
 const ViewCampaign = () => {
     const [modalVisible, setModalVisible] = useState(false);

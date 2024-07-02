@@ -161,7 +161,11 @@ export const dashMenuItems = [
         icon: 'images/bannerads.png',
         name: 'Banner Ads',
         url: '/jobs',
-        dropdown: 'images/dropdown.png'
+        dropdown: 'images/dropdown.png',
+        subMenuItems: [
+            { name: 'Create', url: '/create' },
+            { name: 'List', url: '/list' }
+        ]
     },
     {
         icon: 'images/jobs.png',

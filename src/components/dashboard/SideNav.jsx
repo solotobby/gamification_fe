@@ -5,8 +5,10 @@ const Sidenav = () => {
     const [isCampaignsOpen, setIsCampaignsOpen] = useState(false);
     const [isWalletOpen, setIsWalletOpen] = useState(false);
     const [isJobsOpen, setIsJobsOpen] = useState(false);
+    const [isBannerAdsOpen, setIsBaannerAdsOpen] = useState(false);
     const toggleCampaigns = () => setIsCampaignsOpen(!isCampaignsOpen);
     const toggleWallet = () => setIsWalletOpen(!isWalletOpen);
+    const toggleBannerAds = () => setIsWalletOpen(!setIsBaannerAdsOpen);
    
 
     return (
@@ -24,6 +26,19 @@ const Sidenav = () => {
                 <img src="/images/safelock.png" alt="safelock-icon" />
                 <p className="mx-4">Safelock funds</p>
             </div>
+            
+            <div className="flex mb-4" onClick={toggleBannerAds}>
+                <img src="/images/safelock.png" alt="safelock-icon" />
+                <p className="mx-4">Banner Ads</p>
+            </div>
+            {isBannerAdsOpen && (
+                <div className="mb-4 ml-8">
+                    <Link to="/dashboard-dollar/create-campaign" className="block mb-2">Create Campaign</Link>
+                    <Link to="/dashboard-dollar/view-campaign" className="block mb-2">View Campaigns</Link>
+                    <Link to="/dashboard-dollar/approved-campaign" className="block mb-2">Approved Campaigns</Link>
+                    <Link to="/dashboard-dollar/denied-campaign" className="block">Denied Campaigns</Link>
+                </div>
+            )}
 
             <div className="flex items-center mb-4 cursor-pointer" onClick={toggleCampaigns}>
                 <img src="/images/campaign.png" alt="campaign-icon" />
