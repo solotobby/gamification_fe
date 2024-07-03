@@ -71,7 +71,7 @@ const ViewCampaign = () => {
                                         <td className="px-6 py-4 text-base font-medium text-gray-800 whitespace-nowrap text-start">{index + 1}</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">Like, comment and repost my tweet on X</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">40/40</td>
-                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">N20</td>
+                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">&#8358; 20</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">N1,000</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">Live</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">

@@ -52,17 +52,17 @@ const CreateCampaign = () => {
 
     const renderInformationContent = () => (
         <div>
-            <p className="mb-2">Category</p>
+            <p className="mb-4">Category</p>
             <div className="relative mb-4">
                 <button
                     onClick={toggleCategoryDropdown}
-                    className="flex items-center justify-between px-4 py-2 text-left text-gray-700 bg-gray-200 rounded w-96"
+                    className="flex items-center justify-between w-1/2 px-4 py-2 mb-8 text-left text-gray-700 bg-gray-200 rounded"
                 >
                     <span>{selectedCategory}</span>
                     <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
                 </button>
                 {showCategoryDropdown && (
-                    <ul className="absolute left-0 z-10 w-full mt-2 bg-white border border-gray-200 rounded shadow-lg">
+                    <ul className="absolute left-0 z-10 w-1/2 mt-2 bg-white border border-gray-200 rounded shadow-lg">
                         <li
                             className="px-4 py-2 cursor-pointer hover:bg-gray-100"
                             onClick={() => handleCategorySelect('Category 1')}
@@ -89,13 +89,13 @@ const CreateCampaign = () => {
             <div className="relative">
                 <button
                     onClick={toggleSubCategoryDropdown}
-                    className="flex items-center justify-between px-4 py-2 text-left text-gray-700 bg-gray-200 rounded w-96"
+                    className="flex items-center justify-between w-1/2 px-4 py-2 mb-8 text-left text-gray-700 bg-gray-200 rounded"
                 >
                     <span>{selectedSubCategory}</span>
                     <img src="/public/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
                 </button>
                 {showSubCategoryDropdown && (
-                    <ul className="absolute left-0 z-10 w-full mt-2 bg-white border border-gray-200 rounded shadow-lg">
+                    <ul className="absolute left-0 z-10 w-1/2 mt-2 bg-white border border-gray-200 rounded shadow-lg">
                         <li
                             className="px-4 py-2 cursor-pointer hover:bg-gray-100"
                             onClick={() => handleSubCategorySelect('Sub-category 1')}
@@ -126,7 +126,7 @@ const CreateCampaign = () => {
                             type="number"
                             value={numberOfWorkers}
                             onChange={handleWorkerChange}
-                            className="w-48 px-2 py-1 text-center border border-gray-300 rounded"
+                            className="px-2 py-1 text-center border border-gray-300 rounded w-96"
                         />
                     </div>
                 </div>
@@ -136,7 +136,7 @@ const CreateCampaign = () => {
                     <div className="flex items-center gap-2">
                         <input
                             type="number"
-                            className="w-48 px-2 py-1 text-center border border-gray-300 rounded"
+                            className="px-2 py-1 text-center border border-gray-300 rounded w-96"
                         />
                     </div>
                 </div>

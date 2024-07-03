@@ -28,6 +28,9 @@ import AvailableJobs from './components/dashboard/jobs/AvailableJobs.jsx';
 import MyJobs from './components/dashboard/jobs/MyJobs.jsx';
 import CompletedJobs from './components/dashboard/jobs/CompletedJobs.jsx';
 import DisputedJobs from './components/dashboard/jobs/DisputedJobs.jsx';
+import CreateBannerAds from './components/dashboard/bannerAds/CreateBannerAds.jsx';
+import ListBannerAds from './components/dashboard/bannerAds/ListBannerAds.jsx';
+import Referral from './components/dashboard/referral/Referral.jsx';
 
 
 function App() {
@@ -65,6 +68,10 @@ function App() {
         <Route path="/my-jobs" element={<  MyJobs />} />
         <Route path="/completed-jobs" element={<  CompletedJobs />} />
         <Route path="/disputed-jobs" element={<  DisputedJobs />} />
+        <Route path="/create-banner-ads" element={<   CreateBannerAds />} />
+        <Route path="/list-banner-ads" element={<  ListBannerAds />} />
+        <Route path="/referral" element={< Referral />} />
+       
 
       
         

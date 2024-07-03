@@ -41,8 +41,11 @@ const Layout = (props) => {
                     <img src="/images/freebyzlogo-blue.png" alt="freebyz-logo" />
                     <span
                         onClick={() => setSidebarOpen(!sidebarOpen)}
-                        className="flex items-center justify-center w-10 h-10 transition-all duration-300 bg-red-500 rounded-full shadow-lg cursor-pointer hover:shadow-2xl"
-                    />
+                        
+                        className="flex items-center justify-center w-12 h-12 transition-all duration-300 cursor-pointer"
+                    >
+                      ...
+                      </span>
                     <div className="flex flex-col">
                         <Link to="/dashboard" className="flex items-center gap-3">
                             <span className="flex flex-col text-base font-normal">
