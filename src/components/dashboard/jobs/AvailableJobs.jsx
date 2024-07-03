@@ -24,7 +24,7 @@ const AvailableJobs = () => {
                                 <option>Instagram jobs</option>
                             </select>
                             <img
-                                src="/public/images/dropdown.png"
+                                src="/images/dropdown.png"
                                 alt="drop-down-icon"
                                 className="absolute w-4 h-4 pointer-events-none right-3"
                             />

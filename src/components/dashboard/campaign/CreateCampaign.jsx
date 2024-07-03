@@ -92,7 +92,7 @@ const CreateCampaign = () => {
                     className="flex items-center justify-between w-1/2 px-4 py-2 mb-8 text-left text-gray-700 bg-gray-200 rounded"
                 >
                     <span>{selectedSubCategory}</span>
-                    <img src="/public/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
+                    <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
                 </button>
                 {showSubCategoryDropdown && (
                     <ul className="absolute left-0 z-10 w-1/2 mt-2 bg-white border border-gray-200 rounded shadow-lg">
@@ -148,7 +148,7 @@ const CreateCampaign = () => {
     const renderDescriptionContent = () => (
         <div className='h-screen overflow-y-auto'>
             <div className='flex gap-2 mb-6'>
-                <img src="/public/images/back-arrow.png" onClick={() => setActiveTab('information')} alt="arrow-back" />
+                <img src="/images/back-arrow.png" onClick={() => setActiveTab('information')} alt="arrow-back" />
                 <p >Back</p>
             </div>
             <p className="mb-2">Campaign Description</p>
