@@ -14,9 +14,13 @@ const FirstJob = () => {
     return (
         <Layout className="px-4 pt-4">
             <div className="h-screen p-12 overflow-y-auto">
+                <div className="flex gap-4 mb-8">
+                    <img src="/public/images/back-arrow.png" alt="" />
+                    <p>Back</p>
+                </div>
                 <p className="mb-12 text-xl font-semibold">Like, comment and repost my tweet on X campaign</p>
                 <p className='p-2 mt-8 text-red-600 bg-red-100 border-2 border-red-400 border-dotted rounded-2xl'>
-                    Please note that this job must be approved before payment. We'll automatically approve it if it is not approved by the poster after 24 hours.
+                    Please note that this job must be approved before payment. We&apos;ll automatically approve it if it is not approved by the poster after 24 hours.
                 </p>
 
                 <div className="p-8 my-8 bg-white rounded-2xl">

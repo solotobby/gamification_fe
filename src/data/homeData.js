@@ -213,7 +213,7 @@ export const dashMenuItems = [
     },{
         icon: '/images/currency-converter.png',
         name: 'Currency converter',
-        url: '/'
+        url: '/currency-converter'
     },{
         icon: '/images/transaction-list.png',
         name: 'Transaction List',
@@ -226,7 +226,7 @@ export const dashMenuItems = [
     },{
         icon: '/images/talk-to-us.png',
         name: 'Talk to us',
-        url: '/'
+        url: '/talk-to-us'
     },{
         icon: '/images/knowledge.png',
         name: 'Knowlege base',

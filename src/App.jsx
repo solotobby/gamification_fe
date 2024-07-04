@@ -31,6 +31,9 @@ import DisputedJobs from './components/dashboard/jobs/DisputedJobs.jsx';
 import CreateBannerAds from './components/dashboard/bannerAds/CreateBannerAds.jsx';
 import ListBannerAds from './components/dashboard/bannerAds/ListBannerAds.jsx';
 import Referral from './components/dashboard/referral/Referral.jsx';
+import TalkToUs from './components/dashboard/talk to us/TalkToUs.jsx';
+import OpenNewticket from './components/dashboard/talk to us/OpenNewTicket.jsx';
+import CurrncyConverter from './components/dashboard/currency converter/CurrencyConverter.jsx';
 
 
 function App() {
@@ -71,13 +74,10 @@ function App() {
         <Route path="/create-banner-ads" element={<   CreateBannerAds />} />
         <Route path="/list-banner-ads" element={<  ListBannerAds />} />
         <Route path="/referral" element={< Referral />} />
-       
-
-      
+        <Route path="/talk-to-us" element={< TalkToUs />} />
+        <Route path="/open-new-ticket" element={< OpenNewticket />} />
+        <Route path="/currency-converter" element={< CurrncyConverter />} />
         
-        
-       
-       
 
       </Routes>
     </Router>
