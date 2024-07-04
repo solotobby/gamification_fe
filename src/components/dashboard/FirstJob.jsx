@@ -15,7 +15,7 @@ const FirstJob = () => {
         <Layout className="px-4 pt-4">
             <div className="h-screen p-12 overflow-y-auto">
                 <div className="flex gap-4 mb-8">
-                    <img src="/public/images/back-arrow.png" alt="" />
+                    <img src="/images/back-arrow.png" alt="" />
                     <p>Back</p>
                 </div>
                 <p className="mb-12 text-xl font-semibold">Like, comment and repost my tweet on X campaign</p>
