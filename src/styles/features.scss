@@ -1,0 +1,9 @@
+.feature-item {
+    border-left:7px solid transparent;
+    transition: border-left-color 0.3s ease;
+    padding: 12px;
+}
+
+.feature-item.active {
+    border-left-color: blue;
+}
