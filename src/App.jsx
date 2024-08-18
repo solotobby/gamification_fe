@@ -34,6 +34,8 @@ import Referral from './components/dashboard/referral/Referral.jsx';
 import TalkToUs from './components/dashboard/talk to us/TalkToUs.jsx';
 import OpenNewticket from './components/dashboard/talk to us/OpenNewTicket.jsx';
 import CurrncyConverter from './components/dashboard/currency converter/CurrencyConverter.jsx';
+import NigeriaRegistration from './components/landing-page/NigeriaRegistration.jsx';
+import ForeignRegistration from './components/landing-page/ForeignRegistration.jsx';
 
 
 function App() {
@@ -77,8 +79,10 @@ function App() {
         <Route path="/talk-to-us" element={< TalkToUs />} />
         <Route path="/open-new-ticket" element={< OpenNewticket />} />
         <Route path="/currency-converter" element={< CurrncyConverter />} />
+        <Route path="/registration-nigeria" element={< NigeriaRegistration />} />
+        <Route path="/registration-foreign" element={< ForeignRegistration />} />
         
-
+      
       </Routes>
     </Router>
   );
