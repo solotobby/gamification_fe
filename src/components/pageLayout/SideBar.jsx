@@ -75,7 +75,7 @@ const SideBar = forwardRef(({ sidebarOpen }, ref) => {
 
     return (
         <div ref={ref} className="fixed z-20 w-56 h-full bg-white shadow-md ">
-            <div className="flex flex-col h-[70%] pt-2">
+            <div className="flex flex-col h-full pb-10 overflow-y-auto">
                 <ul className="flex flex-col w-full gap-4 mt-5">{dashMenuItems.map(renderRoutes)}</ul>
             </div>
         </div>

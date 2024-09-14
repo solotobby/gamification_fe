@@ -3,7 +3,7 @@ import Layout from "../../pageLayout";
 const DeniedCampaign = () => {
     return (
         <Layout className="px-4 pt-4">
-            <div className='h-screen overflow-y-auto'>
+            <div className='h-screen pb-20 overflow-y-auto'>
                 <div className="p-12 overflow-x-auto">
                     <div className="flex justify-between mb-8">
                         <div>

@@ -1,11 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from "../../pageLayout";
+import { fetchCampaignList } from '../../../Services/campaign';
 
 const ViewCampaign = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
     const [slideModalVisible, setSlideModalVisible] = useState(false);
     const [workerCount, setWorkerCount] = useState('');
+    const [campaigns, setCampaigns] = useState([]);
+
+    useEffect(() => {
+
+        const fetchCampaigns = async () => {
+        
+            try {
+                const response = await fetchCampaignList()
+        
+                if (response) {
+                    const data = response;
+                    console.log('API Response:', data);
+            
+                    if (data && Array.isArray(data.data)) {
+                        setCampaigns(data.data);
+                    } else {
+                        console.error('Unexpected data format:', data);
+                    }
+                }
+        
+                
+            } catch (error) {
+                console.error('Error fetching campaign data:', error);
+            }
+        };
+
+        fetchCampaigns();
+    }, []);
+
 
     const handleDotClick = (event) => {
         const rect = event.target.getBoundingClientRect();
@@ -34,7 +64,7 @@ const ViewCampaign = () => {
 
     return (
         <Layout className="px-4 pt-4">
-            <div className='h-screen overflow-y-auto'>
+            <div className='h-screen pb-24 overflow-y-auto'>
                 <div className="p-12 overflow-x-auto">
                     <div className="flex justify-between mb-8">
                         <div>
@@ -66,14 +96,14 @@ const ViewCampaign = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {[...Array(13).keys()].map(index => (
-                                    <tr key={index} className={`odd:bg-white even:bg-gray-100 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
+                                {campaigns.map((campaign, index) => (
+                                    <tr key={campaign.id} className={`odd:bg-white even:bg-gray-100 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
                                         <td className="px-6 py-4 text-base font-medium text-gray-800 whitespace-nowrap text-start">{index + 1}</td>
-                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">Like, comment and repost my tweet on X</td>
-                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">40/40</td>
-                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">&#8358; 20</td>
-                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">N1,000</td>
-                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">Live</td>
+                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{campaign.title}</td>
+                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{campaign.approved}</td>
+                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{campaign.currency} {campaign.unit_price}</td>
+                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{campaign.currency} {campaign.total_amount}</td>
+                                        <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{campaign.status}</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">
                                             <button onClick={handleDotClick}>...</button>
                                         </td>

@@ -53,7 +53,7 @@ function App() {
         <Route path="/make-money" element={<><Header /><MakeMoney /><Footer /></>} />
 
         
-        <Route path="/register" element={<Register />} />
+        <Route path="/registeration-form" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/otp" element={<Otp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
@@ -80,7 +80,7 @@ function App() {
         <Route path="/open-new-ticket" element={< OpenNewticket />} />
         <Route path="/currency-converter" element={< CurrncyConverter />} />
         <Route path="/registration-nigeria" element={< NigeriaRegistration />} />
-        <Route path="/registration-foreign" element={< ForeignRegistration />} />
+        <Route path="/registeration" element={< ForeignRegistration />} />
         
       
       </Routes>

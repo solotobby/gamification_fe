@@ -1,9 +1,10 @@
-
-
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 const ForeignRegistration = () => {
+    const [email, setEmail] = useState("");
+    
     return (
         <div className="relative grid h-screen grid-cols-1 bg-white md:grid-cols-3">
            
@@ -15,37 +16,39 @@ const ForeignRegistration = () => {
     
             
             <div className='flex h-full col-span-2'>
-                    <div className="flex flex-col mt-40 login-content lg:w-[40%] ml-0 md:ml-10 lg:ml-32 w-full px-4 md:px-0">
-                        <h2 className="text-3xl font-bold">Sign up for free</h2>
-                        <p className="text-gray-400 ">Please ensure that you provide the your active email address</p>
-                        <form className="mt-10" >
-                            <div className="flex flex-col form-group">
-                                <label htmlFor="email-address">Email address</label>
-                                <input 
-                                    type="text" 
-                                    id="email-address" 
-                                    name="email-address" 
-                                    className="mt-2 placeholder-gray-400 rounded-md" 
-                                    placeholder="email address" 
-                                    
-                                />
-                            </div>
-                            <button 
-                                className='px-4 py-2 mt-8 text-white bg-blue-500 rounded-full' 
-                                type="submit" 
-                                
-                            >
-                                Sign up
-                            </button>
-                            <p className="pb-10 mt-7 "></p>
-                            
-                        </form>
-                    </div>
+                <div className="flex flex-col mt-40 login-content lg:w-[40%] ml-0 md:ml-10 lg:ml-32 w-full px-4 md:px-0">
+                    <h2 className="text-3xl font-bold">Sign up for free</h2>
+                    <p className="text-gray-400">Please ensure that you provide your active email address</p>
+                    <form className="mt-10">
+                        <div className="flex flex-col form-group">
+                            <label htmlFor="email-address">Email address</label>
+                            <input
+                                type="text"
+                                id="email-address"
+                                name="email-address"
+                                className="mt-2 placeholder-gray-400 rounded-md"
+                                placeholder="email address"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <Link 
+                            to="/registeration-form" 
+                            state={{ email }}
+                            className='inline-block px-4 py-2 mt-8 text-white bg-blue-500 rounded-full'
+                        >
+                            Submit
+                        </Link>
+                        <p className="pb-10 mt-7"></p>
+                    </form>
                 </div>
-                
-                <div className='absolute top-32 right-8 md:top-10'>
-                    <p className="mx-8 mt-10"> Already have an account? <Link to="/login" className="text-blue-500">Login</Link></p>
-                </div>
+            </div>
+            
+            <div className='absolute top-32 right-8 md:top-10'>
+                <p className="mx-8 mt-10">
+                    Already have an account? <Link to="/login" className="text-blue-500">Login</Link>
+                </p>
+            </div>
         </div>
     );
    

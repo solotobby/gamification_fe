@@ -143,10 +143,6 @@ export const testimonial = [
 ]
 
 export const dashMenuItems = [
-    // {
-    //     icon: '/images/freebyzlogo-blue.png',
-    //     url: '/'
-    // },
     {
         icon: '/images/dashboard-icon.png',
         name: 'Dashboard',
@@ -158,20 +154,20 @@ export const dashMenuItems = [
         url: '/interviews'
     },
     {
-        icon: 'images/bannerads.png',
+        icon: '/images/bannerads.png',
         name: 'Banner Ads',
         url: '/jobs',
-        dropdown: 'images/dropdown.png',
+        dropdown: '/images/dropdown.png',
         subMenuItems: [
             { name: 'Create', url: '/create-banner-ads' },
             { name: 'List', url: '/list-banner-ads' }
         ]
     },
     {
-        icon: 'images/jobs.png',
+        icon: '/images/jobs.png',
         name: 'Jobs',
         url: '/settings',
-        dropdown: 'images/dropdown.png',
+        dropdown: '/images/dropdown.png',
         subMenuItems: [
             { name: 'Available jobs', url: '/available-jobs' },
             { name: 'My jobs', url: '/my-jobs' },
@@ -183,7 +179,7 @@ export const dashMenuItems = [
         icon: '/images/campaign.png',
         name: 'Campaigns',
         url: '/',
-        dropdown: 'images/dropdown.png',
+        dropdown: '/images/dropdown.png',
         subMenuItems: [
             { name: 'Create Campaign', url: '/dashboard-dollar/create-campaign' },
             { name: 'View Campaigns', url: '/dashboard-dollar/view-campaign' },
@@ -195,7 +191,7 @@ export const dashMenuItems = [
         icon: '/images/wallet.png',
         name: 'Wallet',
         url: '/',
-        dropdown: 'images/dropdown.png',
+        dropdown: '/images/dropdown.png',
         subMenuItems: [
             { name: 'Your wallet', url: '/dashboard-dollar/your-wallet' },
             { name: 'Withdrawal requests', url: '/dashboard-dollar/withdrawal-request' }
@@ -222,7 +218,7 @@ export const dashMenuItems = [
         icon: '/images/tutorials.png',
         name: ' Tutorials',
         url: '/',
-        dropdown: 'images/dropdown.png'
+        dropdown: '/images/dropdown.png'
     },{
         icon: '/images/talk-to-us.png',
         name: 'Talk to us',

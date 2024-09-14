@@ -4,7 +4,7 @@ const ApprovedCampaign = () => {
     return (
         <Layout className="px-4 pt-4">
             <div className='h-screen overflow-y-auto'>
-                <div className="p-12 overflow-x-auto">
+                <div className="p-12 pb-24 overflow-x-auto">
                     <div className="flex justify-between mb-8">
                         <div>
                             <p className="mb-2 text-2xl font-semibold">Approved Campaign List</p>

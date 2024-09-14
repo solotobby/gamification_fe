@@ -28,7 +28,7 @@ const Sidenav = () => {
             </div>
             
             <div className="flex mb-4" onClick={toggleBannerAds}>
-                <img src="/images/safelock.png" alt="safelock-icon" />
+                <img src="/images/bannerads.png" alt="safelock-icon" />
                 <p className="mx-4">Banner Ads</p>
             </div>
             {isBannerAdsOpen && (

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Register = () => {
     const [countries, setCountries] = useState([]);
+    const location = useLocation();
     const [selectedDialingCode, setSelectedDialingCode] = useState('+234');
     const [values, setValues] = useState({
-        "email": "",
+        "email": location.state?.email || "",
         "first_name": "",
         "last_name": "",
         "country": "Nigeria",
@@ -160,7 +161,7 @@ const Register = () => {
                         </div>
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="email-address">Email address</label>
-                            <input type="text" id="email-address" name="email" className="rounded-md" value={values.email} onChange={handleInputValues} />
+                            <input type="text" id="email-address" name="email" className="rounded-md" value={values.email} onChange={handleInputValues} readOnly />
                         </div>
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="country">Country</label>

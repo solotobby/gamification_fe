@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../../pageLayout';
+import { fetchCampaignCategories, fetchCampaignSubCategories, createCampaign } from '../../../Services/campaign';
 
 const CreateCampaign = () => {
     const [activeTab, setActiveTab] = useState('information');
     const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
     const [showSubCategoryDropdown, setShowSubCategoryDropdown] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState('Select');
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState();
     const [selectedSubCategory, setSelectedSubCategory] = useState('Select');
     const [numberOfWorkers, setNumberOfWorkers] = useState('');
     const [title, setTitle] = useState('');
@@ -13,6 +15,87 @@ const CreateCampaign = () => {
     const [campaignDescription, setCampaignDescription] = useState('');
     const [campaignProof, setCampaignProof] = useState('');
     const [agreed, setAgreed] = useState(false);
+
+    const getCampaignCategories = async () => {
+
+        try {
+            const response = await fetchCampaignCategories()
+
+            if (response) {
+                const data = response;
+                console.log('API Response:', data);
+
+                if (data && Array.isArray(data.data)) {
+                    setCategories(data.data);
+                } else {
+                    console.error('Unexpected data format:', data);
+                }
+            }
+
+
+        } catch (error) {
+            console.error('Error fetching campaign data:', error);
+        }
+    };
+
+    const getCampaignSubCategories = async (id) => {
+
+        try {
+            const response = await fetchCampaignSubCategories(id)
+
+            if (response) {
+                const data = response;
+                console.log('API Response:', data);
+
+                if (data && Array.isArray(data.data)) {
+                    setSelectedSubCategory(data.data);
+                } else {
+                    console.error('Unexpected data format:', data);
+                }
+            }
+
+
+        } catch (error) {
+            console.error('Error fetching campaign data:', error);
+        }
+    };
+
+    const createNewCampaign = async () => {
+        try {
+            const payload = {
+                "description": campaignDescription,
+                "proof": campaignProof,
+                "post_title": title,
+                "post_link": externalLink,
+                "number_of_staff": numberOfWorkers,
+                "campaign_amount": "3",
+                "validate": true,
+                "campaign_type": selectedCategory.id,
+                "campaign_subcategory": selectedSubCategory.id,
+                "allow_upload": true,
+                "priotize": false
+            }
+            const res = await createCampaign({
+                ...payload
+            })
+            if (res.status) {
+                window.alert('Post successfully created')
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    useEffect(() => {
+
+        getCampaignCategories();
+    }, []);
+
+    useEffect(() => {
+        if (selectedCategory) {
+            getCampaignSubCategories(selectedCategory.id)
+        }
+    }, [selectedCategory]);
 
 
     const toggleCategoryDropdown = () => {
@@ -42,7 +125,7 @@ const CreateCampaign = () => {
 
     const isFormValid = () => {
         if (activeTab === 'information') {
-            return selectedCategory !== 'Select' && selectedSubCategory !== 'Select' && numberOfWorkers > 0;
+            return selectedCategory?.name !== 'Select' && selectedSubCategory !== 'Select' && numberOfWorkers > 0;
         }
         if (activeTab === 'description') {
             return title && externalLink && campaignDescription && campaignProof && agreed;
@@ -58,29 +141,23 @@ const CreateCampaign = () => {
                     onClick={toggleCategoryDropdown}
                     className="flex items-center justify-between w-1/2 px-4 py-2 mb-8 text-left text-gray-700 bg-gray-200 rounded"
                 >
-                    <span>{selectedCategory}</span>
+                    <span>{selectedCategory?.name || 'Select Category'}</span>
                     <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
                 </button>
                 {showCategoryDropdown && (
-                    <ul className="absolute left-0 z-10 w-1/2 mt-2 bg-white border border-gray-200 rounded shadow-lg">
-                        <li
-                            className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                            onClick={() => handleCategorySelect('Category 1')}
-                        >
-                            Category 1
-                        </li>
-                        <li
-                            className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                            onClick={() => handleCategorySelect('Category 2')}
-                        >
-                            Category 2
-                        </li>
-                        <li
-                            className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                            onClick={() => handleCategorySelect('Category 3')}
-                        >
-                            Category 3
-                        </li>
+                    <ul
+                        className="absolute left-0 z-10 w-1/2 mt-2 bg-white border border-gray-200 rounded shadow-lg"
+                        style={{ maxHeight: '200px', overflowY: 'auto' }}
+                    >
+                        {categories.map((el) => (
+                            <li
+                                key={el.id}
+                                className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                                onClick={() => handleCategorySelect(el)}
+                            >
+                                {el.name}
+                            </li>
+                        ))}
                     </ul>
                 )}
             </div>
@@ -91,29 +168,23 @@ const CreateCampaign = () => {
                     onClick={toggleSubCategoryDropdown}
                     className="flex items-center justify-between w-1/2 px-4 py-2 mb-8 text-left text-gray-700 bg-gray-200 rounded"
                 >
-                    <span>{selectedSubCategory}</span>
+                    <span>{selectedSubCategory?.name || 'Select Sub-category'}</span>
                     <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
                 </button>
                 {showSubCategoryDropdown && (
-                    <ul className="absolute left-0 z-10 w-1/2 mt-2 bg-white border border-gray-200 rounded shadow-lg">
-                        <li
-                            className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                            onClick={() => handleSubCategorySelect('Sub-category 1')}
-                        >
-                            Sub-category 1
-                        </li>
-                        <li
-                            className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                            onClick={() => handleSubCategorySelect('Sub-category 2')}
-                        >
-                            Sub-category 2
-                        </li>
-                        <li
-                            className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                            onClick={() => handleSubCategorySelect('Sub-category 3')}
-                        >
-                            Sub-category 3
-                        </li>
+                    <ul
+                        className="absolute left-0 z-10 w-1/2 mt-2 bg-white border border-gray-200 rounded shadow-lg"
+                        style={{ maxHeight: '200px', overflowY: 'auto' }}  // Set max-height and overflow
+                    >
+                        {selectedSubCategory.map((el) => (
+                            <li
+                                key={el.id}
+                                className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                                onClick={() => handleSubCategorySelect(el)}
+                            >
+                                {el.name}
+                            </li>
+                        ))}
                     </ul>
                 )}
             </div>
@@ -146,7 +217,7 @@ const CreateCampaign = () => {
     );
 
     const renderDescriptionContent = () => (
-        <div className='h-screen overflow-y-auto'>
+        <div className='h-screen overflow-y-auto pb-28'>
             <div className='flex gap-2 mb-6'>
                 <img src="/images/back-arrow.png" onClick={() => setActiveTab('information')} alt="arrow-back" />
                 <p >Back</p>
@@ -200,6 +271,7 @@ const CreateCampaign = () => {
             <button
                 className={`mt-6 px-4 py-2 rounded-full ${isFormValid() ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-400'}`}
                 disabled={!isFormValid()}
+                onClick={createNewCampaign}
             >
                 Post Campaign
             </button>
