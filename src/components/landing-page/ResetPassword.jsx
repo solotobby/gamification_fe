@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ResetPassword = () => {
     const [password, setPassword] = useState('');
@@ -103,7 +104,12 @@ const ResetPassword = () => {
             </div>
 
             <div>
-                <p className="mx-8 mt-10">Don't have an account? Sign up</p>
+                <p className="mx-8 mt-10">
+                    Don't have an account? 
+                    <Link to="/registeration" className="ml-1 text-blue-500"> 
+                        Sign up
+                    </Link>
+                </p>
             </div>
         </div>
     );

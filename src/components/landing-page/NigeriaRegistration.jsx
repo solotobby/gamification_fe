@@ -28,13 +28,15 @@ const NigeriaRegistration = () => {
                                     
                                 />
                             </div>
-                            <button 
-                                className='px-4 py-2 mt-8 text-white bg-blue-500 rounded-full' 
-                                type="submit" 
-                                
-                            >
-                                Sign up
-                            </button>
+                            <Link to='/registeration'>
+                                <button 
+                                    className='px-4 py-2 mt-8 text-white bg-blue-500 rounded-full' 
+                                    type="submit" 
+                                    
+                                >
+                                    Sign up
+                                </button>
+                            </Link>
                             <p className="pb-10 mt-7 "></p>
                             
                         </form>
