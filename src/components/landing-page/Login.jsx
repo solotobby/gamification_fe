@@ -11,6 +11,7 @@ const Login = () => {
         "password": ""
     })
 
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -27,6 +28,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         const formObject = { ...inputValues };
         try {
@@ -49,14 +51,15 @@ const Login = () => {
                 localStorage.setItem('accessToken', token);
 
 
-                navigate('/dashboard');
+                navigate('/dashboard-naira');
             } else {
                 setErrorMessage(data.message);
                 console.error('Incorrect Login or Password:', data.message);
             }
         } catch (error) {
             console.error('Error registering:', error);
-
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -92,7 +95,13 @@ const Login = () => {
                         </div>
                         {errorMessage && <p className="mt-2 text-red-500">{errorMessage}</p>}
                         <div className="flex mt-8">
-                            <button className="px-4 py-2 text-white bg-blue-500 rounded-full" type="submit">Log in</button>
+                        <button 
+                                className="px-4 py-2 text-white bg-blue-500 rounded-full" 
+                                type="submit" 
+                                disabled={loading}
+                            >
+                                {loading ? 'Logging in...' : 'Log in'}
+                            </button>
 
 
                         </div>
