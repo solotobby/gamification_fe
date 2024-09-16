@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Sidenav = () => {
     const [isCampaignsOpen, setIsCampaignsOpen] = useState(false);
@@ -9,6 +10,13 @@ const Sidenav = () => {
     const toggleCampaigns = () => setIsCampaignsOpen(!isCampaignsOpen);
     const toggleWallet = () => setIsWalletOpen(!isWalletOpen);
     const toggleBannerAds = () => setIsWalletOpen(!setIsBaannerAdsOpen);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem('accessToken');
+
+        navigate('/login');
+    };
    
 
     return (
@@ -121,7 +129,7 @@ const Sidenav = () => {
 
             <div className="flex mt-8">
                 <img src="/images/logout.png" alt="logout-icon" />
-                <p className="mx-4 text-red-500">Logout</p>
+                <button className="mx-4 text-red-500"  onClick={handleLogout} >Logout</button>
             </div>
         </div>
     );
