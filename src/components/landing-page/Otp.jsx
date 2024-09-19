@@ -109,7 +109,7 @@ const Otp = () => {
             </div>
 
             <div className='absolute top-32 right-8 md:top-10'>
-                <p className="mx-8 mt-10">Don&apos;t have an account? <Link to="/registeration" className="text-blue-500">Sign up</Link></p>
+                <p className="mx-8 mt-10">Don&apos;t have an account? <Link to="/registration" className="text-blue-500">Sign up</Link></p>
             </div>
         </div>
     );

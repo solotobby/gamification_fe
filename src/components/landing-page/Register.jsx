@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 const Register = () => {
     const [countries, setCountries] = useState([]);
@@ -16,6 +17,9 @@ const Register = () => {
         "source": "Facebook",
         "ref_id": ""
     });
+    
+    const [fieldErrors, setFieldErrors] = useState({});
+    const [focusedField, setFocusedField] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [isTypingPassword, setIsTypingPassword] = useState(false);
     const navigate = useNavigate();
@@ -26,6 +30,9 @@ const Register = () => {
         specialCharacter: false,
         number: false
     });
+
+    const [apiError, setApiError] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
 
     const handleInputValues = (e) => {
         const { value, name } = e.target;
@@ -44,27 +51,58 @@ const Register = () => {
         }));
     };
 
+    const handleFocus = (field) => {
+        setFocusedField(field);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setApiError('');
+        setSuccessMessage('');
+        setFieldErrors({});
+
         const formObject = { ...values };
+
         try {
-            const response = await fetch('http://app.e-portal.com.ng/api/register', {
-                method: 'POST',
+            const response = await axios.post('http://app.e-portal.com.ng/api/register', formObject, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formObject),
             });
 
-            const data = await response.json();
             if (response.status === 201) {
-                console.log('Registration successful:', data);
-                navigate('/login');
+                setSuccessMessage('Registration successful! Redirecting to login...');
+                setTimeout(() => {
+                    navigate('/login');
+                }, 3000);
             } else {
-                console.error('Failed to register:', data);
+                setApiError(response.data.message || 'An unexpected error occurred.');
             }
         } catch (error) {
             console.error('Error registering:', error);
+
+            if (error.response) {
+                if (error.response.status === 422) {
+
+                    const errors = error.response.data.errors;
+
+                    if (errors) {
+                        console.error('Validation errors:', errors);
+
+                        setFieldErrors(errors);
+
+                        
+                    } else {
+                        setApiError(error.response.data.message || 'An unexpected error occurred.');
+                    }
+                } else {
+                    setApiError(error.response.data.message || 'An unexpected error occurred.');
+                }
+            } else if (error.request) {
+                setApiError('No response from server. Please try again.');
+            } else {
+                setApiError(error.message || 'An error occurred while registering. Please try again.');
+            }
         }
     };
 
@@ -108,26 +146,35 @@ const Register = () => {
         const { length, uppercase, lowercase, specialCharacter, number } = passwordStrength;
         const criteriaMet = [length, uppercase, lowercase, specialCharacter, number].filter(Boolean).length;
         if (criteriaMet < 3) {
-            return "Weak";
+            return 'Weak';
         } else if (criteriaMet < 5) {
-            return "Not strong enough";
+            return 'Not strong enough';
         } else {
-            return "Strong";
+            return 'Strong';
         }
     };
 
+
     useEffect(() => {
-        if (values.password) {
+        if (focusedField === 'password' && values.password) {
             setPasswordStrength({
                 length: values.password.length >= 8,
                 uppercase: /[A-Z]/.test(values.password),
                 lowercase: /[a-z]/.test(values.password),
                 specialCharacter: /[!@#$%^&*(),.?":{}|<>]/.test(values.password),
-                number: /\d/.test(values.password)
+                number: /\d/.test(values.password),
+            });
+        } else {
+
+            setPasswordStrength({
+                length: false,
+                uppercase: false,
+                lowercase: false,
+                specialCharacter: false,
+                number: false,
             });
         }
-    }, [values.password]);
-
+    }, [values.password, focusedField]);
     const getRadioColor = (checked) => {
         return checked ? '#28A23F' : '';
     };
@@ -146,32 +193,36 @@ const Register = () => {
                     </p>
                 </div>
                 <form className="flex justify-center mt-10" onSubmit={handleSubmit}>
+                {successMessage && <div className="success-message">{successMessage}</div>}
                     <div className='w-11/12 mx-auto md:w-2/5'>
-                        <h2 className="text-3xl font-bold">Sign up for free</h2>
+                        <Link to='/registration' className="text-3xl font-bold">Sign up for free</Link>
                         <p className="text-gray-300 ">Please ensure that you are providing the appropriate details</p>
                         <div className="flex justify-between gap-5">
                             <div className="flex flex-col form-group w-[48%] shrink-0">
                                 <label htmlFor="first-name">First name</label>
                                 <input type="text" id="first-name" name="first_name" className="w-full rounded-md" value={values.first_name} onChange={handleInputValues} />
+                                {fieldErrors.first_name && <span className="text-red-500">{fieldErrors.first_name[0]}</span>}
                             </div>
                             <div className="flex flex-col form-group w-[48%] shrink-0">
                                 <label htmlFor="last-name">Last name</label>
                                 <input type="text" id="Last-name" name="last_name" className="w-full rounded-md" value={values.last_name} onChange={handleInputValues} />
+                                {fieldErrors.last_name && <span className="text-red-500">{fieldErrors.last_name[0]}</span>}
                             </div>
                         </div>
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="email-address">Email address</label>
                             <input type="text" id="email-address" name="email" className="rounded-md" value={values.email} onChange={handleInputValues} readOnly />
+                            {fieldErrors.email && <span className="text-red-500">{fieldErrors.email[0]}</span>}
                         </div>
+                        
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="country">Country</label>
-                            <select id="country" name="country" value={values.country} onChange={handleCountryChange} className="rounded-md">
-                                {countries.map((country, index) => (
-                                    <option key={index} value={country.country}>
-                                        {country.flag} {country.country}
-                                    </option>
+                            <select id="country" name="country" className="rounded-md" value={values.country} onChange={handleCountryChange}>
+                                {countries.map((country) => (
+                                    <option key={country.country} value={country.country}>{country.country}</option>
                                 ))}
                             </select>
+                            {fieldErrors.country && <span className="text-red-500">{fieldErrors.country[0]}</span>}
                         </div>
 
                         <div className="flex gap-4 mt-4">
@@ -179,11 +230,24 @@ const Register = () => {
                                 <option value={selectedDialingCode}>{selectedDialingCode}</option>
                             </select>
                             <input type="text" id="phone-number" name="phone" className="w-full rounded-md" placeholder="Enter your phone number" value={values.phone} onChange={handleInputValues} />
+                            {fieldErrors.phone && <span className="text-red-500">{fieldErrors.phone[0]}</span>}
                         </div>
                         <div className="relative flex flex-col mt-4 form-group">
                             <label htmlFor="password">Password</label>
                             <div className="relative">
-                                <input type={showPassword ? 'text' : 'password'} id="password" name="password" placeholder="Password (minimum of 8 characters)" style={{ width: '100%' }} className="rounded-md" value={values.password} onChange={handlePasswordChange} />
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    id="password"
+                                    name="password"
+                                    placeholder="Password (minimum of 8 characters)"
+                                    style={{ width: '100%' }}
+                                    className="rounded-md"
+                                    value={values.password}
+                                    onChange={handlePasswordChange}
+                                    onFocus={() => handleFocus('password')}
+                                    onBlur={() => handleFocus('')}
+                                />
+                                {fieldErrors.password && <span className="text-red-500">{fieldErrors.password[0]}</span>}
                                 <div className="absolute top-0 mt-3 right-4">
                                     {showPassword ? (
                                         <img src="/images/show-password.png" alt="hide-password" className="cursor-pointer" onClick={togglePasswordVisibility} />
@@ -192,7 +256,7 @@ const Register = () => {
                                     )}
                                 </div>
                             </div>
-                            {isTypingPassword && (
+                            {isTypingPassword  && focusedField === 'password' && (
                                 <div className="gap-4 mt-2">
                                     <div>
                                         <span>Password strength: </span>
@@ -223,7 +287,17 @@ const Register = () => {
                         </div>
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="confirm-password">Confirm Password</label>
-                            <input type="password" id="confirm-password" name="password_confirmation" className="rounded-md" value={values.password_confirmation} onChange={handleInputValues} />
+                            <input
+                                type="password"
+                                id="confirm-password"
+                                name="password_confirmation"
+                                className="rounded-md"
+                                value={values.password_confirmation}
+                                onChange={handleInputValues}
+                                onFocus={() => handleFocus('password_confirmation')}
+                                onBlur={() => handleFocus('')}
+                            />
+                            {fieldErrors.password_confirmation && <span className="text-red-500">{fieldErrors.password_confirmation[0]}</span>}
                         </div>
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="referral-code">Referral Code(Optional)</label>
@@ -245,7 +319,7 @@ const Register = () => {
                             </select>
                         </div>
                         <div className="flex gap-3 mt-8">
-                            <input type="checkbox" id="agree-checkbox" name="agree-checkbox" className='w-5 h-5 mt-1 shrink-0' />
+                            <input type="checkbox" id="agree-checkbox" name="agree-checkbox" className='w-5 h-5 mt-1 shrink-0' required />
                             <label htmlFor="agree-checkbox" className="ml-2 ">
                                 I have read, understood, and agreed to Freebyz
                                 <Link to="/privacy-policy" className="text-blue-500"> Privacy policy </Link>

@@ -80,7 +80,7 @@ function App() {
         <Route path="/open-new-ticket" element={< OpenNewticket />} />
         <Route path="/currency-converter" element={< CurrncyConverter />} />
         <Route path="/registration-nigeria" element={< NigeriaRegistration />} />
-        <Route path="/registeration" element={< ForeignRegistration />} />
+        <Route path="/registration" element={< ForeignRegistration />} />
         
       
       </Routes>

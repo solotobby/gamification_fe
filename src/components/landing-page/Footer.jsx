@@ -26,7 +26,7 @@ const Footer = () => {
                                 <Link to='/' className="text-base font-inter">Home</Link>
                                 <Link to='/make-money' className="text-base font-inter">Make money</Link>
                                 <Link to='/login' className="text-base font-inter">Login</Link>
-                                <Link to='/registeration' className="text-base font-inter">Sign up</Link>
+                                <Link to='/registration' className="text-base font-inter">Sign up</Link>
                             </div>
                         </div>
 

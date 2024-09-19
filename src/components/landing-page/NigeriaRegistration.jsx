@@ -14,7 +14,7 @@ const NigeriaRegistration = () => {
             
             <div className='flex h-full col-span-2'>
                     <div className="flex flex-col mt-40 login-content lg:w-[40%] ml-0 md:ml-10 lg:ml-32 w-full px-4 md:px-0">
-                        <h2 className="text-3xl font-bold">Sign up for free</h2>
+                        <Link to="/registration" className="text-3xl font-bold">Sign up for free</Link>
                         <p className="text-gray-400 ">Please ensure that you provide the your active phone number</p>
                         <form className="mt-10" >
                             <div className="flex flex-col form-group">

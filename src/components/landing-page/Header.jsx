@@ -26,7 +26,7 @@ const Header = () => {
                 </div>
                 <div className="items-center hidden gap-6 md:flex">
                     <Link to="/login" ><button className="py-2">Login</button></Link>
-                    <Link to="/registeration"><button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
+                    <Link to="/registration"><button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import { kickstartJourney } from "../../data/homeData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 const KickstartJourney = () => {
     return (
@@ -57,8 +58,8 @@ const KickstartJourney = () => {
                 
             
             
-
-            <button className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">Sign up for free</button>
+                    <Link><button to="/registration" className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
+            
         </div>
 
         

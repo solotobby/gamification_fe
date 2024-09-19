@@ -241,7 +241,7 @@ const CreateCampaign = () => {
                 value={externalLink}
                 onChange={(e) => setExternalLink(e.target.value)}
             />
-            <p className='mb-6'>Please provide an external link for your campaign e.g https://myhotjobz.com or https://youtube.com/abc</p>
+            <p className='mb-6'>Please provide an external link for your campaign e.g https://myhotjobz.com</p>
 
             <p>Campaign Description (Ensure you provide simple and clear instruction on task to be done)</p>
             <textarea
@@ -251,7 +251,8 @@ const CreateCampaign = () => {
                 onChange={(e) => setCampaignDescription(e.target.value)}
             />
 
-            <p className='mt-6'>Expected Campaign Proof (You can request for social media handle, email or other means of identifying the worker)</p>
+            <p className='mt-6'>Expected Campaign Proof</p>
+            <p className='mt-6'>(You can request for social media handle, email or other means of identifying the worker)</p>
             <textarea
                 rows="5"
                 className="w-1/2 px-4 py-2 border border-gray-300 rounded"
