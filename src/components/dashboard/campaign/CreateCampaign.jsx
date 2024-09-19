@@ -10,6 +10,7 @@ const CreateCampaign = () => {
     const [selectedCategory, setSelectedCategory] = useState();
     const [selectedSubCategory, setSelectedSubCategory] = useState('Select');
     const [numberOfWorkers, setNumberOfWorkers] = useState('');
+    const [costPerCampaign, setCostPerCampaign] = useState('');
     const [title, setTitle] = useState('');
     const [externalLink, setExternalLink] = useState('');
     const [campaignDescription, setCampaignDescription] = useState('');
@@ -17,44 +18,34 @@ const CreateCampaign = () => {
     const [agreed, setAgreed] = useState(false);
 
     const getCampaignCategories = async () => {
-
         try {
-            const response = await fetchCampaignCategories()
-
+            const response = await fetchCampaignCategories();
             if (response) {
                 const data = response;
                 console.log('API Response:', data);
-
                 if (data && Array.isArray(data.data)) {
                     setCategories(data.data);
                 } else {
                     console.error('Unexpected data format:', data);
                 }
             }
-
-
         } catch (error) {
             console.error('Error fetching campaign data:', error);
         }
     };
 
     const getCampaignSubCategories = async (id) => {
-
         try {
-            const response = await fetchCampaignSubCategories(id)
-
+            const response = await fetchCampaignSubCategories(id);
             if (response) {
                 const data = response;
                 console.log('API Response:', data);
-
                 if (data && Array.isArray(data.data)) {
                     setSelectedSubCategory(data.data);
                 } else {
                     console.error('Unexpected data format:', data);
                 }
             }
-
-
         } catch (error) {
             console.error('Error fetching campaign data:', error);
         }
@@ -68,35 +59,31 @@ const CreateCampaign = () => {
                 "post_title": title,
                 "post_link": externalLink,
                 "number_of_staff": numberOfWorkers,
-                "campaign_amount": "3",
+                "campaign_amount": costPerCampaign,
                 "validate": true,
                 "campaign_type": selectedCategory.id,
                 "campaign_subcategory": selectedSubCategory.id,
                 "allow_upload": true,
                 "priotize": false
-            }
-            const res = await createCampaign({
-                ...payload
-            })
+            };
+            const res = await createCampaign(payload);
             if (res.status) {
-                window.alert('Post successfully created')
+                window.alert('Post successfully created');
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     };
 
     useEffect(() => {
-
         getCampaignCategories();
     }, []);
 
     useEffect(() => {
         if (selectedCategory) {
-            getCampaignSubCategories(selectedCategory.id)
+            getCampaignSubCategories(selectedCategory.id);
         }
     }, [selectedCategory]);
-
 
     const toggleCategoryDropdown = () => {
         setShowCategoryDropdown(!showCategoryDropdown);
@@ -123,6 +110,11 @@ const CreateCampaign = () => {
         setNumberOfWorkers(value >= 0 ? value : 0);
     };
 
+    const handleCostPerCampaignChange = (e) => {
+        const value = parseInt(e.target.value, 10);
+        setCostPerCampaign(value >= 0 ? value : 0);
+    };
+
     const isFormValid = () => {
         if (activeTab === 'information') {
             return selectedCategory?.name !== 'Select' && selectedSubCategory !== 'Select' && numberOfWorkers > 0;
@@ -132,6 +124,8 @@ const CreateCampaign = () => {
         }
         return false;
     };
+
+    const estimatedCost = numberOfWorkers * costPerCampaign;
 
     const renderInformationContent = () => (
         <div>
@@ -174,7 +168,7 @@ const CreateCampaign = () => {
                 {showSubCategoryDropdown && (
                     <ul
                         className="absolute left-0 z-10 w-1/2 mt-2 bg-white border border-gray-200 rounded shadow-lg"
-                        style={{ maxHeight: '200px', overflowY: 'auto' }}  // Set max-height and overflow
+                        style={{ maxHeight: '200px', overflowY: 'auto' }}
                     >
                         {selectedSubCategory.map((el) => (
                             <li
@@ -198,6 +192,7 @@ const CreateCampaign = () => {
                             value={numberOfWorkers}
                             onChange={handleWorkerChange}
                             className="px-2 py-1 text-center border border-gray-300 rounded w-96"
+                            disabled={!selectedCategory || selectedSubCategory?.name === 'Select'}
                         />
                     </div>
                 </div>
@@ -207,12 +202,16 @@ const CreateCampaign = () => {
                     <div className="flex items-center gap-2">
                         <input
                             type="number"
+                            value={costPerCampaign}
+                            onChange={handleCostPerCampaignChange}
                             className="px-2 py-1 text-center border border-gray-300 rounded w-96"
+                            disabled={!selectedCategory || selectedSubCategory?.name === 'Select'}
                         />
                     </div>
                 </div>
             </div>
-            <p>Estimated cost <span>&#8358;</span></p>
+
+            <p className="mt-4 text-lg font-semibold">Estimated cost: <span className="text-xl">&#8358; {estimatedCost.toFixed(2)}</span></p>
         </div>
     );
 
@@ -220,7 +219,7 @@ const CreateCampaign = () => {
         <div className='h-screen overflow-y-auto pb-28'>
             <div className='flex gap-2 mb-6'>
                 <img src="/images/back-arrow.png" onClick={() => setActiveTab('information')} alt="arrow-back" />
-                <p >Back</p>
+                <p>Back</p>
             </div>
             <p className="mb-2">Campaign Description</p>
             <p className='mb-6'>Give detailed description of the campaign</p>
@@ -266,7 +265,7 @@ const CreateCampaign = () => {
                     checked={agreed}
                     onChange={(e) => setAgreed(e.target.checked)}
                 />
-                <span className="ml-2 text-base text-gray-600">I agree that this campaign will be automatically approved after 24 hours if I fail to approve it.</span>
+                <span className="ml-2 text-base text-gray-600" required >I agree that this campaign will be automatically approved after 24 hours if I fail to approve it.</span>
             </label>
 
             <button
@@ -281,7 +280,7 @@ const CreateCampaign = () => {
 
     return (
         <Layout className="px-4 pt-4">
-            <div className="h-screen px-8 overflow-y-auto">
+            <div className="h-screen px-8 mb-8 overflow-y-auto">
                 <div className="flex items-center gap-2 mb-4">
                     <button
                         className={`flex items-center gap-2 ${activeTab === 'information' ? 'p-4 text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'}`}
@@ -309,16 +308,16 @@ const CreateCampaign = () => {
                 {activeTab === 'description' && renderDescriptionContent()}
 
                 {activeTab === 'information' && (
-                    <button
+                   <button
                         className={`mt-6 px-4 py-2 rounded-full ${isFormValid() ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-400'}`}
                         disabled={!isFormValid()}
+                        onClick={() => setActiveTab('description')}
                     >
                         Continue
                     </button>
                 )}
             </div>
         </Layout>
-
     );
 };
 
