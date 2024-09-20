@@ -9,7 +9,7 @@ const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-    const token = process.env.REACT_APP_API_TOKEN;
+    const token = getToken();
     if (token) {
         config.headers["Authorization"] = `Bearer ${token}`
     }

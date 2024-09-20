@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import api from '../../Services/api';
 import { toast } from 'react-toastify';
+import { saveToken } from '../../utils';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -34,6 +35,8 @@ const Login = () => {
         try {
             const response = await api.post('/login', data);
             if (response.status === 200) {
+                saveToken(response.data.data.token)
+                console.log(response.data.data, 'helloooooo')
                 toast.success('Login successful!');
                 navigate('/dashboard-naira');
             } else {
