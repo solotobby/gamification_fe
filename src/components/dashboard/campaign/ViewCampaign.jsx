@@ -97,7 +97,7 @@ const ViewCampaign = () => {
                             </thead>
                             <tbody>
                                 {campaigns.map((campaign, index) => (
-                                    <tr key={campaign.id} className={`odd:bg-white even:bg-gray-100 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
+                                    <tr key={campaign.id} className={`odd:bg-white even:bg-blue-100 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
                                         <td className="px-6 py-4 text-base font-medium text-gray-800 whitespace-nowrap text-start">{index + 1}</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{campaign.title}</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{campaign.approved}</td>
