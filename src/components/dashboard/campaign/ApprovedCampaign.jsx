@@ -4,7 +4,7 @@ import Layout from "../../pageLayout";
 const ApprovedCampaign = () => {
     const [campaigns, setCampaigns] = useState([]);
     const [loading, setLoading] = useState(true);
-    const token = process.env.REACT_APP_API_TOKEN;
+    const token = import.meta.env.VITE_API_TOKEN;
 
     useEffect(() => {
         const fetchCampaigns = async () => {

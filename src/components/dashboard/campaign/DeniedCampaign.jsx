@@ -6,7 +6,8 @@ const DeniedCampaign = () => {
     const [deniedCampaigns, setDeniedCampaigns] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const token = process.env.REACT_APP_API_TOKEN;
+    const token =  import.meta.env.VITE_API_TOKEN;
+
 
     useEffect(() => {
         const fetchDeniedCampaigns = async () => {
