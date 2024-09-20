@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import api from '../../Services/api';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -30,25 +32,15 @@ const Login = () => {
         setLoading(true);
         setErrorMessage('');
         try {
-            const response = await fetch('http://app.e-portal.com.ng/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-
-            const responseData = await response.json();
-
+            const response = await api.post('/login', data);
             if (response.status === 200) {
-                console.log('Login successful:', responseData.message);
-                
+                toast.success('Login successful!');
                 navigate('/dashboard-naira');
             } else {
-                setErrorMessage(responseData.message);
+                toast.error(response.data.message || 'An unexpected error occurred.');
             }
         } catch (error) {
-            setErrorMessage('An error occurred during login. Please try again.');
+            toast.error('An error occurred during login. Please try again.');
         }
         setLoading(false);
     };

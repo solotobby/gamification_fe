@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import axios from 'axios';
+import { toast } from 'react-toastify';
+
+import api from '../../Services/api';
 
 const Register = () => {
+    const successMessageRef = useRef('');
     const [countries, setCountries] = useState([]);
     const location = useLocation();
     const [selectedDialingCode, setSelectedDialingCode] = useState('+234');
@@ -55,54 +58,35 @@ const Register = () => {
         setFocusedField(field);
     };
 
+    useEffect(() => {
+        successMessageRef.current = successMessage;
+    }, [successMessage]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setApiError('');
-        setSuccessMessage('');
         setFieldErrors({});
-
+        
         const formObject = { ...values };
-
+    
         try {
-            const response = await axios.post('http://app.e-portal.com.ng/api/register', formObject, {
+            const response = await api.post('/register', formObject, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-
+    
             if (response.status === 201) {
-                setSuccessMessage('Registration successful! Redirecting to login...');
+                toast.success('Registration successful! Redirecting to login...');
                 setTimeout(() => {
                     navigate('/login');
-                }, 3000);
+                }, 5000);
             } else {
                 setApiError(response.data.message || 'An unexpected error occurred.');
             }
         } catch (error) {
             console.error('Error registering:', error);
-
-            if (error.response) {
-                if (error.response.status === 422) {
-
-                    const errors = error.response.data.errors;
-
-                    if (errors) {
-                        console.error('Validation errors:', errors);
-
-                        setFieldErrors(errors);
-
-                        
-                    } else {
-                        setApiError(error.response.data.message || 'An unexpected error occurred.');
-                    }
-                } else {
-                    setApiError(error.response.data.message || 'An unexpected error occurred.');
-                }
-            } else if (error.request) {
-                setApiError('No response from server. Please try again.');
-            } else {
-                setApiError(error.message || 'An error occurred while registering. Please try again.');
-            }
+            toast.error(error.response?.data.message || 'An unexpected error occurred.');
         }
     };
 
@@ -193,7 +177,7 @@ const Register = () => {
                     </p>
                 </div>
                 <form className="flex justify-center mt-10" onSubmit={handleSubmit}>
-                {successMessage && <div className="success-message">{successMessage}</div>}
+                   
                     <div className='w-11/12 mx-auto md:w-2/5'>
                         <Link to='/registration' className="text-3xl font-bold">Sign up for free</Link>
                         <p className="text-gray-300 ">Please ensure that you are providing the appropriate details</p>
