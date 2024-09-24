@@ -15,7 +15,7 @@ const MakeMoney = () => {
                         <p className="max-w-2xl mt-8">
                             Freebyz was created for you to make cool cash every day by doing simple social media jobs on YouTube, Facebook, TikTok, Instagram, and other social media platforms.
                         </p>
-                        <Link to='/registeration'>
+                        <Link to='/registration'>
                             <button className="px-4 py-2 mx-auto my-6 text-white rounded-full md:mx-4 bg-customBlue">
                                 Sign up for free
                             </button>

@@ -8,19 +8,17 @@ const WorkOnline = () => {
             src: "/images/black-boy.png",
             spans: (
                 <>
-                    <span className="absolute right-0 top-[30%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-xl border-[1px] border-slate-100 bg-white rounded-md">
-                        <img src="/images/greenwallet.png" alt="green-wallet" />
-                        <h2 className="text-base md:text-base">&#8358;10,000.00</h2>
-                        <p className="text-base md:text-base">Payout successful</p>
-                    </span>
-                    <span className="absolute bottom-0 left-0 z-10 shadow-xl border-[1px] border-slate-100 bg-white rounded-md p-2 md:p-4">
-                        <div className="flex items-center justify-between gap-4">
-                            <h3 className="text-base md:text-base">Balance</h3>
-                            <button className="px-2 py-1 text-base text-white rounded-full bg-customBlue">Withdraw</button>
+                    <span className="absolute left-[50%] top-[10%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-2xl border-[1px] border-slate-100 bg-white rounded-md">
+                        <div className="flex flex-col items-center justify-between gap-2">
+                            <h3 className="text-base">Engagement Rate</h3>
+                            <img src="/images/engagement-rate.png" alt="engagement-rate-graph" />
                         </div>
-                        <div className="container my-4 border-t border-black-200"></div>
-                        <p className="mt-3">&#8358;500,000.00</p>
-                        <div className="container my-4 border-t border-black-800"></div>
+                    </span>
+                    <span className="absolute bottom-0 left-0 z-10 shadow-xl border-[1px] border-slate-100 bg-white rounded-md p-2 md:p-4 flex flex-col items-center">
+                        <img src="/images/show-love-icon.png" alt="green-wallet" />
+                        <h2 className="text-base md:text-base">10,000</h2>
+                        <h2 className="text-base text-gray-400 md:text-base">Post Impressions</h2>
+                        <p className="text-base text-green-500">+300%</p>
                     </span>
                 </>
             ),
@@ -49,21 +47,24 @@ const WorkOnline = () => {
             ),
         },
         {
-            src: "/images/yellow.png",
+            src: "/images/lady-on-red.png",
             spans: (
                 <>
-                    <span className="absolute left-[70%] top-[30%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-xl border-[1px] border-slate-100 bg-white rounded-md">
-                        <div className="flex flex-col items-center justify-between gap-2">
-                            <h3 className="text-base">Engagement Rate</h3>
-                            <img src="/images/engagement-rate.png" alt="engagement-rate-graph" />
+                     <span className="absolute right-0 top-[30%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-2xl border-[1px] border-slate-100 bg-white rounded-md">
+                        <img src="/images/greenwallet.png" alt="green-wallet" />
+                        <h2 className="text-base md:text-base">&#8358;250,000.00</h2>
+                        <p className="text-base md:text-base">Payout successful</p>
+                    </span>
+                    <span className="absolute bottom-0 left-0 z-10 shadow-xl border-[1px] border-slate-100 bg-white rounded-md p-2 md:p-4">
+                        <div className="flex items-center justify-between gap-4">
+                            <h3 className="text-base md:text-base">Balance</h3>
+                            <button className="px-2 py-1 text-base text-white rounded-full bg-customBlue">Withdraw</button>
                         </div>
+                        <div className="container my-4 border-t border-black-200"></div>
+                        <p className="mt-3">&#8358;500,000.00</p>
+                        <div className="container my-4 border-t border-black-800"></div>
                     </span>
-                    <span className="absolute bottom-0 left-0 z-10 shadow-xl border-[1px] border-slate-100 bg-white rounded-md p-2 md:p-4 flex flex-col items-center">
-                        <img src="/images/show-love-icon.png" alt="green-wallet" />
-                        <h2 className="text-base md:text-base">10,000</h2>
-                        <h2 className="text-base text-gray-400 md:text-base">Post Impressions</h2>
-                        <p className="text-base text-green-500">+300%</p>
-                    </span>
+                    
                 </>
             ),
         },
