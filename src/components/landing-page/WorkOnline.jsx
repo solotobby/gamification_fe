@@ -49,7 +49,7 @@ const WorkOnline = () => {
             ),
         },
         {
-            src: "/images/white-lady.png",
+            src: "/images/yellow.png",
             spans: (
                 <>
                     <span className="absolute left-[70%] top-[30%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-xl border-[1px] border-slate-100 bg-white rounded-md">
