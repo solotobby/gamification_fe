@@ -16,7 +16,7 @@ const ForeignRegistration = () => {
 
                 <div className='flex h-auto col-span-1 md:col-span-2'>
                 <div className="flex flex-col mt-0 md:mt-60 login-content lg:w-[40%] ml-0 md:ml-10 lg:ml-32 w-full px-4 md:px-0">
-                    <Link to='/registeration' className="text-3xl font-bold">Sign up for free</Link>
+                    <Link to="/registration" className="text-3xl font-bold">Sign up for free</Link>
                     <p className="text-gray-400">Please ensure that you provide your active email address</p>
                     <form className="mt-10">
                         <div className="flex flex-col form-group">

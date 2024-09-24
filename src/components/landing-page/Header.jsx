@@ -15,7 +15,7 @@ const Header = () => {
                     <Link to="/make-money" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Make money</Link>
                     <Link to='/about-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>About us</Link>
                     <Link to='/contact-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Contact</Link>
-                    <Link to="/registeration" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Sign up for free</Link>
+                    <Link to="/registration" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Sign up for free</Link>
                     <Link to="/login" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Login</Link>
                 </div>
                 <div className="items-center hidden gap-6 md:flex">

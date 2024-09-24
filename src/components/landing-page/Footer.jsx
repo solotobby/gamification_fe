@@ -8,7 +8,7 @@ const Footer = () => {
 
                 <span className="flex items-center gap-8 md:gap-8">
                     <img className="w-16 md:w-auto" src="/images/arrow-left.png" alt="left-arrow" />
-                    <Link to='/registeration' className="px-4 py-2 text-base text-white rounded-full bg-customBlue md:px-2 md:py-2 md:text-xl">Sign up for free</Link>
+                    <Link to="/registration" className="px-4 py-2 text-base text-white rounded-full bg-customBlue md:px-2 md:py-2 md:text-xl">Sign up for free</Link>
                     <img className="w-16 md:w-auto" src="/images/arrow2.png" alt="right-arrow" />
                 </span>
             </div>

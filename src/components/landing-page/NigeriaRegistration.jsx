@@ -28,7 +28,7 @@ const NigeriaRegistration = () => {
                                     
                                 />
                             </div>
-                            <Link to='/registeration'>
+                            <Link to="/registration">
                                 <button 
                                     className='px-4 py-2 mt-8 text-white bg-blue-500 rounded-full' 
                                     type="submit" 
