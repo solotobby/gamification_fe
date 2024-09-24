@@ -53,7 +53,7 @@ function App() {
         <Route path="/make-money" element={<><Header /><MakeMoney /><Footer /></>} />
 
         
-        <Route path="/registeration-form" element={<Register />} />
+        <Route path="/registration-form" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/otp" element={<Otp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
