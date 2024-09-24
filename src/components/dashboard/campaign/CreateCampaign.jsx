@@ -128,160 +128,167 @@ const CreateCampaign = () => {
     const estimatedCost = numberOfWorkers * costPerCampaign;
 
     const renderInformationContent = () => (
-        <div>
-            <p className="mb-4">Category</p>
-            <div className="relative mb-4">
-                <button
-                    onClick={toggleCategoryDropdown}
-                    className="flex items-center justify-between w-1/2 px-4 py-2 mb-8 text-left text-gray-700 bg-gray-200 rounded"
-                >
-                    <span>{selectedCategory?.name || 'Select Category'}</span>
-                    <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
-                </button>
-                {showCategoryDropdown && (
-                    <ul
-                        className="absolute left-0 z-10 w-1/2 mt-2 bg-white border border-gray-200 rounded shadow-lg"
-                        style={{ maxHeight: '200px', overflowY: 'auto' }}
+        <div className='flex flex-col items-center w-full mx-auto'>
+            <div className='w-[80%] mx-auto '>
+                <p className="mb-4 text-lg">Category</p>
+                <div className="relative w-full mx-auto mb-4">
+                    <div
+                        onClick={toggleCategoryDropdown}
+                        className="flex items-center justify-between w-full px-4 py-4 mb-8 text-left text-gray-900 bg-gray-100 rounded-lg"
                     >
-                        {categories.map((el) => (
-                            <li
-                                key={el.id}
-                                className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                                onClick={() => handleCategorySelect(el)}
-                            >
-                                {el.name}
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                        <span className={`${selectedCategory ? 'text-gray-700' : 'text-gray-400'}`}>{selectedCategory?.name || 'Select Category'}</span>
+                        <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
+                    </div>
+                    {showCategoryDropdown && (
+                        <ul
+                            className="absolute left-0 z-10 w-full bg-blue-100 border-gray-200 rounded-lg shadow-lg border-lg top-20"
+                            style={{ maxHeight: '200px', overflowY: 'auto' }}
+                        >
+                            {categories.map((el) => (
+                                <li
+                                    key={el.id}
+                                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                                    onClick={() => handleCategorySelect(el)}
+                                >
+                                    {el.name}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+
+            </div>
+            <div className='w-[80%] mx-auto '>
+                <p className="mb-2 text-lg">Sub-category</p>
+                <div className="relative w-full mx-auto mb-4">
+                    <div
+                        onClick={toggleSubCategoryDropdown}
+                        className="flex items-center justify-between w-full px-4 py-4 mb-8 text-left text-gray-900 bg-gray-100 rounded-lg"
+                    >
+                        <span className={`${selectedCategory ? 'text-gray-700' : 'text-gray-400'}`}>{selectedSubCategory?.name || 'Select Sub-category'}</span>
+                        <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
+                    </div>
+                    {showSubCategoryDropdown && (
+                        <ul
+                            className="absolute left-0 z-10 w-full bg-blue-100 border-gray-200 rounded-lg shadow-lg border-lg top-20"
+                            style={{ maxHeight: '200px', overflowY: 'auto' }}
+                        >
+                            {selectedSubCategory.map((el) => (
+                                <li
+                                    key={el.id}
+                                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                                    onClick={() => handleSubCategorySelect(el)}
+                                >
+                                    {el.name}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </div>
 
-            <p className="mb-2">Sub-category</p>
-            <div className="relative">
-                <button
-                    onClick={toggleSubCategoryDropdown}
-                    className="flex items-center justify-between w-1/2 px-4 py-2 mb-8 text-left text-gray-700 bg-gray-200 rounded"
-                >
-                    <span>{selectedSubCategory?.name || 'Select Sub-category'}</span>
-                    <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
-                </button>
-                {showSubCategoryDropdown && (
-                    <ul
-                        className="absolute left-0 z-10 w-1/2 mt-2 bg-white border border-gray-200 rounded shadow-lg"
-                        style={{ maxHeight: '200px', overflowY: 'auto' }}
-                    >
-                        {selectedSubCategory.map((el) => (
-                            <li
-                                key={el.id}
-                                className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                                onClick={() => handleSubCategorySelect(el)}
-                            >
-                                {el.name}
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </div>
-
-            <div className='flex gap-2'>
-                <div>
+            <div className='flex gap-2 mt-16 w-[80%] mx-auto'>
+                <div className='flex-grow'>
                     <p className="mb-2">Number of workers</p>
                     <div className="flex items-center gap-2">
                         <input
                             type="number"
                             value={numberOfWorkers}
                             onChange={handleWorkerChange}
-                            className="px-2 py-1 text-center border border-gray-300 rounded w-96"
+                            className="w-full px-2 py-4 text-center border-2 border-gray-300 rounded-lg"
                             disabled={!selectedCategory || selectedSubCategory?.name === 'Select'}
                         />
                     </div>
                 </div>
 
-                <div>
+                <div className='flex-grow'>
                     <p className="mb-2">Cost per campaign</p>
                     <div className="flex items-center gap-2">
                         <input
                             type="number"
                             value={costPerCampaign}
                             onChange={handleCostPerCampaignChange}
-                            className="px-2 py-1 text-center border border-gray-300 rounded w-96"
+                            className="w-full px-2 py-4 text-center border-2 border-gray-300 rounded-lg"
                             disabled={!selectedCategory || selectedSubCategory?.name === 'Select'}
                         />
                     </div>
                 </div>
             </div>
-
-            <p className="mt-4 text-lg font-semibold">Estimated cost: <span className="text-xl">&#8358; {estimatedCost.toFixed(2)}</span></p>
+            <div className='mx-auto w-[80%]'>
+                <p className="mt-10 text-lg font-semibold">Estimated cost: <span className="text-xl">&#8358; {estimatedCost.toFixed(2)}</span></p>
+            </div>
         </div>
     );
 
     const renderDescriptionContent = () => (
-        <div className='h-screen overflow-y-auto pb-28'>
-            <div className='flex gap-2 mb-6'>
-                <img src="/images/back-arrow.png" onClick={() => setActiveTab('information')} alt="arrow-back" />
-                <p>Back</p>
-            </div>
-            <p className="mb-2">Campaign Description</p>
-            <p className='mb-6'>Give detailed description of the campaign</p>
+        <div className='flex flex-col items-center w-full h-screen mx-auto overflow-y-auto pb-28'>
+            <div className='w-[80%] mx-auto'>
+                <div className='flex gap-2 mt-2 mb-12 justify-left'>
+                    <img src="/images/back-arrow.png" onClick={() => setActiveTab('information')} alt="arrow-back" />
+                    <p className='text-xl text-blue-600'>Back</p>
+                </div>
+                <p className="mb-2 text-2xl font-semibold text-center">Campaign Description</p>
+                <p className='mb-12 text-center text-gray-500'>Give detailed description of the campaign</p>
 
-            <p>Title</p>
-            <textarea
-                rows="2"
-                className="w-1/2 px-4 py-2 border border-gray-300 rounded"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-            />
-            <p className='mb-6'>Please give a simple campaign title e.g Facebook Like or Youtube comment</p>
-
-            <p>External Link</p>
-            <textarea
-                rows="2"
-                className="w-1/2 px-4 py-2 border border-gray-300 rounded"
-                value={externalLink}
-                onChange={(e) => setExternalLink(e.target.value)}
-            />
-            <p className='mb-6'>Please provide an external link for your campaign e.g https://myhotjobz.com</p>
-
-            <p>Campaign Description (Ensure you provide simple and clear instruction on task to be done)</p>
-            <textarea
-                rows="5"
-                className="w-1/2 px-4 py-2 border border-gray-300 rounded"
-                value={campaignDescription}
-                onChange={(e) => setCampaignDescription(e.target.value)}
-            />
-
-            <p className='mt-6'>Expected Campaign Proof</p>
-            <p className='mt-6'>(You can request for social media handle, email or other means of identifying the worker)</p>
-            <textarea
-                rows="5"
-                className="w-1/2 px-4 py-2 border border-gray-300 rounded"
-                value={campaignProof}
-                onChange={(e) => setCampaignProof(e.target.value)}
-            />
-            <label className="flex items-center mt-4">
-                <input
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-500 border-gray-300 rounded form-checkbox focus:ring-blue-400"
-                    checked={agreed}
-                    onChange={(e) => setAgreed(e.target.checked)}
+                <p className='mb-2 text-lg'>Title</p>
+                <textarea
+                    rows="1"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                 />
-                <span className="ml-2 text-base text-gray-600" required >I agree that this campaign will be automatically approved after 24 hours if I fail to approve it.</span>
-            </label>
+                <p className='mb-6 italic text-gray-500'>Please give a simple campaign title e.g Facebook Like or Youtube comment</p>
 
-            <button
-                className={`mt-6 px-4 py-2 rounded-full ${isFormValid() ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-400'}`}
-                disabled={!isFormValid()}
-                onClick={createNewCampaign}
-            >
-                Post Campaign
-            </button>
+                <p className='mt-20 mb-2 text-lg'>External Link</p>
+                <textarea
+                    rows="1"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                    value={externalLink}
+                    onChange={(e) => setExternalLink(e.target.value)}
+                />
+                <p className='mb-6 italic text-gray-500'>Please provide an external link for your campaign e.g https://myhotjobz.com</p>
+
+                <p className='mt-20 mb-2 text-lg'>Campaign Description (Ensure you provide simple and clear instruction on task to be done)</p>
+                <textarea
+                    rows="5"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                    value={campaignDescription}
+                    onChange={(e) => setCampaignDescription(e.target.value)}
+                />
+
+                <p className='mt-20 mb-2 text-lg'>Expected Campaign Proof (You can request for social media handle, email or other means of identifying the worker)</p>
+               
+                <textarea
+                    rows="5"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                    value={campaignProof}
+                    onChange={(e) => setCampaignProof(e.target.value)}
+                />
+                <label className="flex items-center mt-4">
+                    <input
+                        type="checkbox"
+                        className="w-4 h-4 text-blue-500 border-gray-300 rounded form-checkbox focus:ring-blue-400"
+                        checked={agreed}
+                        onChange={(e) => setAgreed(e.target.checked)}
+                    />
+                    <span className="ml-2 text-base text-gray-600" required >I agree that this campaign will be automatically approved after 24 hours if I fail to approve it.</span>
+                </label>
+
+                <button
+                    className={`mt-16 px-4 py-2 rounded-full ${isFormValid() ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-400'}`}
+                    disabled={!isFormValid()}
+                    onClick={createNewCampaign}
+                >
+                    Post Campaign
+                </button>
+            </div>
         </div>
     );
 
     return (
-        <Layout className="px-4 pt-4">
-            <div className="h-screen px-8 mb-8 overflow-y-auto">
-                <div className="flex items-center gap-2 mb-4">
+        <Layout className="px-4 pt-4 ">
+            <div className="h-screen p-8 m-5 overflow-y-auto bg-white rounded-md">
+                <div className="flex items-center gap-2 mb-8">
                     <button
                         className={`flex items-center gap-2 ${activeTab === 'information' ? 'p-4 text-blue-600 border-b-2 border-blue-600' : 'text-gray-600'}`}
                         onClick={() => setActiveTab('information')}
@@ -300,21 +307,27 @@ const CreateCampaign = () => {
 
                 {activeTab === 'information' && (
                     <>
-                        <p className="mb-2 text-base font-semibold">Campaign information</p>
-                        <p className="mb-4">Please provide detailed information about your campaign.</p>
-                        {renderInformationContent()}
+                        <p className="mb-2 text-2xl font-semibold text-center">Campaign information</p>
+                        <p className="mb-12 text-center text-gray-500">Please provide detailed information about your campaign.</p>
+                        <div className='flex flex-col items-center'>{renderInformationContent()}</div>
                     </>
                 )}
-                {activeTab === 'description' && renderDescriptionContent()}
+                {activeTab === 'description' &&
+                    <div className='flex flex-col items-center'>
+                        {renderDescriptionContent()}
+                    </div>
+                }
 
                 {activeTab === 'information' && (
-                   <button
-                        className={`mt-6 px-4 py-2 rounded-full ${isFormValid() ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-400'}`}
-                        disabled={!isFormValid()}
-                        onClick={() => setActiveTab('description')}
-                    >
-                        Continue
-                    </button>
+                    <div className='mx-auto w-[80%]'>
+                        <button
+                            className={`mt-6 px-4 py-2 rounded-full ${isFormValid() ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-400'}`}
+                            disabled={!isFormValid()}
+                            onClick={() => setActiveTab('description')}
+                        >
+                            Continue
+                        </button>
+                    </div>
                 )}
             </div>
         </Layout>
