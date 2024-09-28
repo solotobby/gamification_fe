@@ -26,7 +26,7 @@ const ForeignRegistration = () => {
         <div className="relative h-screen overflow-scroll">
             <div className="relative grid h-auto grid-cols-1 gap-32 md:grid-cols-3 md:h-full md:gap-0">
                 <div className="w-full h-32 pl-2 md:pl-8 md:h-full bg-customBlue left-class shrink-0 background-map2">
-                    <img className="pt-10" src="/images/Freebyz-logo-white.png" alt="freebyz-logo" />
+                    <Link to='/'><img className="pt-10 cursor-pointer" src="/images/Freebyz-logo-white.png" alt="freebyz-logo"  /></Link>
                     <h1 className="hidden w-1/2 mt-20 text-2xl text-white md:block">Work online and earn daily in dollar and naira!</h1>
                 </div>
 

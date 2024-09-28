@@ -43,7 +43,6 @@ const ResetPassword = () => {
                 throw new Error(errorMessage);
             }
 
-            // Password reset successful, you may redirect the user or show a success message
             console.log('Password reset successful');
         } catch (error) {
             setError(error.message);
@@ -53,7 +52,7 @@ const ResetPassword = () => {
     return (
         <div className="flex">
             <div className="pl-10 w-[30%] bg-customBlue left-class h-svh shrink-0 background-map2">
-                <img className="pt-10" src="/images/Freebyz-logo-white.png" alt="freebyz-logo" />
+                <Link to='/'><img className="pt-10" src="/images/Freebyz-logo-white.png" alt="freebyz-logo" /></Link>
                 <h1 className="w-1/2 mt-20 text-2xl text-white">Work online and earn daily in dollar and naira!</h1>
             </div>
 

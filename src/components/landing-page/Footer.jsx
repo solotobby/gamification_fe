@@ -15,8 +15,8 @@ const Footer = () => {
             <div className="pb-4 mt-8 bg-customBlue">
                 <div className="container flex flex-wrap justify-around gap-5 p-10">
 
-                    <div className="w-full lg:w-1/4 shrink-0 ">
-                        <img src="/images/Freebyz-logo-white.png" alt="freebyz-logo"/>
+                    <div className="w-full cursor-pointer lg:w-1/4 shrink-0">
+                        <Link to='/'><img src="/images/Freebyz-logo-white.png" alt="freebyz-logo" /></Link>
                     </div>
                   <div className="grid grid-cols-2 gap-10 lg:flex-grow lg:grid-cols-4 lg:gap-3">
                     <div className="text-base text-white md:text-xl">

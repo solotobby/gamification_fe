@@ -166,7 +166,7 @@ const Register = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-4">
             <div className="h-full px-8 bg-customBlue left-class background-map2 shrink-0">
-                <img className="pt-10 mb-3 md:mb-0" src="/images/Freebyz-logo-white.png" alt="freebyz-logo" />
+                <Link to='/'><img className="pt-10 mb-3 md:mb-0" src="/images/Freebyz-logo-white.png" alt="freebyz-logo" /></Link>
                 <h1 className="hidden mt-20 text-2xl text-white md:block">It takes less than two minutes to create your account.</h1>
             </div>
 

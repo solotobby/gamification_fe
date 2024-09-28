@@ -55,7 +55,7 @@ const Login = () => {
     return (
         <div className="relative grid h-screen grid-cols-1 bg-white md:grid-cols-3">
             <div className="w-full h-32 pl-2 md:pl-8 md:h-full bg-customBlue left-class shrink-0 background-map2">
-                <img className="pt-10" src="/images/Freebyz-logo-white.png" alt="freebyz-logo" />
+                <Link to='/'><img className="pt-10" src="/images/Freebyz-logo-white.png" alt="freebyz-logo" /></Link>
                 <h1 className="w-1/2 mt-20 text-2xl text-white">Work online and earn daily in dollar and naira!</h1>
             </div>
 
