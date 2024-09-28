@@ -12,7 +12,7 @@ const Footer = () => {
                     <img className="w-16 md:w-auto" src="/images/arrow2.png" alt="right-arrow" />
                 </span>
             </div>
-            <div className="pb-10 mt-8 bg-customBlue">
+            <div className="pb-4 mt-8 bg-customBlue">
                 <div className="container flex flex-wrap justify-around gap-5 p-10">
 
                     <div className="w-full lg:w-1/4 shrink-0 ">

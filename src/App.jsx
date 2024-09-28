@@ -11,35 +11,30 @@ import Login from './components/landing-page/Login.jsx';
 import Register from './components/landing-page/Register.jsx';
 import Otp from './components/landing-page/Otp.jsx';
 import ResetPassword from './components/landing-page/ResetPassword.jsx';
-import Dashboard from './components/landing-page/Dashboard.jsx';
-import NigeriaRegistration from './components/landing-page/NigeriaRegistration.jsx';
 import ForeignRegistration from './components/landing-page/ForeignRegistration.jsx';
 import MakeMoney from './components/landing-page/MakeMoney.jsx';
+import ScrollToTop from './components/landing-page/pages/ScrollToTop.jsx';
 
 
 function App() {
   return (
     <Router>
-      <Routes>
-       
-        <Route path="/" element={<><Header /><Home /><Footer /></>} />
-        <Route path="/contact-us" element={<><Header /><ContactUs /><Footer /></>} />
-        <Route path="/about-us" element={<><Header /><AboutUs /><Footer /></>} />
-        <Route path="/terms-of-use" element={<><Header /><TermsOfUse /><Footer /></>} />
-        <Route path="/privacy-policy" element={<><Header /><PrivacyPolicy /><Footer /></>} />
-        <Route path="/dashboard" element={<><Header /><Dashboard /><Footer /></>} />
-        <Route path="/" element={<><Header /><Dashboard /><Footer /></>} />
-        <Route path="/registration-form" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/otp" element={<Otp />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registration-nigeria" element={< NigeriaRegistration />} />
-        <Route path="/registration" element={< ForeignRegistration />} />
-        <Route path="/make-money" element={<><Header /><MakeMoney /><Footer /></>} />
-        
-      
-      </Routes>
+      <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<><Header /><Home /><Footer /></>} />
+          <Route path="/contact-us" element={<><Header /><ContactUs /><Footer /></>} />
+          <Route path="/about-us" element={<><Header /><AboutUs /><Footer /></>} />
+          <Route path="/terms-of-use" element={<><Header /><TermsOfUse /><Footer /></>} />
+          <Route path="/privacy-policy" element={<><Header /><PrivacyPolicy /><Footer /></>} />
+          <Route path="/" element={<><Header /><Footer /></>} />
+          <Route path="/registration-form" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/otp" element={<Otp />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={< ForeignRegistration />} />
+          <Route path="/make-money" element={<><Header /><MakeMoney /><Footer /></>} />
+        </Routes>
     </Router>
   );
 }

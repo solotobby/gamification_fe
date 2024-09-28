@@ -16,22 +16,22 @@ const PrivacyPolicy = () => {
     }
     return (
         <div className="container relative min-h-screen pt-24">
-            <div className="md:fixed flex-col hidden my-8 md:flex w-[15rem] h-full relative">
+            <div className="md:fixed flex-col hidden md:flex w-[11rem] h-full relative">
                 <h1 className="mb-4 font-bold">Privacy policy</h1>
-                <span className="mb-4" onClick={() => goToRef(overviewRef)}>Overview</span>
-                <span className="mb-4" onClick={()=>goToRef(consent)}>Consent</span>
-                <span className="mb-4" onClick={()=>goToRef(infoWeCollectRef)}>Information we collect</span>
-                <span className="mb-4" onClick={()=>goToRef(hoWeManageYourInfoRef)}>How we use your information </span>
-                <span className="mb-4" onClick={()=>goToRef(logFilesRef)}>Log Files</span>
-                <span className="mb-4" onClick={()=>goToRef(cookiesAndWebRef)}>Cookies and Web Becons</span>
-                <span className="mb-4" onClick={()=>goToRef(advertisingPartnersRef )}>Advertising Partners Privacy Policy</span>
-                <span className="mb-4" onClick={()=>goToRef(thirdPartyRef)}>Third Party Privacy Policy</span>
-                <span className="mb-4" onClick={()=>goToRef(gdprRef)}>GDPR Data Protection Rights</span>
-                <span className="mb-4 " onClick={() => goToRef(childInfoRef)}>Children&#39;s Information</span>
+                <span className="mb-4 cursor-pointer" onClick={() => goToRef(overviewRef)}>Overview</span>
+                <span className="mb-4 cursor-pointer" onClick={()=>goToRef(consent)}>Consent</span>
+                <span className="mb-4 cursor-pointer" onClick={()=>goToRef(infoWeCollectRef)}>Information we collect</span>
+                <span className="mb-4 cursor-pointer" onClick={()=>goToRef(hoWeManageYourInfoRef)}>How we use your information </span>
+                <span className="mb-4 cursor-pointer" onClick={()=>goToRef(logFilesRef)}>Log Files</span>
+                <span className="mb-4 cursor-pointer" onClick={()=>goToRef(cookiesAndWebRef)}>Cookies and Web Becons</span>
+                <span className="mb-4 cursor-pointer" onClick={()=>goToRef(advertisingPartnersRef )}>Advertising Partners Privacy Policy</span>
+                <span className="mb-4 cursor-pointer" onClick={()=>goToRef(thirdPartyRef)}>Third Party Privacy Policy</span>
+                <span className="mb-4 cursor-pointer" onClick={()=>goToRef(gdprRef)}>GDPR Data Protection Rights</span>
+                <span className="mb-4 cursor-pointer" onClick={() => goToRef(childInfoRef)}>Children&#39;s Information</span>
             </div>
             <div className="md:ml-[15rem] ml-0">
                 <div className="pl-10">
-                    <h1 className="my-8 text-3xl font-bold">Privacy policy</h1>
+                    <h1 className="mt-2 mb-8 text-3xl font-bold">Privacy policy</h1>
                     <div ref={overviewRef}>
                         <h2 className="my-8 text-2xl font-bold">
                             Overview
@@ -130,7 +130,7 @@ const PrivacyPolicy = () => {
                     <p className="mb-4 text-2xl font-bold">Third party privacy policies</p>
                     <div ref={thirdPartyRef}>
                         <p className="mb-4">
-                            Freebyz's privacy policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information.
+                            Freebyz&apos;s privacy policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information.
                             It may include their practices and instructions about how to opt-out of certain options. You can choose to disable cookies through your individual browser options.
                         </p>
                         <p className="mb-4">
@@ -171,6 +171,7 @@ const PrivacyPolicy = () => {
                     </div>
                 </div>
             </div>
+           
         </div>
     )
 }
