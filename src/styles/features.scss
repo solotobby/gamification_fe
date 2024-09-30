@@ -7,3 +7,44 @@
 .feature-item.active {
     border-left-color: blue;
 }
+
+.container {
+    .feature-item {
+        display: block;
+        &.active {
+            display: block;
+        }
+        &.inactive {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .feature-item {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            margin-top: 16px;
+
+            img {
+                cursor: pointer;
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        .desktop-only {
+            display: none;
+        }
+    }
+
+    @media (min-width: 769px) {
+        .mobile-only {
+            display: none;
+        }
+    }
+}

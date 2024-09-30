@@ -141,3 +141,96 @@ export const testimonial = [
         platform: '/images/ticktock-icon.png'
     },
 ]
+
+export const dashMenuItems = [
+    {
+        icon: '/images/dashboard-icon.png',
+        name: 'Dashboard',
+        url: '/'
+    },
+    {
+        icon: '/images/safelock.png',
+        name: 'Safelock funds',
+        url: '/interviews'
+    },
+    {
+        icon: '/images/bannerads.png',
+        name: 'Banner Ads',
+        url: '/jobs',
+        dropdown: '/images/dropdown.png',
+        subMenuItems: [
+            { name: 'Create', url: '/create-banner-ads' },
+            { name: 'List', url: '/list-banner-ads' }
+        ]
+    },
+    {
+        icon: '/images/jobs.png',
+        name: 'Jobs',
+        url: '/settings',
+        dropdown: '/images/dropdown.png',
+        subMenuItems: [
+            { name: 'Available jobs', url: '/available-jobs' },
+            { name: 'My jobs', url: '/my-jobs' },
+            { name: 'Completed jobs', url: '/completed-jobs' },
+            { name: 'Disputed jobs', url: '/disputed-jobs' }
+        ]
+    },
+    {
+        icon: '/images/campaign.png',
+        name: 'Campaigns',
+        url: '/',
+        dropdown: '/images/dropdown.png',
+        subMenuItems: [
+            { name: 'Create Campaign', url: '/dashboard-dollar/create-campaign' },
+            { name: 'View Campaigns', url: '/dashboard-dollar/view-campaign' },
+            { name: 'Approved Campaigns', url: '/dashboard-dollar/approved-campaign' },
+            { name: 'Denied Campaigns', url: '/dashboard-dollar/denied-campaign' }
+        ]
+    },
+    {
+        icon: '/images/wallet.png',
+        name: 'Wallet',
+        url: '/',
+        dropdown: '/images/dropdown.png',
+        subMenuItems: [
+            { name: 'Your wallet', url: '/dashboard-dollar/your-wallet' },
+            { name: 'Withdrawal requests', url: '/dashboard-dollar/withdrawal-request' }
+        ]
+    },
+    {
+        icon: '/images/referral.png',
+        name: 'Referral',
+        url: '/referral'
+    },
+    {
+        icon: '/images//badge.png',
+        name: ' Badge',
+        url: '/'
+    },{
+        icon: '/images/currency-converter.png',
+        name: 'Currency converter',
+        url: '/currency-converter'
+    },{
+        icon: '/images/transaction-list.png',
+        name: 'Transaction List',
+        url: '/'
+    },{
+        icon: '/images/tutorials.png',
+        name: ' Tutorials',
+        url: '/',
+        dropdown: '/images/dropdown.png'
+    },{
+        icon: '/images/talk-to-us.png',
+        name: 'Talk to us',
+        url: '/talk-to-us'
+    },{
+        icon: '/images/knowledge.png',
+        name: 'Knowlege base',
+        url: '/'
+    },{
+        icon: '/images/logout.png',
+        name: 'Logout',
+        url: '/'
+    },
+
+]
