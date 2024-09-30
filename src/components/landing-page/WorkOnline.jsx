@@ -5,7 +5,7 @@ const WorkOnline = () => {
     const [imageIndex, setImageIndex] = useState(0);
     const images = [
         {
-            src: "/images/black-boy.png",
+            src: "/images/black-boy.webp",
             spans: (
                 <>
                     <span className="absolute left-[50%] top-[10%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-2xl border-[1px] border-slate-100 bg-white rounded-md">
@@ -24,7 +24,7 @@ const WorkOnline = () => {
             ),
         },
         {
-            src: "/images/young-lady.png",
+            src: "/images/young-lady.webp",
             spans: (
                 <>
                     <span className="absolute right-0 bottom-0 md:bottom-0 z-10 p-2 md:p-4 flex flex-col items-center shadow-xl border-[1px] border-slate-100 bg-white rounded-md">
@@ -47,7 +47,7 @@ const WorkOnline = () => {
             ),
         },
         {
-            src: "/images/lady-on-red.png",
+            src: "/images/lady-on-red.webp",
             spans: (
                 <>
                      <span className="absolute right-0 top-[30%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-2xl border-[1px] border-slate-100 bg-white rounded-md">
