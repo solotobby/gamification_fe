@@ -65,9 +65,15 @@ const Footer = () => {
                         <p className="text-base font-inter">Freebyz By Dominahl Technology LLC</p>
                     </div>
                     <div className="flex gap-4 pb-8 md:gap-8">
-                        <img src="/images/facebook.png" alt="facebook-icon" className="w-5 h-5" />
-                        <img src="/images/freebyz-ig.png" alt="instagram-icon" className="w-5 h-5" />
-                        <img src="/images/freebyz-x.png" alt="twitter-icon" className="w-5 h-5" />
+                        <a href="https://www.facebook.com/share/XzPhzupkGenQRLps/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/facebook.png" alt="facebook-icon" className="w-5 h-5" />
+                        </a>
+                        <a href="https://www.instagram.com/freebyzjobs?utm_source=qr&igsh=MTAyd3JqY3hvd2Judg==" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/freebyz-ig.png" alt="instagram-icon" className="w-5 h-5" />
+                        </a>
+                        <a href="https://x.com/FreebyzHQ?t=5PLw53pf5s7a86asWLDHYQ&s=08" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/freebyz-x.png" alt="twitter-icon" className="w-5 h-5" />
+                        </a>
                     </div>
                 </div>
             </div>
