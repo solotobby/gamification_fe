@@ -14,4 +14,8 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3006,
   },
+  build: {
+    outDir: 'dist',  // Default output directory
+    emptyOutDir: true,  // Clear the output directory before building
+  },
 })
