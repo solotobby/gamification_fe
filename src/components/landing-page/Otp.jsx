@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const Otp = () => {
-    const [countdown, setCountdown] = useState(60);
+    const [countdown, setCountdown] = useState(120);
     const [otpCode, setOtpCode] = useState('');
     const [countdownActive, setCountdownActive] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
@@ -13,12 +14,12 @@ const Otp = () => {
         if (countdownActive) {
             const timer = setTimeout(() => {
                 if (countdown > 0) {
-                    setCountdown(countdown - 1);
+                    setCountdown((prev) => prev - 1);
                 } else {
                     setCountdownActive(false);
                 }
             }, 1000);
-
+    
             return () => clearTimeout(timer);
         }
     }, [countdown, countdownActive]);
@@ -27,14 +28,41 @@ const Otp = () => {
         setOtpCode(e.target.value);
     };
 
-    const handleResendCode = () => {
-        setCountdown(60);
-        setCountdownActive(true);
+    const handleResendCode = async () => {
+        const email = localStorage.getItem('email');
+        console.log('Email from localStorage in OTP component:', email);
+
+    
+        if (!email) {
+            toast.error('User email not found. Please try again.');
+            return;
+        }
+    
+        try {
+            const response = await fetch('http://app.e-portal.com.ng/api/process/otp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+    
+            const responseData = await response.json();
+            if (response.ok && responseData.status === true) {
+                toast.success(responseData.message || 'OTP resent successfully!');
+                setCountdown(120);
+                setCountdownActive(true);
+            } else {
+                toast.error(responseData.message || 'Failed to resend OTP.');
+            }
+        } catch (error) {
+            toast.error('An error occurred while resending the OTP.');
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
             const response = await fetch('http://app.e-portal.com.ng/api/validate/otp', {
                 method: 'POST',
@@ -43,25 +71,35 @@ const Otp = () => {
                 },
                 body: JSON.stringify({ otp: otpCode }),
             });
-
-            if (response.ok) {
-                navigate('/reset-password');
+    
+            const responseData = await response.json();
+    
+            if (response.ok && responseData.status === true) {
+                toast.success(responseData.message || 'OTP verified successfully!');
+                navigate('/login');
             } else {
-                const responseData = await response.json();
-                if (responseData.message === "Otp is not correct, please request another one") {
-                    setErrorMessage(responseData.message);
+                if (responseData.errors) {
+                    const errorMessages = Object.values(responseData.errors)
+                        .flat()
+                        .join(' ');
+                    toast.error(errorMessages || 'Validation error. Please check your input.');
+                } else if (responseData.message) {
+                    toast.error(responseData.message || 'An unexpected error occurred.');
                 } else {
-                    console.error('Failed to verify OTP');
+                    toast.error('An unexpected error occurred. Please try again.');
                 }
             }
         } catch (error) {
-            console.error('Error verifying OTP:', error);
+            toast.error('Failed to verify OTP. Please try again later.');
         }
     };
 
     const countdownColor = 'text-blue-500';
-    const resendPlaceholderText = countdownActive ? `Resend code in ${String(Math.floor(countdown / 60)).padStart(2, '0')}:${String(countdown % 60).padStart(2, '0')}` : 'Resend code now';
-
+    const minutes = String(Math.floor(countdown / 60)).padStart(2, '0');
+    const seconds = String(countdown % 60).padStart(2, '0');
+    const resendPlaceholderText = countdownActive
+        ? `Resend code in ${minutes}:${seconds}`
+        : 'Resend code now';
 
     return (
         <div className="relative grid h-screen grid-cols-1 bg-white md:grid-cols-3">
@@ -70,7 +108,7 @@ const Otp = () => {
                 <h1 className="w-1/2 mt-20 text-2xl text-white">Work online and earn daily in dollar and naira!</h1>
             </div>
 
-            <div className='flex h-full col-span-2'>
+            <div className="flex h-full col-span-2">
                 <div className="flex flex-col mt-4 md:mt-40 login-content lg:w-[40%] ml-0 md:ml-10 lg:ml-32 w-full px-4 md:px-0 login-content">
                     <h2 className="text-3xl font-bold">OTP authentication</h2>
                     <p className="text-gray-400">Kindly enter the 6-digit OTP code sent to your email address.</p>
@@ -89,7 +127,12 @@ const Otp = () => {
                             {!otpCode && (
                                 <div className="absolute inset-y-0 right-0 flex items-center">
                                     <div className="mt-8 mr-4 text-base">
-                                        <p className={`text-base ${countdownColor} cursor-pointer`} onClick={countdownActive ? null : handleResendCode}>{resendPlaceholderText}</p>
+                                        <p
+                                            className={`text-base ${countdownColor} cursor-pointer`}
+                                            onClick={!countdownActive ? handleResendCode : null}
+                                        >
+                                            {resendPlaceholderText}
+                                        </p>
                                     </div>
                                 </div>
                             )}
@@ -103,16 +146,17 @@ const Otp = () => {
                             Verify OTP
                         </button>
                         <div className="mt-2 text-red-500">{errorMessage}</div>
-                       
                     </form>
                 </div>
             </div>
 
-            <div className='absolute top-32 right-8 md:top-10'>
-                <p className="mx-8 mt-10">Don&apos;t have an account? <Link to="/registration" className="text-blue-500">Sign up</Link></p>
+            <div className="absolute top-32 right-8 md:top-10">
+                <p className="mx-8 mt-10">
+                    Don&apos;t have an account? <Link to="/registration" className="text-blue-500">Sign up</Link>
+                </p>
             </div>
         </div>
     );
-}
+};
 
 export default Otp;

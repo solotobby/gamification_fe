@@ -7,6 +7,7 @@ import api from '../../Services/api';
 const Register = () => {
     const successMessageRef = useRef('');
     const [countries, setCountries] = useState([]);
+    const [isLoadingCountries, setIsLoadingCountries] = useState(true);
     const location = useLocation();
     const [selectedDialingCode, setSelectedDialingCode] = useState('+234');
     const [values, setValues] = useState({
@@ -14,6 +15,7 @@ const Register = () => {
         "first_name": "",
         "last_name": "",
         "country": "Nigeria",
+        "country_code": "NG",
         "phone": "",
         "password": "",
         "password_confirmation": "",
@@ -66,29 +68,45 @@ const Register = () => {
         e.preventDefault();
         setApiError('');
         setFieldErrors({});
-        
-        const formObject = { ...values };
     
         try {
-            const response = await api.post('/register', formObject, {
+            const response = await api.post('/register', values, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
     
-            if (response.status === 201) {
-                toast.success('Registration successful! Redirecting to login...');
+            if (response.status === 201 && response.data.status) {
+               
+                const token = response.data.data?.token;
+                if (token) {
+                    localStorage.setItem('authToken', token);
+                }
+
+                localStorage.setItem('email', values.email);
+                console.log('Email saved in localStorage:', localStorage.getItem('email'));
+    
+                toast.success('Registration successful! Redirecting to OTP verification...');
                 setTimeout(() => {
-                    navigate('/login');
+                    navigate('/otp');
                 }, 5000);
             } else {
                 setApiError(response.data.message || 'An unexpected error occurred.');
             }
         } catch (error) {
-            console.error('Error registering:', error);
-            toast.error(error.response?.data.message || 'An unexpected error occurred.');
+            if (error.response && error.response.data.errors) {
+                const validationErrors = error.response.data.errors;
+                Object.entries(validationErrors).forEach(([field, messages]) => {
+                    messages.forEach((msg) => {
+                        toast.error(`${field.charAt(0).toUpperCase() + field.slice(1)}: ${msg}`);
+                    });
+                });
+            } else {
+                toast.error(error.response?.data.message || 'An unexpected error occurred.');
+            }
         }
     };
+    
 
     useEffect(() => {
         fetchCountryList();
@@ -104,16 +122,38 @@ const Register = () => {
             setCountries(data);
         } catch (error) {
             console.error('Error fetching country list:', error);
+        } finally {
+            setIsLoadingCountries(false);
         }
     };
-
+    
     const handleCountryChange = (e) => {
         const selectedCountry = e.target.value;
+        const selectedCountryObject = countries.find(country => country.country === selectedCountry);
+    
+        if (!selectedCountryObject) {
+            console.error(`No matching country object found for: ${selectedCountry}`);
+        }
+    
         setValues((prev) => ({
             ...prev,
-            country: selectedCountry
+            country: selectedCountry,
+            country_code: selectedCountryObject.country_code,
         }));
     };
+
+    useEffect(() => {
+        const defaultCountryObject = countries.find(
+            (country) => country.country === values.country
+        );
+        if (defaultCountryObject) {
+            setValues((prev) => ({
+                ...prev,
+                country_code: defaultCountryObject.country_code,
+            }));
+        }
+    }, [countries, values.country]);
+    
 
     useEffect(() => {
         const selectedCountryObject = countries.find(country => country.country === values.country);
@@ -201,11 +241,23 @@ const Register = () => {
                         
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="country">Country</label>
-                            <select id="country" name="country" className="rounded-md" value={values.country} onChange={handleCountryChange}>
-                                {countries.map((country) => (
-                                    <option key={country.country} value={country.country}>{country.country}</option>
-                                ))}
-                            </select>
+                            {!isLoadingCountries ? (
+                                <select
+                                    id="country"
+                                    name="country"
+                                    className="rounded-md"
+                                    value={values.country}
+                                    onChange={handleCountryChange}
+                                >
+                                    {countries.map((country) => (
+                                        <option key={country.country_code} value={country.country}>
+                                            {country.country}
+                                        </option>
+                                    ))}
+                                </select>
+                            ) : (
+                                <p>Loading countries...</p>
+                            )}
                             {fieldErrors.country && <span className="text-red-500">{fieldErrors.country[0]}</span>}
                         </div>
 

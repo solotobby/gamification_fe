@@ -28,30 +28,40 @@ const Login = () => {
     } = useForm({
         resolver: yupResolver(schema),
     });
-
+    
     const onSubmit = async (data) => {
         setLoading(true);
         setErrorMessage('');
         try {
             const response = await api.post('/login', data);
             if (response.status === 200) {
-                saveToken(response.data.data.token)
-                console.log(response.data.data, 'helloooooo')
+                saveToken(response.data.data.token);
+                console.log(response.data.data, 'Logged in successfully');
                 toast.success('Login successful!');
                 navigate('/dashboard-naira');
             } else {
                 toast.error(response.data.message || 'An unexpected error occurred.');
             }
         } catch (error) {
-            toast.error('An error occurred during login. Please try again.');
+            if (error.response && error.response.data) {
+                const { message } = error.response.data;
+                if (message) {
+                    toast.error(message);
+                } else {
+                    toast.error('An unexpected error occurred.');
+                }
+            } else {
+                console.error('Error during login:', error);
+                toast.error('An error occurred during login. Please try again.');
+            }
+        } finally {
+            setLoading(false);
         }
-        setLoading(false);
     };
-
+    
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-
     return (
         <div className="relative grid h-screen grid-cols-1 bg-white md:grid-cols-3">
             <div className="w-full h-32 pl-2 md:pl-8 md:h-full bg-customBlue left-class shrink-0 background-map2">
