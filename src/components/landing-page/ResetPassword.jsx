@@ -105,7 +105,7 @@ const ResetPassword = () => {
             <div>
                 <p className="mx-8 mt-10">
                     Don&apos;t have an account? 
-                    <Link to="/registration" className="ml-1 text-blue-500"> 
+                    <Link to="/" className="ml-1 text-blue-500"> 
                         Sign up
                     </Link>
                 </p>

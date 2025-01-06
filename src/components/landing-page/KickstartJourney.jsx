@@ -58,7 +58,7 @@ const KickstartJourney = () => {
                 
             
             
-                    <Link><button to="/registration" className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
+                    <Link><button to="/" className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
             
         </div>
 
