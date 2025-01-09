@@ -19,7 +19,6 @@ const Home = () =>  {
             <HomeTable />
             <Faq />
          </>
-       
     )
   }
   export default Home;
