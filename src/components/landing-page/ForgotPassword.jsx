@@ -67,14 +67,14 @@ const ForgotPassword = () => {
                         >
                             Send Reset Link
                         </button>
-                        <p className="pb-10 mt-7 "><Link to="/login" className="text-blue-500 ">Back to Log in</Link></p>
+                        <p className="pb-10 mt-7 "><Link to="/" className="text-blue-500 ">Back to Log in</Link></p>
                         
                     </form>
                 </div>
             </div>
 
             <div className='absolute top-32 right-8 md:top-10'>
-                <p className="mx-8 mt-10">Don&apos;t have an account? <Link to="/registration" className="text-blue-500">Sign up</Link></p>
+                <p className="mx-8 mt-10">Don&apos;t have an account? <Link to="/" className="text-blue-500">Sign up</Link></p>
             </div>
         </div>
     );

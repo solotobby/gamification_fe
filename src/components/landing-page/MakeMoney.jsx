@@ -6,7 +6,7 @@ const MakeMoney = () => {
         <div className="md:pt-8">
             <div className="container flex flex-col items-center justify-center pt-24 md:flex-row">
                 <div className="container flex flex-col md:flex-row">
-                    <div className="overflow-hidden md:w-96">
+                    <div className="overflow-hidden md:w-2/3">
                         <div>
                             <h1 className="mt-2 text-2xl font-medium font-bricolage-grotesque md:mt-20 md:text-5xl">
                                 How to make money on Freebyz
@@ -15,7 +15,7 @@ const MakeMoney = () => {
                         <p className="max-w-2xl mt-8">
                             Freebyz was created for you to make cool cash every day by doing simple social media jobs on YouTube, Facebook, TikTok, Instagram, and other social media platforms.
                         </p>
-                        <Link to='/registration'>
+                        <Link to='/'>
                             <button className="px-4 py-2 mx-auto my-6 text-white rounded-full md:mx-4 bg-customBlue">
                                 Sign up for free
                             </button>
@@ -76,7 +76,7 @@ const MakeMoney = () => {
             <KickstartJourney />
 
             <div className="container pt-20">
-                <div className="overflow-hidden md:w-96">
+                <div className="overflow-hidden md:w-2/3">
                     <p className="py-6 text-2xl font-medium md:text-4xl">How user made millions on Freebyz</p>
                     <p>Last year (2023), a lot of our users became millionaires just by using FREEBYZ and we cannot keep the secrets they used away from you anymore! You can be a millionaire this month as well.</p>
                     <p className="py-2 ">What’s the secret?: <span className="italic font-medium font-style:">YOUR REFERRAL LINK</span></p>

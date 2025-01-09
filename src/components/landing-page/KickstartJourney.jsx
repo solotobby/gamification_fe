@@ -10,7 +10,7 @@ const KickstartJourney = () => {
             <p className="w-full mt-20 text-2xl font-medium leading-10 font-bricolage-grotesque md:text-5xl md:w-3/4">
                 Kick-start your journey to financial emancipation
             </p>
-            <p className="mb-8">Here’s how Freebyz works.</p>
+            <p className="my-8">Here’s how Freebyz works.</p>
 
             
             <div className="hidden gap-4 md:flex">
@@ -58,7 +58,7 @@ const KickstartJourney = () => {
                 
             
             
-                    <Link><button to="/registration" className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
+                    <Link><button to="/" className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
             
         </div>
 
