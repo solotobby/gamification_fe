@@ -51,6 +51,13 @@ body {
     }
   }
 
+  .background-ribon {
+    background-image: url('/images/ribon.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
   .background-map {
     background-image: url('/images/background-map.png');
     background-size: cover;
