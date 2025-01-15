@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
-
+import Survey from '../dashboard/Survey';
 import api from '../../Services/api';
 
 const Register = () => {
+   
     const successMessageRef = useRef('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [countries, setCountries] = useState([]);
     const [isLoadingCountries, setIsLoadingCountries] = useState(true);
     const location = useLocation();
@@ -22,7 +24,7 @@ const Register = () => {
         "source": "Facebook",
         "ref_id": ""
     });
-    
+
     const [fieldErrors, setFieldErrors] = useState({});
     const [focusedField, setFocusedField] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -68,16 +70,16 @@ const Register = () => {
         e.preventDefault();
         setApiError('');
         setFieldErrors({});
-    
+
         try {
             const response = await api.post('/register', values, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-    
+
             if (response.status === 201 && response.data.status) {
-               
+
                 const token = response.data.data?.token;
                 if (token) {
                     localStorage.setItem('authToken', token);
@@ -85,11 +87,12 @@ const Register = () => {
 
                 localStorage.setItem('email', values.email);
                 console.log('Email saved in localStorage:', localStorage.getItem('email'));
-    
-                toast.success('Registration successful! Redirecting to OTP verification...');
+
+                toast.success('Registration successful!');
                 setTimeout(() => {
-                    navigate('/otp');
-                }, 5000);
+
+                    setIsModalOpen(!isModalOpen)
+                }, 2000);
             } else {
                 setApiError(response.data.message || 'An unexpected error occurred.');
             }
@@ -106,7 +109,7 @@ const Register = () => {
             }
         }
     };
-    
+
 
     useEffect(() => {
         fetchCountryList();
@@ -126,15 +129,15 @@ const Register = () => {
             setIsLoadingCountries(false);
         }
     };
-    
+
     const handleCountryChange = (e) => {
         const selectedCountry = e.target.value;
         const selectedCountryObject = countries.find(country => country.country === selectedCountry);
-    
+
         if (!selectedCountryObject) {
             console.error(`No matching country object found for: ${selectedCountry}`);
         }
-    
+
         setValues((prev) => ({
             ...prev,
             country: selectedCountry,
@@ -153,7 +156,7 @@ const Register = () => {
             }));
         }
     }, [countries, values.country]);
-    
+
 
     useEffect(() => {
         const selectedCountryObject = countries.find(country => country.country === values.country);
@@ -217,10 +220,14 @@ const Register = () => {
                     </p>
                 </div>
                 <form className="flex justify-center mt-10" onSubmit={handleSubmit}>
-                   
+
                     <div className='w-11/12 mx-auto md:w-2/5'>
                         <Link to='/registration' className="text-3xl font-bold">Sign up for free</Link>
-                        <p className="text-gray-300 ">Please ensure that you are providing the appropriate details</p>
+                        <p className="text-gray-300 "
+                        onClick={() => setIsModalOpen(!isModalOpen)}
+                        >
+                            Please ensure that you are providing the appropriate details
+                        </p>
                         <div className="flex justify-between gap-5">
                             <div className="flex flex-col form-group w-[48%] shrink-0">
                                 <label htmlFor="first-name">First name</label>
@@ -238,7 +245,7 @@ const Register = () => {
                             <input type="text" id="email-address" name="email" className="rounded-md" value={values.email} onChange={handleInputValues} readOnly />
                             {fieldErrors.email && <span className="text-red-500">{fieldErrors.email[0]}</span>}
                         </div>
-                        
+
                         <div className="flex flex-col mt-4 form-group">
                             <label htmlFor="country">Country</label>
                             {!isLoadingCountries ? (
@@ -292,7 +299,7 @@ const Register = () => {
                                     )}
                                 </div>
                             </div>
-                            {isTypingPassword  && focusedField === 'password' && (
+                            {isTypingPassword && focusedField === 'password' && (
                                 <div className="gap-4 mt-2">
                                     <div>
                                         <span>Password strength: </span>
@@ -369,6 +376,7 @@ const Register = () => {
                     </div>
                 </form>
             </div>
+            <Survey isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
         </div>
     );
 };
