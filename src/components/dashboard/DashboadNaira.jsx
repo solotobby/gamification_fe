@@ -9,8 +9,9 @@ const DashboarNaira = () => {
 
     const { referralURL } = useContext(ReferralContext);
     const [isExpanded, setIsExpanded] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(true);
-
+    const [isModalOpen, setIsModalOpen] = useState(
+        localStorage.getItem("hasCompletedSurvey") ? false : true
+    );
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
     };
@@ -29,8 +30,29 @@ const DashboarNaira = () => {
     };
 
     useEffect(() => {
-        setIsModalOpen(true);
+        
+        window.history.pushState(null, "", window.location.href);
+        window.addEventListener("popstate", () => {
+            window.history.pushState(null, "", window.location.href);
+        });
+
+        const hasCompletedSurvey = localStorage.getItem("hasCompletedSurvey");
+        if (!hasCompletedSurvey) {
+            setIsModalOpen(true);
+        }
+
+        return () => {
+            window.removeEventListener("popstate", () => {
+                window.history.pushState(null, "", window.location.href);
+            });
+        };
     }, []);
+
+    const handleSurveyCompletion = () => {
+        localStorage.setItem("hasCompletedSurvey", "true");
+        setIsModalOpen(false);
+    };
+
 
 
 
@@ -38,7 +60,7 @@ const DashboarNaira = () => {
         <Layout className="px-4 pt-4">
             <>
                 <div className="h-screen px-8 py-8 overflow-y-auto">
-                <Survey isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+                <Survey isModalOpen={isModalOpen} setIsModalOpen={handleSurveyCompletion} />
                     <div className="relative p-8 bg-blue-100 border-2 border-blue-400 border-dotted">
                         <div className="flex justify-between mb-2">
                             <p className="font-bold">Learn the SIMPLE secrets some USERS USED TO MAKE MILLIONS on Freebyz in 2023.</p>
