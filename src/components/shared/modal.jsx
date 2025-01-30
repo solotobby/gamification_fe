@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 
 const _Modal = ({
     isOpen,
-    closeModal,
     children,
     large,
 }) => {
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-50" onClose={closeModal}>
+                <Dialog as="div" className="relative z-50" onClose={() => {}}
+                    static
+                >
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -55,7 +56,6 @@ const _Modal = ({
 
 _Modal.propTypes = {
     isOpen: PropTypes.bool,
-    closeModal: PropTypes.func,
     children: PropTypes.element,
     large: PropTypes.bool,
     name: PropTypes.string
