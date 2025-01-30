@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Modal } from '../shared';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 
 const Survey = ({ isModalOpen, setIsModalOpen }) => {
     const [step, setStep] = useState(0);
@@ -12,10 +11,10 @@ const Survey = ({ isModalOpen, setIsModalOpen }) => {
     const [interests, setInterests] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState('');
     const [selectedInterests, setSelectedInterests] = useState([]);
-    const navigate = useNavigate();
 
-    const handleProceedToDashboard = () => {
-        navigate('/dashboard-naira');
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
     };
 
     useEffect(() => {
@@ -64,7 +63,7 @@ const Survey = ({ isModalOpen, setIsModalOpen }) => {
     };
 
     const isButtonDisabled =
-        (step === 0 && !gender) ||
+        (step === 0 && (!gender || !ageRange)) ||
         (step === 1 && !selectedCountry) ||
         (step === 2 && selectedInterests.length < 2);
 
@@ -205,7 +204,7 @@ const Survey = ({ isModalOpen, setIsModalOpen }) => {
                             <h2 className='mb-4 font-bold'>Survey Completed!</h2>
                             <p className='text-gray-400'>You can now access your dashboard to start earning in dollars and naira!</p>
                             <button className="px-4 py-2 mt-8 text-white bg-blue-500 rounded-full"
-                            onClick={handleProceedToDashboard}
+                            onClick={handleCloseModal}
                             >
                                 Proceed to Dashboard
                             </button>
