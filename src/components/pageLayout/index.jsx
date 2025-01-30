@@ -2,12 +2,11 @@ import { Fragment, useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 import SideBar from "./SideBar";
 import { Link } from "react-router-dom";
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 
 const Layout = (props) => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
-    const [dropdownOpen, setDropdownOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
 
@@ -42,9 +41,9 @@ const Layout = (props) => {
                         
                         className="flex items-center justify-center w-12 h-12 transition-all duration-300 cursor-pointer"
                     >
-                      {sidebarOpen ? <FaArrowAltCircleLeft className="text-2xl text-blue-500" />
+                      {sidebarOpen ? < RxHamburgerMenu className="text-2xl text-blue-500" />
                       :
-                      <  FaArrowAltCircleRight className="text-2xl text-blue-500" />}
+                      <  RxHamburgerMenu className="text-2xl text-blue-500" />}
                       </span>
                     <div className="flex flex-col">
                         <Link to="/dashboard-naira" className="flex items-center gap-3">
