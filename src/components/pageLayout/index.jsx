@@ -1,16 +1,14 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 import SideBar from "./SideBar";
 import { Link } from "react-router-dom";
-
-
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 
 const Layout = (props) => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
-    const [isSearchVisible, setSearchVisible] = useState(false);
 
 
 
@@ -44,23 +42,20 @@ const Layout = (props) => {
                         
                         className="flex items-center justify-center w-12 h-12 transition-all duration-300 cursor-pointer"
                     >
-                      ...
+                      {sidebarOpen ? <FaArrowAltCircleLeft className="text-2xl text-blue-500" />
+                      :
+                      <  FaArrowAltCircleRight className="text-2xl text-blue-500" />}
                       </span>
                     <div className="flex flex-col">
-                        <Link to="/dashboard" className="flex items-center gap-3">
+                        <Link to="/dashboard-naira" className="flex items-center gap-3">
                             <span className="flex flex-col text-base font-normal">
-                                <span className="text-2xl font-semibold text-black">Dashboard</span>
+                                <span className="text-2xl font-semibold text-black ">Dashboard</span>
                             </span>
                         </Link>
                     </div>
                 </div>
                 <div className="flex items-center gap-4 ml-auto">
-                    <div className="flex items-center p-4 text-blue-600 border-2 border-blue-500 rounded-full">
-                        <img src="/images/switch.png" alt="switch-icon" className="mr-2" />
-                        <button className="focus:outline-none">
-                            switch to dollar
-                        </button>
-                    </div>
+                   
                     <img src="/images/Bell.png" alt="communication-bell-icon" />
                     <img src="/images/dp.png" alt="dp" />
                     <img src="/images/select-arrow.png" alt="select-arrow-icon" />
