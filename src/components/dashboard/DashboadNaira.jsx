@@ -1,20 +1,44 @@
 import Layout from "../pageLayout";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { ReferralContext } from "./context/ReferralContext";
+import Survey from '../dashboard/Survey';
 
 const DashboarNaira = () => {
-  
+
+    const { referralURL } = useContext(ReferralContext);
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(true);
 
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
     };
 
 
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(referralURL).then(
+            () => {
+                toast.success('Referral link copied to clipboard!');
+            },
+            (err) => {
+                console.error('Failed to copy: ', err);
+                toast.error('Failed to copy referral link. Please try again.');
+            }
+        );
+    };
+
+    useEffect(() => {
+        setIsModalOpen(true);
+    }, []);
+
+
+
     return (
         <Layout className="px-4 pt-4">
             <>
                 <div className="h-screen px-8 py-8 overflow-y-auto">
+                <Survey isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
                     <div className="relative p-8 bg-blue-100 border-2 border-blue-400 border-dotted">
                         <div className="flex justify-between mb-2">
                             <p className="font-bold">Learn the SIMPLE secrets some USERS USED TO MAKE MILLIONS on Freebyz in 2023.</p>
@@ -85,9 +109,16 @@ const DashboarNaira = () => {
                         </div>
                         <div>
                             <p className="text-end">Referral Link</p>
-                            <button className="flex items-center gap-5 p-1 px-3 border-2 border-blue-600 border-dotted">
-                                https://freebyz.com/register/w7nT7uD
-                                <img src="/images/copy-icon.png" alt="copy-icon" className="mr-2" />
+                            <button
+                                onClick={copyToClipboard}
+                                className="flex items-center gap-5 p-1 px-3 border-2 border-blue-600 border-dotted"
+                            >
+                                {referralURL || 'Loading...'}
+                                <img
+                                    src="/images/copy-icon.png"
+                                    alt="copy-icon"
+                                    className="mr-2 cursor-pointer"
+                                />
                             </button>
                         </div>
                     </div>
