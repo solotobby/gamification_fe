@@ -1,8 +1,26 @@
 import Layout from "../../pageLayout";
+import { useContext } from 'react';
+import { ReferralContext } from "../context/ReferralContext";
+import { toast } from 'react-toastify';
+
 
 const Referral = () => {
+    
+    const { referralURL } = useContext(ReferralContext);
 
+     const copyToClipboard = () => {
+            navigator.clipboard.writeText(referralURL).then(
+                () => {
+                    toast.success('Referral link copied to clipboard!');
+                },
+                (err) => {
+                    console.error('Failed to copy: ', err);
+                    toast.error('Failed to copy referral link. Please try again.');
+                }
+            );
+        };
 
+   
     return (
         <Layout className="px-4 pt-4">
             <div className='h-screen overflow-y-auto'>
@@ -40,23 +58,25 @@ const Referral = () => {
                                 </div>
                             </div>
                             <div className="flex justify-between">
-                                
+
                                 <div>
                                     <p className="text-start">Referral Link</p>
-                                    <button className="flex items-center gap-5 p-1 px-3 border-2 border-gray-400 border-dotted">
-                                        https://freebyz.com/register/w7nT7uD
+                                    <button 
+                                    onClick={copyToClipboard}
+                                    className="flex items-center gap-5 p-1 px-3 border-2 border-gray-400 border-dotted">
+                                    {referralURL}
                                         <img src="/images/copy-icon.png" alt="copy-icon" className="mr-2" />
                                     </button>
                                 </div>
                             </div>
                         </div>
 
-                        
+
                     </div>
                     <div>
-                            <p className="my-8 text-2xl font-semibold">Referral List</p>
+                        <p className="my-8 text-2xl font-semibold">Referral List</p>
 
-                        </div>
+                    </div>
 
                     <div className="w-full overflow-x-auto">
                         <table className="w-full">
@@ -77,7 +97,7 @@ const Referral = () => {
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">Salawu Muibat Nifemi</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">2024-03-04 12:23:12</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">
-                                        <button className="relative px-8 py-2 text-gray-600 bg-gray-200 rounded-md">
+                                            <button className="relative px-8 py-2 text-gray-600 bg-gray-200 rounded-md">
                                                 <span className="absolute w-2 h-2 -translate-y-1/2 bg-gray-600 rounded-full left-3 top-1/2"></span>
                                                 Pending
                                             </button>
