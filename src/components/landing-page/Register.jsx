@@ -1,17 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import Survey from '../dashboard/Survey';
+
+
 import api from '../../Services/api';
 
 const Register = () => {
    
     const successMessageRef = useRef('');
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate();
+ 
     const [countries, setCountries] = useState([]);
     const [isLoadingCountries, setIsLoadingCountries] = useState(true);
     const location = useLocation();
     const [selectedDialingCode, setSelectedDialingCode] = useState('+234');
+    const [loading, setLoading] = useState(false);
     const [values, setValues] = useState({
         "email": location.state?.email || "",
         "first_name": "",
@@ -29,7 +32,6 @@ const Register = () => {
     const [focusedField, setFocusedField] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [isTypingPassword, setIsTypingPassword] = useState(false);
-    const navigate = useNavigate();
     const [passwordStrength, setPasswordStrength] = useState({
         length: false,
         uppercase: false,
@@ -70,6 +72,7 @@ const Register = () => {
         e.preventDefault();
         setApiError('');
         setFieldErrors({});
+        setLoading(true);
 
         try {
             const response = await api.post('/register', values, {
@@ -89,12 +92,13 @@ const Register = () => {
                 console.log('Email saved in localStorage:', localStorage.getItem('email'));
 
                 toast.success('Registration successful!');
-                setTimeout(() => {
+                setLoading(false); 
 
-                    setIsModalOpen(!isModalOpen)
-                }, 2000);
+                navigate('/dashboard-naira');
+                
             } else {
                 setApiError(response.data.message || 'An unexpected error occurred.');
+                setLoading(false);
             }
         } catch (error) {
             if (error.response && error.response.data.errors) {
@@ -106,6 +110,7 @@ const Register = () => {
                 });
             } else {
                 toast.error(error.response?.data.message || 'An unexpected error occurred.');
+                setLoading(false);
             }
         }
     };
@@ -224,7 +229,6 @@ const Register = () => {
                     <div className='w-11/12 mx-auto md:w-2/5'>
                         <Link to='/registration' className="text-3xl font-bold">Sign up for free</Link>
                         <p className="text-gray-300 "
-                        onClick={() => setIsModalOpen(!isModalOpen)}
                         >
                             Please ensure that you are providing the appropriate details
                         </p>
@@ -373,10 +377,21 @@ const Register = () => {
                         <div className="flex my-8">
                             <button className="px-4 py-2 text-white bg-blue-500 rounded-full" type="submit">Sign up</button>
                         </div>
+                        {loading ? (
+                            <div className="flex items-center justify-center my-8">
+                                <div className="text-blue-500 spinner-border" role="status">
+                                    <span className="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="flex my-8">
+                                <button className="px-4 py-2 text-white bg-blue-500 rounded-full" type="submit">Sign up</button>
+                            </div>
+                        )}
                     </div>
                 </form>
             </div>
-            <Survey isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+            
         </div>
     );
 };
