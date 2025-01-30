@@ -374,9 +374,7 @@ const Register = () => {
                             </label>
                         </div>
 
-                        <div className="flex my-8">
-                            <button className="px-4 py-2 text-white bg-blue-500 rounded-full" type="submit">Sign up</button>
-                        </div>
+                        
                         {loading ? (
                             <div className="flex items-center justify-center my-8">
                                 <div className="text-blue-500 spinner-border" role="status">
