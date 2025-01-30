@@ -9,8 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import './styles/index.scss';
 
+import { ReferralProvider } from './components/dashboard/context/ReferralContext.jsx';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <ReferralProvider>
     <App />
     <ToastContainer 
       position="top-center"
@@ -21,5 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       draggable
       theme="colored"
     />
+    </ReferralProvider>
+   
   </React.StrictMode>,
 )
