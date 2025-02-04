@@ -65,12 +65,10 @@ const Referral = () => {
         );
     };
 
-
-
     return (
-        <Layout className="px-4 pt-4">
-            <div className='h-screen overflow-y-auto'>
-                <div className="p-12 overflow-x-auto">
+        <Layout className="min-h-screen px-4 pt-4 overflow-auto">
+            <div>
+                <div className="p-12">
                     <div className="flex justify-between mb-8">
                         <div className="flex flex-col w-full">
                             <div className="flex gap-8 py-8">
@@ -124,7 +122,7 @@ const Referral = () => {
 
                     </div>
 
-                    <div className="w-full overflow-x-auto">
+                    <div className="w-full min-h-screen">
                         <table className="w-full">
                             <thead className="bg-gray-100">
                                 <tr className="rounded-sm">
@@ -154,18 +152,18 @@ const Referral = () => {
                             </tbody>
                         </table>
                         {pagination.total >= 10 && (
-                            <div className="flex justify-center mt-8 mb-4">
+                            <div className="sticky bottom-0 flex justify-center py-2 mt-8 mb-4 bg-red-800 shadow-md">
                                 <button
                                     disabled={pagination.current_page === 1}
                                     onClick={() => fetchReferrals(pagination.current_page - 1)}
-                                    className="px-4 py-2 mx-2 bg-gray-200 rounded disabled:opacity-50"
+                                    className="px-4 py-2 mx-2 bg-blue-800 rounded disabled:opacity-50"
                                 >
                                     Previous
                                 </button>
                                 <button
                                     disabled={pagination.current_page === pagination.last_page}
                                     onClick={() => fetchReferrals(pagination.current_page + 1)}
-                                    className="px-4 py-2 mx-2 bg-gray-200 rounded disabled:opacity-50"
+                                    className="px-4 py-2 mx-2 bg-blue-800 rounded disabled:opacity-50"
                                 >
                                     Next
                                 </button>

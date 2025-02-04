@@ -73,7 +73,7 @@ const Layout = (props) => {
                 <SideBar sidebarOpen={sidebarOpen} />
             </Transition>
             <div
-                className={`transition-all fixed w-full z-10 bg-gray-100 dashboard duration-[400ms] ${sidebarOpen && !isMobile ? "pl-56" : ""
+                className={`transition-all min-h-screen overflow-auto w-full z-10 bg-gray-100 dashboard duration-[400ms] ${sidebarOpen && !isMobile ? "pl-56" : ""
                     }`}
             >
                 {props.children}
