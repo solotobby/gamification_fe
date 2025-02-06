@@ -36,6 +36,7 @@ import OpenNewticket from './components/dashboard/talk to us/OpenNewTicket.jsx';
 import CurrncyConverter from './components/dashboard/currency converter/CurrencyConverter.jsx';
 import NigeriaRegistration from './components/landing-page/NigeriaRegistration.jsx';
 import ForeignRegistration from './components/landing-page/ForeignRegistration.jsx';
+import ForeignRegistration2 from './components/landing-page/ForeignRegistration2.jsx';
 
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
         <Route path="/currency-converter" element={< CurrncyConverter />} />
         <Route path="/registration-nigeria" element={< NigeriaRegistration />} />
         <Route path="/registration" element={< ForeignRegistration />} />
+        <Route path="/registration2" element={< ForeignRegistration2 />} />
         
       
       </Routes>
