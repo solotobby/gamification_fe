@@ -61,28 +61,6 @@ const CreateCampaign = () => {
     };
     
 
-    useEffect(() => {
-        if (selectedCategory) {
-            getCampaignSubCategories(selectedCategory.id);
-        }
-    }, [selectedCategory]);
-
-    const getCampaignSubCategories = async (categoryId) => {
-        try {
-          
-            const response = await fetch(`your-api-endpoint/subcategories?category_id=${categoryId}`);
-            const data = await response.json();
-            
-            if (Array.isArray(data)) {
-                setSubcategories(data);
-            }
-        } catch (error) {
-            console.error("Error fetching subcategories:", error);
-        }
-    };
-
-    
-
     const toggleCategoryDropdown = () => {
         setShowCategoryDropdown(!showCategoryDropdown);
         setShowSubCategoryDropdown(false);
