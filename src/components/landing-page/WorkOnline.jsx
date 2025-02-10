@@ -136,7 +136,7 @@ const WorkOnline = () => {
         };
     }, [textIndex]);
     return (
-        <div className="flex flex-col justify-center pt-24 background-map">
+        <div className="flex flex-col justify-center pt-24 overflow-x-hidden background-map">
             <div className="container relative flex flex-col items-center justify-between md:flex-row">
                 <div className="w-full md:max-w-lg">
                     <div>
