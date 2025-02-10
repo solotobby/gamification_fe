@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Layout from '../../pageLayout';
-import { fetchCampaignCategories, fetchCampaignSubCategories, createCampaign } from '../../../Services/campaign';
+import { fetchCampaignCategories, createCampaign } from '../../../Services/campaign';
 
 const CreateCampaign = () => {
     const [activeTab, setActiveTab] = useState('information');
@@ -16,68 +16,50 @@ const CreateCampaign = () => {
     const [campaignDescription, setCampaignDescription] = useState('');
     const [campaignProof, setCampaignProof] = useState('');
     const [agreed, setAgreed] = useState(false);
+    const [subcategories, setSubcategories] = useState([]);
 
-    const getCampaignCategories = async () => {
-        try {
-            const response = await fetchCampaignCategories();
-            if (response) {
-                const data = response;
-                console.log('API Response:', data);
-                if (data && Array.isArray(data.data)) {
-                    setCategories(data.data);
-                } else {
-                    console.error('Unexpected data format:', data);
-                }
-            }
-        } catch (error) {
-            console.error('Error fetching campaign data:', error);
-        }
-    };
 
-    const getCampaignSubCategories = async (id) => {
-        try {
-            const response = await fetchCampaignSubCategories(id);
-            if (response) {
-                const data = response;
-                console.log('API Response:', data);
-                if (data && Array.isArray(data.data)) {
-                    setSelectedSubCategory(data.data);
-                } else {
-                    console.error('Unexpected data format:', data);
-                }
-            }
-        } catch (error) {
-            console.error('Error fetching campaign data:', error);
-        }
-    };
+
 
     const createNewCampaign = async () => {
         try {
             const payload = {
-                "description": campaignDescription,
-                "proof": campaignProof,
-                "post_title": title,
-                "post_link": externalLink,
-                "number_of_staff": numberOfWorkers,
-                "campaign_amount": costPerCampaign,
-                "validate": true,
-                "campaign_type": selectedCategory.id,
-                "campaign_subcategory": selectedSubCategory.id,
-                "allow_upload": true,
-                "priotize": false
+                description: campaignDescription,
+                proof: campaignProof,
+                post_title: title,
+                post_link: externalLink,
+                number_of_staff: numberOfWorkers,
+                campaign_amount: costPerCampaign,
+                validate: true,
+                campaign_type: selectedCategory?.id,
+                campaign_subcategory: selectedSubCategory?.id,
+                allow_upload: true,
+                priotize: false,
             };
             const res = await createCampaign(payload);
             if (res.status) {
-                window.alert('Post successfully created');
+                window.alert("Post successfully created");
             }
         } catch (error) {
-            console.log(error);
+            console.error("Error creating campaign:", error);
         }
     };
 
     useEffect(() => {
         getCampaignCategories();
     }, []);
+    
+    const getCampaignCategories = async () => {
+        try {
+            const data = await fetchCampaignCategories();
+            if (Array.isArray(data)) {
+                setCategories(data);
+            }
+        } catch (error) {
+            console.error("Error fetching campaign categories:", error);
+        }
+    };
+    
 
     useEffect(() => {
         if (selectedCategory) {
@@ -85,41 +67,61 @@ const CreateCampaign = () => {
         }
     }, [selectedCategory]);
 
+    const getCampaignSubCategories = async (categoryId) => {
+        try {
+          
+            const response = await fetch(`your-api-endpoint/subcategories?category_id=${categoryId}`);
+            const data = await response.json();
+            
+            if (Array.isArray(data)) {
+                setSubcategories(data);
+            }
+        } catch (error) {
+            console.error("Error fetching subcategories:", error);
+        }
+    };
+
+    
+
     const toggleCategoryDropdown = () => {
         setShowCategoryDropdown(!showCategoryDropdown);
         setShowSubCategoryDropdown(false);
     };
 
     const toggleSubCategoryDropdown = () => {
+        if (!selectedCategory) return;
         setShowSubCategoryDropdown(!showSubCategoryDropdown);
-        setShowCategoryDropdown(false);
     };
+
 
     const handleSubCategorySelect = (subCategory) => {
         setSelectedSubCategory(subCategory);
         setShowSubCategoryDropdown(false);
     };
+    
 
     const handleCategorySelect = (category) => {
         setSelectedCategory(category);
+        setSubcategories(category.subcategories || []);
+        setSelectedSubCategory(null);
         setShowCategoryDropdown(false);
     };
+    
+
 
     const handleWorkerChange = (e) => {
-        const value = parseInt(e.target.value, 10);
-        setNumberOfWorkers(value >= 0 ? value : 0);
+        setNumberOfWorkers(Math.max(0, parseInt(e.target.value, 10) || 0));
     };
 
     const handleCostPerCampaignChange = (e) => {
-        const value = parseInt(e.target.value, 10);
-        setCostPerCampaign(value >= 0 ? value : 0);
+        setCostPerCampaign(Math.max(0, parseInt(e.target.value, 10) || 0));
     };
 
     const isFormValid = () => {
-        if (activeTab === 'information') {
-            return selectedCategory?.name !== 'Select' && selectedSubCategory !== 'Select' && numberOfWorkers > 0;
+        if (activeTab === "information") {
+            return selectedCategory && selectedSubCategory && numberOfWorkers > 0;
         }
-        if (activeTab === 'description') {
+        if (activeTab === "description") {
             return title && externalLink && campaignDescription && campaignProof && agreed;
         }
         return false;
@@ -168,22 +170,22 @@ const CreateCampaign = () => {
                         <span className={`${selectedCategory ? 'text-gray-700' : 'text-gray-400'}`}>{selectedSubCategory?.name || 'Select Sub-category'}</span>
                         <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
                     </div>
-                    {showSubCategoryDropdown && (
-                        <ul
-                            className="absolute left-0 z-10 w-full bg-blue-100 border-gray-200 rounded-lg shadow-lg border-lg top-20"
-                            style={{ maxHeight: '200px', overflowY: 'auto' }}
-                        >
-                            {selectedSubCategory.map((el) => (
-                                <li
-                                    key={el.id}
-                                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                                    onClick={() => handleSubCategorySelect(el)}
-                                >
-                                    {el.name}
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                    {showSubCategoryDropdown && selectedCategory && (
+    <ul
+        className="absolute left-0 z-10 w-full bg-blue-100 border-gray-200 rounded-lg shadow-lg border-lg top-20"
+        style={{ maxHeight: '200px', overflowY: 'auto' }}
+    >
+        {subcategories.map((subCategory) => (
+            <li
+                key={subCategory.id}
+                className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                onClick={() => handleSubCategorySelect(subCategory)}
+            >
+                {subCategory.name}
+            </li>
+        ))}
+    </ul>
+)}
                 </div>
             </div>
 
@@ -257,7 +259,7 @@ const CreateCampaign = () => {
                 />
 
                 <p className='mt-20 mb-2 text-lg'>Expected Campaign Proof (You can request for social media handle, email or other means of identifying the worker)</p>
-               
+
                 <textarea
                     rows="5"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
@@ -304,20 +306,120 @@ const CreateCampaign = () => {
                         <p>Campaign description</p>
                     </button>
                 </div>
-
+    
                 {activeTab === 'information' && (
                     <>
                         <p className="mb-2 text-2xl font-semibold text-center">Campaign information</p>
                         <p className="mb-12 text-center text-gray-500">Please provide detailed information about your campaign.</p>
-                        <div className='flex flex-col items-center'>{renderInformationContent()}</div>
+                        <div className='flex flex-col items-center'>
+                            <div className='w-[80%] mx-auto'>
+                                <p className="mb-4 text-lg">Category</p>
+                                <div className="relative w-full mx-auto mb-4">
+                                    <div
+                                        onClick={toggleCategoryDropdown}
+                                        className="flex items-center justify-between w-full px-4 py-4 mb-8 text-left text-gray-900 bg-gray-100 rounded-lg cursor-pointer"
+                                    >
+                                        <span className={`${selectedCategory ? 'text-gray-700' : 'text-gray-400'}`}>
+                                            {selectedCategory?.name || 'Select Category'}
+                                        </span>
+                                        <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
+                                    </div>
+                                    {showCategoryDropdown && (
+                                        <ul
+                                            className="absolute left-0 z-10 w-full bg-blue-100 border-gray-200 rounded-lg shadow-lg border-lg top-20"
+                                            style={{ maxHeight: '200px', overflowY: 'auto' }}
+                                        >
+                                            {categories.map((category) => (
+                                                <li
+                                                    key={category.id}
+                                                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                                                    onClick={() => handleCategorySelect(category)}
+                                                >
+                                                    {category.name}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
+                            </div>
+    
+                            <div className='w-[80%] mx-auto'>
+                                <p className="mb-2 text-lg">Sub-category</p>
+                                <div className="relative w-full mx-auto mb-4">
+                                    <div
+                                        onClick={toggleSubCategoryDropdown}
+                                        className={`flex items-center justify-between w-full px-4 py-4 mb-8 text-left text-gray-900 bg-gray-100 rounded-lg cursor-pointer ${
+                                            !selectedCategory ? 'opacity-50 cursor-not-allowed' : ''
+                                        }`}
+                                        disabled={!selectedCategory}
+                                    >
+                                        <span className={`${selectedSubCategory ? 'text-gray-700' : 'text-gray-400'}`}>
+                                            {selectedSubCategory?.name || 'Select Sub-category'}
+                                        </span>
+                                        <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
+                                    </div>
+                                    {showSubCategoryDropdown && selectedCategory && (
+                                        <ul
+                                            className="absolute left-0 z-10 w-full bg-blue-100 border-gray-200 rounded-lg shadow-lg border-lg top-20"
+                                            style={{ maxHeight: '200px', overflowY: 'auto' }}
+                                        >
+                                            {selectedCategory.subcategories.map((subCategory) => (
+                                                <li
+                                                    key={subCategory.id}
+                                                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                                                    onClick={() => handleSubCategorySelect(subCategory)}
+                                                >
+                                                    {subCategory.name}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
+                            </div>
+    
+                            <div className='flex gap-2 mt-16 w-[80%] mx-auto'>
+                                <div className='flex-grow'>
+                                    <p className="mb-2">Number of workers</p>
+                                    <div className="flex items-center gap-2">
+                                        <input
+                                            type="number"
+                                            value={numberOfWorkers}
+                                            onChange={handleWorkerChange}
+                                            className="w-full px-2 py-4 text-center border-2 border-gray-300 rounded-lg"
+                                            disabled={!selectedCategory || selectedSubCategory?.name === 'Select'}
+                                        />
+                                    </div>
+                                </div>
+    
+                                <div className='flex-grow'>
+                                    <p className="mb-2">Cost per campaign</p>
+                                    <div className="flex items-center gap-2">
+                                        <input
+                                            type="number"
+                                            value={costPerCampaign}
+                                            onChange={handleCostPerCampaignChange}
+                                            className="w-full px-2 py-4 text-center border-2 border-gray-300 rounded-lg"
+                                            disabled={!selectedCategory || selectedSubCategory?.name === 'Select'}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div className='mx-auto w-[80%]'>
+                                <p className="mt-10 text-lg font-semibold">
+                                    Estimated cost: <span className="text-xl">&#8358; {estimatedCost.toFixed(2)}</span>
+                                </p>
+                            </div>
+                        </div>
                     </>
                 )}
+    
                 {activeTab === 'description' &&
                     <div className='flex flex-col items-center'>
                         {renderDescriptionContent()}
                     </div>
                 }
-
+    
                 {activeTab === 'information' && (
                     <div className='mx-auto w-[80%]'>
                         <button
