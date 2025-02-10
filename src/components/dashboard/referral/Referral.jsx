@@ -69,7 +69,7 @@ const Referral = () => {
         <Layout className="min-h-screen px-4 pt-4 overflow-auto">
             <div>
                 <div className="p-12">
-                    <div className="flex justify-between mb-8">
+                    <div className="flex justify-between ">
                         <div className="flex flex-col w-full">
                             <div className="flex gap-8 py-8">
                                 <div className="flex items-center justify-center gap-4 p-8 bg-white">
@@ -122,7 +122,7 @@ const Referral = () => {
 
                     </div>
 
-                    <div className="w-full min-h-screen">
+                    <div className="w-full">
                         <table className="w-full">
                             <thead className="bg-gray-100">
                                 <tr className="rounded-sm">
@@ -143,7 +143,7 @@ const Referral = () => {
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">
                                             <button className="relative px-8 py-2 text-gray-600 bg-gray-200 rounded-md">
                                                 <span className="absolute w-2 h-2 -translate-y-1/2 bg-gray-600 rounded-full left-3 top-1/2"></span>
-                                                Pending
+                                                {referral.status}
                                             </button>
                                         </td>
                                         <td className="px-6 py-4 text-base font-medium text-gray-800 whitespace-nowrap text-start">&#8358; {referral.income}</td>
@@ -151,19 +151,19 @@ const Referral = () => {
                                 ))}
                             </tbody>
                         </table>
-                        {pagination.total >= 10 && (
-                            <div className="sticky bottom-0 flex justify-center py-2 mt-8 mb-4 bg-red-800 shadow-md">
+                        {referrals.length >= 10 && (
+                            <div className="sticky bottom-0 flex justify-center py-2 mt-8">
                                 <button
                                     disabled={pagination.current_page === 1}
                                     onClick={() => fetchReferrals(pagination.current_page - 1)}
-                                    className="px-4 py-2 mx-2 bg-blue-800 rounded disabled:opacity-50"
+                                    className="px-4 mx-2 text-white bg-blue-800 rounded disabled:opacity-50"
                                 >
                                     Previous
                                 </button>
                                 <button
                                     disabled={pagination.current_page === pagination.last_page}
                                     onClick={() => fetchReferrals(pagination.current_page + 1)}
-                                    className="px-4 py-2 mx-2 bg-blue-800 rounded disabled:opacity-50"
+                                    className="px-4 py-2 mx-2 text-white bg-red-800 rounded disabled:opacity-50"
                                 >
                                     Next
                                 </button>
@@ -171,9 +171,6 @@ const Referral = () => {
                         )}
                     </div>
                 </div>
-
-
-
             </div>
         </Layout>
     );
