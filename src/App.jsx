@@ -11,7 +11,6 @@ import Login from './components/landing-page/Login.jsx';
 import Register from './components/landing-page/Register.jsx';
 import Otp from './components/landing-page/Otp.jsx';
 import ResetPassword from './components/landing-page/ResetPassword.jsx';
-import Dashboard from './components/landing-page/Dashboard.jsx';
 import Sidenav from './components/dashboard/SideNav.jsx';
 import DashboarDollar from './components/dashboard/DashboarDollar.jsx';
 import ResetLinkSent from './components/landing-page/ResetLinkSent.jsx';
@@ -37,6 +36,7 @@ import CurrncyConverter from './components/dashboard/currency converter/Currency
 import NigeriaRegistration from './components/landing-page/NigeriaRegistration.jsx';
 import ForeignRegistration from './components/landing-page/ForeignRegistration.jsx';
 import ForeignRegistration2 from './components/landing-page/ForeignRegistration2.jsx';
+import AffiliateProgram from './components/landing-page/AffiliateProgram.jsx';
 
 
 function App() {
@@ -49,9 +49,8 @@ function App() {
         <Route path="/about-us" element={<><Header /><AboutUs /><Footer /></>} />
         <Route path="/terms-of-use" element={<><Header /><TermsOfUse /><Footer /></>} />
         <Route path="/privacy-policy" element={<><Header /><PrivacyPolicy /><Footer /></>} />
-        <Route path="/dashboard" element={<><Header /><Dashboard /><Footer /></>} />
-        <Route path="/" element={<><Header /><Dashboard /><Footer /></>} />
         <Route path="/make-money" element={<><Header /><MakeMoney /><Footer /></>} />
+        <Route path="/affiliate" element={<><Header /><AffiliateProgram /><Footer /></>} />
 
         
         <Route path="/registration-form" element={<Register />} />
@@ -63,12 +62,12 @@ function App() {
         <Route path="/dashboard-dollar" element={<DashboarDollar />} />
         <Route path="/dashboard-naira" element={<DashboardNaira />} />
         <Route path="/reset-link" element={<ResetLinkSent />} />
-        <Route path="/dashboard-dollar/create-campaign" element={<CreateCampaign />} />
-        <Route path="/dashboard-dollar/view-campaign" element={<ViewCampaign />} />
-        <Route path="/dashboard-dollar/approved-campaign" element={< ApprovedCampaign />} />
-        <Route path="/dashboard-dollar/denied-campaign" element={< DeniedCampaign />} />
-        <Route path="/dashboard-dollar/your-wallet" element={< YourWallet />} />
-        <Route path="/dashboard-dollar/withdrawal-request" element={<  WithdrawalRequests />} />
+        <Route path="/create-campaign" element={<CreateCampaign />} />
+        <Route path="/view-campaign" element={<ViewCampaign />} />
+        <Route path="/approved-campaign" element={< ApprovedCampaign />} />
+        <Route path="/denied-campaign" element={< DeniedCampaign />} />
+        <Route path="/wallet" element={< YourWallet />} />
+        <Route path="/withdrawal-request" element={<  WithdrawalRequests />} />
         <Route path="/first-job" element={<  FirstJob />} />
         <Route path="/available-jobs" element={< AvailableJobs />} />
         <Route path="/my-jobs" element={<  MyJobs />} />
