@@ -38,7 +38,7 @@ const Login = () => {
                 saveToken(response.data.data.token);
                 console.log(response.data.data, 'Logged in successfully');
                 toast.success('Login successful!');
-                navigate('/dashboard-naira');
+                navigate('/dashboard');
             } else {
                 toast.error(response.data.message || 'An unexpected error occurred.');
             }
