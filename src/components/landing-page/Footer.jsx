@@ -3,7 +3,7 @@ const Footer = () => {
     return (
         <div>
             <div className="container flex flex-col items-center justify-center mt-20 ">
-                <p className="w-full px-4 mt-8 text-4xl font-medium leading-10 text-center md:w-3/4 md:mt-8 md:text-5xl md:leading-10">Sign up today and start earning in naira and dollars!</p>
+                <p className="w-full px-4 mt-8 text-4xl font-medium leading-10 text-center md:w-3/4 md:mt-8 md:text-5xl md:leading-10">Sign up today and start earning in your local currency!</p>
                 <p className="w-full px-4 mt-4 text-base text-center md:w-3/4 md:mt-6 md:text-base">Start getting that extra income from the comfort of your home by creating an account for free.</p>
 
                 <span className="flex items-center gap-8 md:gap-8">
@@ -16,13 +16,13 @@ const Footer = () => {
                 <div className="container flex flex-wrap justify-around gap-5 p-10">
 
                     <div className="w-full lg:w-1/4 shrink-0 ">
-                        <img src="/images/Freebyz-logo-white.png" alt="freebyz-logo"/>
+                        <img src="/images/Freebyz-logo-white.png" alt="freebyz-logo" />
                     </div>
-                  <div className="grid grid-cols-2 gap-10 lg:flex-grow lg:grid-cols-4 lg:gap-3">
-                    <div className="text-base text-white md:text-xl">
+                    <div className="grid grid-cols-2 gap-10 lg:flex-grow lg:grid-cols-4 lg:gap-3">
+                        <div className="text-base text-white md:text-xl">
                             <h1 className="my-4 font-bold font-inter">Quick links</h1>
                             <div className="flex flex-col gap-2">
-                               
+
                                 <Link to='/' className="text-base font-inter">Home</Link>
                                 <Link to='/make-money' className="text-base font-inter">Make money</Link>
                                 <Link to='/login' className="text-base font-inter">Login</Link>
@@ -50,11 +50,18 @@ const Footer = () => {
                         <div className="text-base text-white md:text-xl">
                             <h1 className="my-4 font-bold font-inter">Contact</h1>
                             <div className="flex flex-col gap-2">
-                            <Link to='/' className="text-base font-inter">Contact support</Link>
-                            <Link to='/' className="text-base font-inter">Live chat</Link>
+                                <Link to='/' className="text-base font-inter">Contact support</Link>
+                                <a
+                                    href="https://tawk.to/chat/6510bbe9b1aaa13b7a78ae75/1hb4ls2fd"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-base font-inter"
+                                >
+                                    Live chat
+                                </a>
                             </div>
                         </div>
-                  </div>
+                    </div>
                 </div>
 
                 <div className="container my-4 border-t border-white"></div>
