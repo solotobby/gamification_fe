@@ -15,7 +15,7 @@ const TrustUs = () => {
     return (
         <div className="py-8 mt-8 bg-blue-500">
             <div className="container">
-                <p className="w-full mx-auto mt-20 text-3xl font-medium leading-10 text-center text-white font-bricolage-grotesque md:w-3/4 md:text-5xl">Don’t take our word for it. Over 200k people trust us.</p>
+                <p className="w-full mx-auto mt-20 text-3xl font-medium leading-10 text-center text-white font-bricolage-grotesque md:w-3/4 md:text-5xl">Don’t take our word for it. Over 300k people trust us.</p>
                 <p className="my-8 text-center text-white">We don’t just say it, we put it to action and take pride in delivering results to all our users.</p>
 
                 <div className="relative w-full p-8 mx-auto mb-10 bg-white rounded-lg shadow-lg md:w-1/2 md:p-14 h-96">
