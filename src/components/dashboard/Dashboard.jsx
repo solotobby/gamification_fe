@@ -3,9 +3,9 @@ import { useState, useContext, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ReferralContext } from "./context/ReferralContext";
-import Survey from '../dashboard/Survey';
+import Survey from './Survey';
 
-const DashboarNaira = () => {
+const Dashboard = () => {
 
     const { referralURL } = useContext(ReferralContext);
     const [isExpanded, setIsExpanded] = useState(false);
@@ -53,9 +53,6 @@ const DashboarNaira = () => {
         setIsModalOpen(false);
     };
 
-
-
-
     return (
         <Layout className="px-4 pt-4">
             <>
@@ -79,7 +76,7 @@ const DashboarNaira = () => {
                             <p>Display your business and events banners to over 120k users across Africa. Place a BANNER ADS today!</p>
                             <p>Let’s help you achieve your 2024 goals, LOCK SOME FUNDS in our SAFELOCK to avoid spending Temptations and get 5% interest. </p>
                             <p>New to Freebyz? Learn how to work and submit tasks here.</p>
-                            <p>GROW YOUR SOCIAL MEDIA on Freebyz, create a campaign today to hire workers.</p>
+                            <p>a SOCIAL MEDIA on Freebyz, create a campaign today to hire workers.</p>
                         </div>
 
                         {!isExpanded && (
@@ -227,4 +224,4 @@ const DashboarNaira = () => {
     )
 }
 
-export default DashboarNaira;
+export default Dashboard;
