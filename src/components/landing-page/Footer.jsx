@@ -4,11 +4,11 @@ const Footer = () => {
         <div>
             <div className="container flex flex-col items-center justify-center mt-20 ">
                 <p className="w-full px-4 mt-8 text-4xl font-medium leading-10 text-center md:w-3/4 md:mt-8 md:text-5xl md:leading-10">Sign up today and start earning in your local currency!</p>
-                <p className="w-full px-4 mt-4 text-base text-center md:w-3/4 md:mt-6 md:text-base">Start getting that extra income from the comfort of your home by creating an account for free.</p>
+                <p className="w-full px-4 my-8 text-base text-center md:w-3/4 md:mt-6 md:text-base">Start getting that extra income from the comfort of your home by creating an account for free.</p>
 
                 <span className="flex items-center gap-8 md:gap-8">
                     <img className="w-16 md:w-auto" src="/images/arrow-left.png" alt="left-arrow" />
-                    <Link to="/registration" className="px-4 py-2 text-base text-white rounded-full bg-customBlue md:px-2 md:py-2 md:text-xl">Sign up for free</Link>
+                    <Link to="/registration" className="px-4 py-4 text-base text-white rounded-full bg-customBlue md:px-4 md:py-2 md:text-xl">Sign up for free</Link>
                     <img className="w-16 md:w-auto" src="/images/arrow2.png" alt="right-arrow" />
                 </span>
             </div>
