@@ -4,37 +4,41 @@ import { Link } from "react-router-dom";
 const MakeMoney = () => {
     return (
         <div className="md:pt-8">
-            <div className="container flex flex-col items-center justify-center pt-24 md:flex-row">
-                <div className="container flex flex-col md:flex-row">
-                    <div className="overflow-hidden md:w-96">
-                        <div>
-                            <h1 className="mt-2 text-2xl font-medium font-bricolage-grotesque md:mt-20 md:text-5xl">
-                                How to make money on Freebyz
-                            </h1>
+            <div className=" bg-[#F0F8FF]">
+                <div className="container flex flex-col items-center justify-center pt-24 md:flex-row">
+                    <div className="container flex flex-col md:flex-row">
+                        <div className="overflow-hidden md:w-96">
+                            <div>
+                                <h1 className="mt-2 text-2xl font-medium font-bricolage-grotesque md:mt-20 md:text-5xl">
+                                    How to make money on Freebyz
+                                </h1>
+                            </div>
+                            <p className="max-w-2xl mt-8">
+                                Freebyz was created for you to make cool cash every day by doing simple social media jobs on YouTube, Facebook, TikTok, Instagram, and other social media platforms.
+                            </p>
+                            <Link to='/registration'>
+                                <button className="px-4 py-2 mx-auto my-6 text-white rounded-full md:mx-4 bg-customBlue">
+                                    Sign up for free
+                                </button>
+                            </Link>
+
                         </div>
-                        <p className="max-w-2xl mt-8">
-                            Freebyz was created for you to make cool cash every day by doing simple social media jobs on YouTube, Facebook, TikTok, Instagram, and other social media platforms.
-                        </p>
-                        <Link to='/registration'>
-                            <button className="px-4 py-2 mx-auto my-6 text-white rounded-full md:mx-4 bg-customBlue">
-                                Sign up for free
-                            </button>
-                        </Link>
-                       
+
                     </div>
+                    <div className="mt-8">
+                        <img src="/images/make-money.png" alt="keyboard-image" />
+                    </div>
+                </div>
 
+
+                <div className="container flex flex-col items-center py-20 font-medium">
+                    <p className="text-2xl md:text-5xl font-bricolage-grotesque">Freebyz is 100% legit and many users have earned up to 300k and more...</p>
+                    <p className="py-2 font-light">Freebyz was created for you to make cool cash every day by doing simple social media jobs on YouTube, Facebook, TikTok, Instagram, and other social media platforms.</p>
+                    <p className="py-2 font-light">On Freebyz, you can hire online workers to increase your business visibility and organic growth through engagements on Facebook, Instagram, YouTube, TikTok, WhatsApp, and Twitter.</p>
                 </div>
-                <div className="mt-8">
-                    <img src="/images/make-money.png" alt="keyboard-image" />
-                </div>
+
             </div>
 
-
-            <div className="container flex flex-col items-center py-20 font-medium text-center">
-                <p className="text-2xl md:text-5xl font-bricolage-grotesque">Freebyz is 100% legit and many users have earned up to 300k and more...</p>
-                <p className="py-2 font-light">Freebyz was created for you to make cool cash every day by doing simple social media jobs on YouTube, Facebook, TikTok, Instagram, and other social media platforms.</p>
-                <p className="py-2 font-light">On Freebyz, you can hire online workers to increase your business visibility and organic growth through engagements on Facebook, Instagram, YouTube, TikTok, WhatsApp, and Twitter.</p>
-            </div>
 
             <div className="container md:pt-24">
                 <p className="w-48 overflow-hidden text-2xl md:w-96 md:text-5xl font-bricolage-grotesque">Six ways to earn on Freebyz</p>
@@ -54,7 +58,7 @@ const MakeMoney = () => {
                         <p className="py-2 font-semibold">Lock Money</p>
                         <p>You can lock money (to avoid spending temptations) in your wallet for 3-6 months and earn up to 5% interest.</p>
                     </div>
-                    <div> 
+                    <div>
                         <p className="p-4 text-center text-blue-600 bg-blue-200 border-2 border-blue-500 border-dashed rounded-full w-14">4</p>
                         <p className="py-2 font-semibold">Remote Jobs</p>
                         <p>You can do remote jobs by completing tasks and earning. As a verified user, you have access to limitless jobs above ₦10.</p>
@@ -75,7 +79,7 @@ const MakeMoney = () => {
 
             <KickstartJourney />
 
-            <div className="container pt-20">
+            <div className="container pt-12">
                 <div className="overflow-hidden md:w-96">
                     <p className="py-6 text-2xl font-medium md:text-4xl">How user made millions on Freebyz</p>
                     <p>Last year (2023), a lot of our users became millionaires just by using FREEBYZ and we cannot keep the secrets they used away from you anymore! You can be a millionaire this month as well.</p>
@@ -99,6 +103,7 @@ const MakeMoney = () => {
                 </div>
             </div>
 
+            <div className="bg-[#F0F8FF]">
             <div className="container flex flex-col justify-between pt-20 md:flex-row">
                 <div className="overflow-hidden md:w-96">
                     <p className="pb-4 text-2xl md:text-4xl">Be intentional and serious about it</p>
@@ -108,6 +113,11 @@ const MakeMoney = () => {
                 </div>
                 <img src="/images/holding-hands.png" alt="two-people-holding-hands" />
             </div>
+            </div>
+
+            
+           
+
         </div>
     )
 }

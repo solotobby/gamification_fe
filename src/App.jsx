@@ -14,14 +14,13 @@ import ResetPassword from './components/landing-page/ResetPassword.jsx';
 import Sidenav from './components/dashboard/SideNav.jsx';
 import DashboarDollar from './components/dashboard/DashboarDollar.jsx';
 import ResetLinkSent from './components/landing-page/ResetLinkSent.jsx';
-import MakeMoney from './components/landing-page/MakeMoney.jsx';
+// import MakeMoney from './components/landing-page/MakeMoney.jsx';
 import  CreateCampaign from './components/dashboard/campaign/CreateCampaign.jsx'
 import ViewCampaign from './components/dashboard/campaign/ViewCampaign.jsx';
 import ApprovedCampaign from './components/dashboard/campaign/ApprovedCampaign.jsx';
 import DeniedCampaign from './components/dashboard/campaign/DeniedCampaign.jsx';
 import YourWallet from './components/dashboard/wallet/YourWallet.jsx';
 import WithdrawalRequests from './components/dashboard/wallet/WithdrawalRequests.jsx';
-import DashboardNaira from './components/dashboard/DashboadNaira.jsx';
 import FirstJob from './components/dashboard/FirstJob.jsx';
 import AvailableJobs from './components/dashboard/jobs/AvailableJobs.jsx';
 import MyJobs from './components/dashboard/jobs/MyJobs.jsx';
@@ -37,6 +36,7 @@ import NigeriaRegistration from './components/landing-page/NigeriaRegistration.j
 import ForeignRegistration from './components/landing-page/ForeignRegistration.jsx';
 import ForeignRegistration2 from './components/landing-page/ForeignRegistration2.jsx';
 import AffiliateProgram from './components/landing-page/AffiliateProgram.jsx';
+import Dashboard from './components/dashboard/Dashboard.jsx';
 
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
         <Route path="/about-us" element={<><Header /><AboutUs /><Footer /></>} />
         <Route path="/terms-of-use" element={<><Header /><TermsOfUse /><Footer /></>} />
         <Route path="/privacy-policy" element={<><Header /><PrivacyPolicy /><Footer /></>} />
-        <Route path="/make-money" element={<><Header /><MakeMoney /><Footer /></>} />
+        {/* <Route path="/make-money" element={<><Header /><MakeMoney /><Footer /></>} /> */}
         <Route path="/affiliate" element={<><Header /><AffiliateProgram /><Footer /></>} />
 
         
@@ -60,7 +60,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/sidenav" element={<Sidenav />} />
         <Route path="/dashboard-dollar" element={<DashboarDollar />} />
-        <Route path="/dashboard-naira" element={<DashboardNaira />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/reset-link" element={<ResetLinkSent />} />
         <Route path="/create-campaign" element={<CreateCampaign />} />
         <Route path="/view-campaign" element={<ViewCampaign />} />
