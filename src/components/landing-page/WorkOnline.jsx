@@ -12,15 +12,14 @@ const WorkOnline = () => {
                 <>
                     <span className="absolute left-[50%] top-[10%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-2xl border-[1px] border-slate-100 bg-white rounded-md">
                         <div className="flex flex-col items-center justify-between gap-2">
-                            <h3 className="text-base">Engagement Rate</h3>
+                            <h3 className="text-base">Completion Rate</h3>
                             <img src="/images/engagement-rate.png" alt="engagement-rate-graph" />
                         </div>
                     </span>
                     <span className="absolute bottom-0 left-0 z-10 shadow-xl border-[1px] border-slate-100 bg-white rounded-md p-2 md:p-4 flex flex-col items-center">
                         <img src="/images/show-love-icon.png" alt="green-wallet" />
-                        <h2 className="text-base md:text-base">10,000</h2>
-                        <h2 className="text-base text-gray-400 md:text-base">Post Impressions</h2>
-                        <p className="text-base text-green-500">+300%</p>
+                        <h2 className="text-base text-gray-400 md:text-base">Available Tasks</h2>
+                        <p className="text-base text-green-500">10,000+</p>
                     </span>
                 </>
             ),
@@ -32,8 +31,8 @@ const WorkOnline = () => {
                     <span className="absolute right-0 bottom-0 md:bottom-0 z-10 p-2 md:p-4 flex flex-col items-center shadow-xl border-[1px] border-slate-100 bg-white rounded-md">
                         <img src="/images/market-icon.png" alt="stock-market-icon" />
                         <p>525%</p>
-                        <p className="px-2 py-1 text-base text-gray-400 rounded-full text-gre">Engagement Rate</p>
-                        <p className="mt-3">+27.33%</p>
+                        <p className="px-2 py-1 text-base text-gray-400 rounded-full text-gre">Available Workers</p>
+                        <p className="mt-3">300k +</p>
 
                     </span>
                     <span className="absolute top-[20%] left-0 z-10 shadow-xl border-[1px] border-slate-100 bg-white rounded-md p-2 md:p-4">
@@ -49,7 +48,7 @@ const WorkOnline = () => {
             ),
         },
         {
-            src: "/images/lady-on-red.png",
+            src: "/images/red.png",
             spans: (
                 <>
                     <span className="absolute right-0 top-[30%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-2xl border-[1px] border-slate-100 bg-white rounded-md">
@@ -90,7 +89,7 @@ const WorkOnline = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1, 
+                staggerChildren: 0.1,
                 delayChildren: delay,
             },
         },
@@ -115,7 +114,7 @@ const WorkOnline = () => {
         { line1: "Jobs to earn", line2: "In your currency" },
         { line1: "Workers to", line2: "Download your Mobile Apps" },
         { line1: "Workers to", line2: "Boost your Followers" },
-     
+
     ];
 
 
@@ -125,18 +124,18 @@ const WorkOnline = () => {
         const imageInterval = setInterval(() => {
             setImageIndex((prev) => (prev + 1) % images.length);
         }, 6000);
-    
+
         const textInterval = setTimeout(() => {
             setTextIndex((prev) => (prev + 1) % changingTexts.length);
         }, 7000);
-    
+
         return () => {
             clearInterval(imageInterval);
-            clearTimeout(textInterval); 
+            clearTimeout(textInterval);
         };
     }, [textIndex]);
     return (
-        <div className="flex flex-col justify-center pt-24 overflow-x-hidden background-map">
+        <div className="flex flex-col justify-center pt-32 overflow-x-hidden background-map">
             <div className="container relative flex flex-col items-center justify-between md:flex-row">
                 <div className="w-full md:max-w-lg">
                     <div>
@@ -171,7 +170,7 @@ const WorkOnline = () => {
                         </h1>
                     </div>
                     <p className="max-w-2xl mt-8">
-                        Hire online workers to increase your business visibility and organic growth through engagements on Facebook, Instagram, YouTube, TikTok, WhatsApp, and Twitter.
+                        At Freebyz, We connect remote workers to creators who recruit online workers for micro tasks and side hustle Jobs.
                     </p>
                     <Link to="/registration">
                         <button className="px-4 py-2 mx-auto my-6 text-white rounded-full md:mx-4 bg-customBlue">
@@ -181,9 +180,9 @@ const WorkOnline = () => {
 
                 </div>
 
-                <div className="relative w-full md:w-[40%] shrink-0 flex justify-end">
-                    <div>
-                        <img src={images[imageIndex].src} alt="current" className="w-full h-auto" />
+                <div className="relative w-full md:w-[40%] shrink-0 flex justify-end h-[600px]">
+                    <div className="relative w-full h-full">
+                        <img src={images[imageIndex].src} alt="current" className="object-cover w-full h-full" />
                         {images[imageIndex].spans}
                     </div>
                 </div>
