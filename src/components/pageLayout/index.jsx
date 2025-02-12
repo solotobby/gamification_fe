@@ -46,7 +46,7 @@ const Layout = (props) => {
                       <  RxHamburgerMenu className="text-2xl text-blue-500" />}
                       </span>
                     <div className="flex flex-col">
-                        <Link to="/dashboard-naira" className="flex items-center gap-3">
+                        <Link to="/dashboard" className="flex items-center gap-3">
                             <span className="flex flex-col text-base font-normal">
                                 <span className="text-2xl font-semibold text-black ">Dashboard</span>
                             </span>
