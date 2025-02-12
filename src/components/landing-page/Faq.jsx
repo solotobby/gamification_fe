@@ -12,7 +12,7 @@ const Faq = () => {
     };
 
     return (
-        <div className="container mx-auto mt-8">
+        <div className="container mx-auto mt-8 bg-[#F0F8FF]">
             <div className="text-center">
                 <p className="mb-8 text-3xl font-medium leading-8 md:text-4xl">Frequently asked questions</p>
                 {faq.slice(0, 4).map((el, i) => ( 
