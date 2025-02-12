@@ -4,7 +4,7 @@ import OurGoal from "./OurGoal";
 const AboutUs = () => {
     return (
         <div>
-            <div className="container pt-3 md:pt-12">
+            <div className="container mt-8 md:pt-20">
                 <div className="flex flex-col items-center justify-between text-xl md:flex md:flex-row md:items-start md:justify-between md:text-base">
                     <h1 className="mt-20 text-4xl font-medium leading-10 md:text-3xl md:w-[45%] w-full">We are making it easy for you to access Remote jobs. </h1>
                     <p className="mt-20 text-base md:w-[45%] w-full">Freebyz is an affiliate marketing and remote jobs portal by Dominahl Technology LLC.
@@ -20,7 +20,7 @@ const AboutUs = () => {
                     <img src="/images/dollar.png" alt="dollar-image" className="hidden lg:block" />
                 </div> */}
 
-                <div className="mt-8">
+                <div className="mt-20">
                     <p className="mt-8">
                         Since 2018, we have published Job opportunities to millions of Job seekers via our blog - www.myhotjobz.com.
                         Our new digital solution, Freebyz was designed to help millions of online businesses, digital creators and
