@@ -10,8 +10,8 @@ module.exports = {
         customGray: '#F3F3F3',
       },
       fontFamily: {
-        'bricolage-grotesque': ['Bricolage Grotesque', 'sans-serif'],
-        'inter': ['Inter', 'sans-serif'],
+        sans: ['Work Sans', 'sans-serif'],
+        rubik: ['Rubik', 'sans-serif'],
       },
     },
   },
