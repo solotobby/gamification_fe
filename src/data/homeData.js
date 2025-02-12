@@ -1,36 +1,37 @@
 export const features = [
+   
     {
-        title: 'Banners ads',
-        description: 'Explore lucrative opportunities and earn daily in dollar and naira with our enticing banner ads!'
-    },
-    {
-        title: 'Safe lock',
-        description: 'Secure your hard-earned profits with our Safe Lock feature!'
+        title: 'Work and earn',
+        description: 'Complete simple micro tasks and earn from your social media likes, comments and shares.  Earn in your preferred local currency.'
     },
     {
         title: 'Referral bonuses',
-        description: 'Get N500 on each referral and instant bonus of N5,000 when you reach 50 verified referral limit.'
+        description: 'Invite your friends and earn Cash back. Once you register, you qualify to earn up to 50% affiliate referral bonuses on every friend you refer.'
     },
     {
-        title: 'Work and earn',
-        description: 'Explore lucrative opportunities and earn daily in dollar and naira with our enticing banner ads!'
+        title: 'Banners ads',
+        description: 'Get Discovered. Show your business to Customers across the globe ready to patronize you.'
+    },
+    {
+        title: 'Safe lock',
+        description: 'Save for the rainy days. Lock some funds in your wallet to earn up to 5% interest in 3-6 months. Your funds are 100% safe and secure. Your interest and capital will be paid to your local bank account at maturity.'
     }
 ] 
 
 export const kickstartJourney = [
     {
         title: 'Sign up!',
-        description: 'Sign up to get your referral code and start earning 500 NGN on every referral. Your referral code is your affiliate link to earn more money.',
+        description: 'Once you create an account, you have access to remote tasks posted by our creators for you to earn in your local currency.',
         image: '/images/kickstartImage1.png'
     },
     {
-        title: 'Hire workers',
-        description: 'Hire people to engage your blog posts and all social media channels for organic growth & increased visibility for more sales.',
+        title: 'Work/Hire',
+        description: 'Hire workers to download your Apps, stream your music, buy your digital & physical products, join your Telegram Channel or drive engagements to your posts on X, TikTok, YouTube, Facebook, etcWork or Hire workers to download your Apps, stream your music, buy your digital & physical products, join your Telegram Channel or drive engagements to your posts on X, TikTok, YouTube, Facebook, etc',
         image: '/images/kickstartImage2.png'
     },
     {
-        title: 'Earn and cash out',
-        description: 'Login to your dashboard to see available jobs and earn as much as 10,000 NGN daily when you like, share, comment on a post or play games.',
+        title: 'Earn in your currency',
+        description: 'We pay you in your preferred currency. You can earn in Naira, USD, USDT, ZAR, GHS, KES, UGX, RWF, and other currencies we support.',
         image: '/images/kickstartImage3.png'
     }
 ]
@@ -38,11 +39,11 @@ export const kickstartJourney = [
 export const faq = [
     {
         title: 'How do I start earning on Freebyz?',
-        description: 'Click on www.freebyz.com then sign up to start earning on Freebyz.Several online Jobs are waiting for you. You can earn big by referring your friends. We will reward you with 500 on each friend you refer to Freebyz.'
+        description: 'Sign up to start completing tasks or posting on our blog to earn.Several online Jobs are waiting for you. You can earn big by referring your friends. We will reward you with up to 50% verification bonus on each friend you refer to Freebyz and also earn from the withdrawals of your downlines.'
     },
     {
         title: 'How can I withdraw my money on Freebyz?',
-        description: 'You can withdraw your funds at any time in Naira or Dollars. We pay out every Friday to your bank account and via Paypal. The minimum withdraw fund is ₦2,500 (or $5 via Paypal). Sign up to start earning now. Click on www.freebyz.com then sign up to start earning on Freebyz. Several online Jobs are waiting for you. You can earn big by referring your friends. We will reward you with N500 on each friend you refer to Freebyz.'
+        description: 'You can withdraw your funds at any time in your currency. Login and go to your wallet and select withdraw. We pay out every Friday to your local bank account and USDT. The minimum withdraw fund is ₦2,500 (or its equivalent in your currency). Sign up to start earning now. Click on  www.freebyz.com then sign up to start earning on Freebyz. Several Gigs are waiting for you. You can earn big by referring your friends.'
     },
     {
         title: 'How do I withdraw in Dollars?',
@@ -146,7 +147,7 @@ export const dashMenuItems = [
     {
         icon: '/images/dashboard-icon.png',
         name: 'Dashboard',
-        url: '/'
+        url: '/dashboard'
     },
     {
         icon: '/images/safelock.png',
