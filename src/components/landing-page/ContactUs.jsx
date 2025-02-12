@@ -12,7 +12,7 @@ const ContactUs = () => {
 
     return (
         <div>
-             <div className="container pt-5 mt-8 md:pt-16">
+            <div className="container pt-5 mt-8 md:pt-16">
             <h1 className="mt-8 text-4xl font-medium leading-10 text-center">Contact our friendly team</h1>
             <p className='mb-8 text-center'>Get in touch and let’s see how we can help you.</p>
             <div className='relative grid w-3/4 grid-cols-1 gap-12 mx-auto md:grid-cols-2'>
@@ -32,7 +32,7 @@ const ContactUs = () => {
             </div>
             <p className="my-10 mb-8 text-4xl font-medium leading-10 text-center">Frequently Asked Questions</p>
             {faq.slice(4).map((el, i) => (
-                <div key={i} className="flex-grow p-5 mb-4 bg-customGray">
+                <div key={i} className="flex-grow p-5 mb-4 text-white bg-blue-500">
                     <div className="flex items-center justify-between">
                         <p className='text-2xl'>{el.title}</p>
                         <button onClick={() => toggleDescription(i)} className="text-2xl">
