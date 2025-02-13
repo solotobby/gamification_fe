@@ -172,7 +172,7 @@ const WorkOnline = () => {
                     <p className="max-w-2xl mt-8">
                         At Freebyz, We connect remote workers to creators who recruit online workers for micro tasks and side hustle Jobs.
                     </p>
-                    <Link to="/registration">
+                    <Link to="/">
                         <button className="px-4 py-2 mx-auto my-6 text-white rounded-full md:mx-4 bg-customBlue">
                             Sign up for free
                         </button>

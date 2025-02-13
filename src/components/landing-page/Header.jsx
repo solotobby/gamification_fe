@@ -10,14 +10,14 @@ const Header = () => {
                 <Link to="/"> <img src="/images/freebyzlogo-blue.png" alt="freebyz-logo" /></Link>
                 <img className="flex md:hidden" src="/images/menu-icon.png" onClick={() => setMenuOpen(!menuOpen)} alt="menu-icon" />
                 <div className={`md:hidden side-bar ${menuOpen ? 'show' : ''}`}>
-                    <p className="text-4xl text-blue-600" onClick={() => setMenuOpen(!menuOpen)}>x</p>
+                    <p className="text-3xl text-blue-500" onClick={() => setMenuOpen(!menuOpen)}>x</p>
                     <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Home</Link>
                     {/* <Link to="/make-money" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Make money</Link> */}
                     <Link to="/affiliate" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Affiliate Program</Link>
                     <Link to='/about-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>About us</Link>
                     <Link to='/contact-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Contact</Link>
-                    <Link to="/registration" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Sign up for free</Link>
-                    <Link to="/login" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Login</Link>
+                    <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Sign up for free</Link>
+                    <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Login</Link>
                 </div>
                 <div className="items-center hidden gap-12 md:flex">
                     <Link to="/" className="py-2">Home</Link>
@@ -27,8 +27,8 @@ const Header = () => {
                     <Link to='/contact-us' className="py-2">Contact</Link>
                 </div>
                 <div className="items-center hidden gap-6 md:flex">
-                    <Link to="/login" ><button className="py-2">Login</button></Link>
-                    <Link to="/registration"><button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
+                    <Link to="/" ><button className="py-2">Login</button></Link>
+                    <Link to="/"><button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
                 </div>
             </div>
         </div>
