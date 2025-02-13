@@ -15,21 +15,71 @@ const PrivacyPolicy = () => {
         ref.current.scrollIntoView()
     }
     return (
-        <div className="container relative min-h-screen pt-24">
+        <div className="container relative min-h-screen pt-20">
             <div className="md:fixed flex-col hidden my-8 md:flex w-[15rem] h-full relative">
-                <h1 className="mb-4 font-bold">Privacy policy</h1>
-                <span className="mb-4" onClick={() => goToRef(overviewRef)}>Overview</span>
-                <span className="mb-4" onClick={()=>goToRef(consent)}>Consent</span>
-                <span className="mb-4" onClick={()=>goToRef(infoWeCollectRef)}>Information we collect</span>
-                <span className="mb-4" onClick={()=>goToRef(hoWeManageYourInfoRef)}>How we use your information </span>
-                <span className="mb-4" onClick={()=>goToRef(logFilesRef)}>Log Files</span>
-                <span className="mb-4" onClick={()=>goToRef(cookiesAndWebRef)}>Cookies and Web Becons</span>
-                <span className="mb-4" onClick={()=>goToRef(advertisingPartnersRef )}>Advertising Partners Privacy Policy</span>
-                <span className="mb-4" onClick={()=>goToRef(thirdPartyRef)}>Third Party Privacy Policy</span>
-                <span className="mb-4" onClick={()=>goToRef(gdprRef)}>GDPR Data Protection Rights</span>
-                <span className="mb-4 " onClick={() => goToRef(childInfoRef)}>Children&#39;s Information</span>
+                <h1 className="mb-2 font-bold">Privacy policy</h1>
+                <span
+                    className="py-1 pl-1 pr-2 text-sm transition duration-300 rounded cursor-pointer hover:text-white hover:bg-blue-500"
+                    onClick={() => goToRef(overviewRef)}
+                >
+                    Overview
+                </span>
+                <span
+                    className="py-1 pl-1 pr-2 text-sm transition duration-300 rounded cursor-pointer hover:text-white hover:bg-blue-500"
+                    onClick={() => goToRef(consent)}
+                >
+                    Consent
+                </span>
+                <span
+                    className="py-1 pl-1 pr-2 transition duration-300 rounded cursor-pointer hover:text-white hover:bg-blue-500"
+                    onClick={() => goToRef(infoWeCollectRef)}
+                >
+                    Information <br/> we collect
+                </span>
+                <span
+                    className="py-1 pl-1 pr-2 transition duration-300 rounded cursor-pointer hover:text-white hover:bg-blue-500"
+                    onClick={() => goToRef(hoWeManageYourInfoRef)}
+                >
+                    How we use <br/> your information
+                </span>
+                <span
+                    className="py-1 pl-1 pr-2 transition duration-300 rounded cursor-pointer hover:text-white hover:bg-blue-500"
+                    onClick={() => goToRef(logFilesRef)}
+                >
+                    Log Files
+                </span>
+                <span
+                    className="py-1 pl-1 pr-2 transition duration-300 rounded cursor-pointer hover:text-white hover:bg-blue-500"
+                    onClick={() => goToRef(cookiesAndWebRef)}
+                >
+                    Cookies and Web <br/> Beacons
+                </span>
+                <span
+                    className="py-1 pl-1 pr-2 transition duration-300 rounded cursor-pointer hover:text-white hover:bg-blue-500"
+                    onClick={() => goToRef(advertisingPartnersRef)}
+                >
+                    Advertising Partners <br/> Privacy Policy
+                </span>
+                <span
+                    className="py-1 pl-1 pr-2 transition duration-300 rounded cursor-pointer hover:text-white hover:bg-blue-500"
+                    onClick={() => goToRef(thirdPartyRef)}
+                >
+                    Third Party <br/> Privacy Policy
+                </span>
+                <span
+                    className="py-1 pl-1 duration-300 rounded cursor-pointer pr-2transition hover:text-white hover:bg-blue-500"
+                    onClick={() => goToRef(gdprRef)}
+                >
+                    GDPR Data <br/> Protection Rights
+                </span>
+                <span
+                    className="py-1 pl-1 pr-2 mb-20 transition duration-300 rounded cursor-pointer hover:text-white hover:bg-blue-500"
+                    onClick={() => goToRef(childInfoRef)}
+                >
+                    Children&apos;s <br/> Information
+                </span>
             </div>
-            <div className="md:ml-[15rem] ml-0">
+            <div className="md:ml-[15rem] ml-0 bg-[#F0F8FF]">
                 <div className="pl-10">
                     <h1 className="my-8 text-3xl font-bold">Privacy policy</h1>
                     <div ref={overviewRef}>
@@ -37,15 +87,11 @@ const PrivacyPolicy = () => {
                             Overview
                         </h2>
                         <p className="mb-4">
-                            At Freebyz, accessible from https://freebyz.com/, one of our main priorities is the privacy of our visitors.
+                            At <a href="https://freebyz.com/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Freebyz</a>, accessible from <a href="https://freebyz.com/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">https://freebyz.com/</a>, one of our main priorities is the privacy of our visitors.
                             This Privacy Policy document contains types of information that is collected and recorded by Freebyz and how we use it.
                             If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
                         </p>
-                        <p className="mb-4">
-                            At Freebyz, accessible from https://freebyz.com/, one of our main priorities is the privacy of our visitors.
-                            This Privacy Policy document contains types of information that is collected and recorded by Freebyz and how we use it.
-                            If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
-                        </p>
+                       
                         <p className="mb-4">
                             This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the
                             information that they shared and/or collect in Freebyz. This policy is not applicable to any information collected offline
@@ -130,7 +176,7 @@ const PrivacyPolicy = () => {
                     <p className="mb-4 text-2xl font-bold">Third party privacy policies</p>
                     <div ref={thirdPartyRef}>
                         <p className="mb-4">
-                            Freebyz's privacy policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information.
+                        <a href="https://freebyz.com/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Freebyz</a>&apos;s privacy policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information.
                             It may include their practices and instructions about how to opt-out of certain options. You can choose to disable cookies through your individual browser options.
                         </p>
                         <p className="mb-4">
@@ -144,20 +190,20 @@ const PrivacyPolicy = () => {
                         <p className="mb-4">If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
                     </div>
                     <p className="mb-4 text-2xl font-bold">GDPR data protection rights</p>
-                   <div ref={gdprRef}>
-                   <p className="mb-4">
-                        We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
-                    </p>
-                    <ul className="pl-6 list-decimal">
-                        <li className="mb-4">The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</li>
-                        <li className="mb-4">The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete. </li>
-                        <li className="mb-4">The right to erasure – You have the right to request that we erase your personal data, under certain conditions..</li>
-                        <li className="mb-4">The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain condition</li>
-                        <li className="mb-4">The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions. </li>
-                        <li className="mb-4">TThe right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions. </li>
-                    </ul>
-                    <p className="mb-4">If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
-                   </div>
+                    <div ref={gdprRef}>
+                        <p className="mb-4">
+                            We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
+                        </p>
+                        <ul className="pl-6 list-decimal">
+                            <li className="mb-4">The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</li>
+                            <li className="mb-4">The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete. </li>
+                            <li className="mb-4">The right to erasure – You have the right to request that we erase your personal data, under certain conditions..</li>
+                            <li className="mb-4">The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain condition</li>
+                            <li className="mb-4">The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions. </li>
+                            <li className="mb-4">TThe right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions. </li>
+                        </ul>
+                        <p className="mb-4">If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+                    </div>
 
                     <div ref={childInfoRef}>
                         <p className="mb-4 text-2xl font-bold">Children&apos;s information</p>
@@ -165,7 +211,7 @@ const PrivacyPolicy = () => {
                             Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
                         </p>
                         <p className="mb-4">
-                            Freebyz does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website,
+                        <a href="https://freebyz.com/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Freebyz</a> does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website,
                             we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
                         </p>
                     </div>
