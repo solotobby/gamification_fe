@@ -10,7 +10,7 @@ const Header = () => {
                 <Link to="/"> <img src="/images/freebyzlogo-blue.png" alt="freebyz-logo" /></Link>
                 <img className="flex md:hidden" src="/images/menu-icon.png" onClick={() => setMenuOpen(!menuOpen)} alt="menu-icon" />
                 <div className={`md:hidden side-bar ${menuOpen ? 'show' : ''}`}>
-                    <p onClick={() => setMenuOpen(!menuOpen)}>X</p>
+                    <p className="text-4xl text-blue-600" onClick={() => setMenuOpen(!menuOpen)}>x</p>
                     <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Home</Link>
                     {/* <Link to="/make-money" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Make money</Link> */}
                     <Link to="/affiliate" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Affiliate Program</Link>
