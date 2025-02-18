@@ -10,12 +10,14 @@ import ForgotPassword from './components/landing-page/ForgotPassword.jsx';
 import Otp from './components/landing-page/Otp.jsx';
 
 // import MakeMoney from './components/landing-page/MakeMoney.jsx';
+import ScrollToTop from './components/landing-page/pages/ScrollToTop.jsx';
 import AffiliateProgram from './components/landing-page/AffiliateProgram.jsx';
 
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
        
         <Route path="/" element={<><Header /><Home /><Footer /></>} />
