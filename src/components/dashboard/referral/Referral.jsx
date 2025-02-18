@@ -139,8 +139,14 @@ const Referral = () => {
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{referral.name}</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{new Date(referral.created_at).toLocaleDateString()}</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">
-                                            <button className="relative px-8 py-2 text-gray-600 bg-gray-200 rounded-md">
-                                                <span className="absolute w-2 h-2 -translate-y-1/2 bg-gray-600 rounded-full left-3 top-1/2"></span>
+                                            <button
+                                                className={`relative px-8 w-32 py-2 text-white rounded-md 
+                                                    ${referral.status === 'Verified' ? 'bg-green-600' :
+                                                        referral.status === 'Unverified' ? 'bg-red-600' :
+                                                            referral.status === 'pending' ? 'bg-orange-600' :
+                                                                'bg-gray-600'}`}
+                                            >
+                                                <span className="absolute w-2 h-2 -translate-y-1/2 bg-white rounded-full left-3 top-1/2"></span>
                                                 {referral.status}
                                             </button>
                                         </td>
@@ -154,7 +160,7 @@ const Referral = () => {
                                 <button
                                     disabled={pagination.current_page === 1}
                                     onClick={() => fetchReferrals(pagination.current_page - 1)}
-                                    className="px-4 mx-2 text-white bg-blue-800 rounded disabled:opacity-50"
+                                    className="px-4 mx-2 text-white bg-blue-900 rounded disabled:opacity-50"
                                 >
                                     Previous
                                 </button>
