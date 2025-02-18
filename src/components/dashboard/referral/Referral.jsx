@@ -126,7 +126,6 @@ const Referral = () => {
                         <table className="w-full">
                             <thead className="bg-gray-100">
                                 <tr className="rounded-sm">
-                                    <th scope="col" className="px-6 py-3 text-lg font-medium text-gray-800 uppercase text-start">S/N</th>
                                     <th scope="col" className="px-6 py-3 text-lg font-medium text-gray-800 uppercase text-start">Name</th>
                                     <th scope="col" className="px-6 py-3 text-lg font-medium text-gray-800 uppercase text-start">Date</th>
                                     <th scope="col" className="px-6 py-3 text-lg font-medium text-gray-800 uppercase text-start">Status</th>
@@ -137,7 +136,6 @@ const Referral = () => {
                             <tbody>
                                 {referrals.map((referral, index) => (
                                     <tr key={referral.id} className={`odd:bg-white even:bg-gray-100 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
-                                        <td className="px-6 py-4 text-base font-medium text-gray-800 whitespace-nowrap text-start">{index + 1}</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{referral.name}</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">{new Date(referral.created_at).toLocaleDateString()}</td>
                                         <td className="px-6 py-4 text-base text-gray-800 whitespace-nowrap text-start">
