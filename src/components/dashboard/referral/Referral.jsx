@@ -155,19 +155,19 @@ const Referral = () => {
                                 ))}
                             </tbody>
                         </table>
-                        {referrals.length >= 10 && (
+                        {referrals.length > 0 && (
                             <div className="sticky bottom-0 flex justify-center py-2 mt-8">
                                 <button
                                     disabled={pagination.current_page === 1}
                                     onClick={() => fetchReferrals(pagination.current_page - 1)}
-                                    className="px-4 mx-2 text-white bg-blue-900 rounded disabled:opacity-50"
+                                    className="px-4 mx-2 text-white bg-gray-600 rounded disabled:opacity-50"
                                 >
                                     Previous
                                 </button>
                                 <button
-                                    disabled={pagination.current_page === pagination.last_page}
+                                    disabled={referrals.length < 10 || pagination.current_page === pagination.last_page}
                                     onClick={() => fetchReferrals(pagination.current_page + 1)}
-                                    className="px-4 py-2 mx-2 text-white bg-red-800 rounded disabled:opacity-50"
+                                    className="px-4 py-2 mx-2 text-white bg-gray-600 rounded disabled:opacity-50"
                                 >
                                     Next
                                 </button>
