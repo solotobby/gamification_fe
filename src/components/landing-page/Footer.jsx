@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
+
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
+
     return (
         <div>
             <div className="container flex flex-col items-center justify-center mt-20 ">
@@ -26,7 +29,7 @@ const Footer = () => {
 
                                 <Link to='/' className="text-base font-inter">Home</Link>
                                 {/* <Link to='/make-money' className="text-base font-inter">Make money</Link> */}
-                               
+
                                 <a href="https://dashboard.freebyz.com/register" rel="noopener noreferrer" className="text-base font-inter">Sign up</a>
 
                             </div>
@@ -70,13 +73,43 @@ const Footer = () => {
 
                 <div className="container flex flex-col justify-between mt-6 md:flex-row ">
                     <div className="mb-4 text-white md:mb-0">
-                        <p className="text-base font-inter">All copyright © reserved by Freebyz 2024</p>
+                        <p className="text-base font-inter">All copyright © reserved by Freebyz {currentYear}</p>
                         <p className="text-base font-inter">Freebyz By Dominahl Technology LLC</p>
                     </div>
                     <div className="flex gap-4 pb-8 md:gap-8">
-                        <img src="/images/facebook.png" alt="facebook-icon" className="w-5 h-5" />
-                        <img src="/images/freebyz-ig.png" alt="instagram-icon" className="w-5 h-5" />
-                        <img src="/images/freebyz-x.png" alt="twitter-icon" className="w-5 h-5" />
+                        <a
+                            href="https://www.facebook.com/share/XzPhzupkGenQRLps/?mibextid=qi2Omg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                src="/images/facebook.png"
+                                alt="facebook-icon"
+                                className="w-5 h-5 cursor-pointer"
+                            />
+                        </a>
+                        <a
+                            href="https://www.instagram.com/freebyzjobs?utm_source=qr&igsh=MTAyd3JqY3hvd2Judg=="
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                src="/images/freebyz-ig.png"
+                                 alt="instagram-icon"
+                                className="w-5 h-5 cursor-pointer"
+                            />
+                        </a>
+                        <a
+                            href="https://x.com/FreebyzHQ?t=5PLw53pf5s7a86asWLDHYQ&s=08"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                src="/images/freebyz-x.png"
+                                 alt="twitter-icon"
+                               className="w-5 h-5 cursor-pointer"
+                            />
+                        </a>
                     </div>
                 </div>
             </div>
