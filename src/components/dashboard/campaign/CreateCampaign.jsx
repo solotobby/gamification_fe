@@ -17,7 +17,9 @@ const CreateCampaign = () => {
     const [campaignProof, setCampaignProof] = useState('');
     const [agreed, setAgreed] = useState(false);
     const [subcategories, setSubcategories] = useState([]);
-
+    const [amount, setAmount] = useState(0);
+    const [finalCost, setFinalCost] = useState(0);
+    const [estimatedCost, setEstimatedCost] = useState(0);
 
 
 
@@ -49,6 +51,19 @@ const CreateCampaign = () => {
         getCampaignCategories();
     }, []);
     
+
+    useEffect(() => {
+        if (selectedSubCategory?.amount && numberOfWorkers > 0) {
+            const baseCost = numberOfWorkers * selectedSubCategory.amount;
+            setEstimatedCost(baseCost);
+            setFinalCost(baseCost + (0.6 * baseCost));
+        } else {
+            setEstimatedCost(0);
+            setFinalCost(0);
+        }
+    }, [numberOfWorkers, selectedSubCategory?.amount]);
+    
+
     const getCampaignCategories = async () => {
         try {
             const data = await fetchCampaignCategories();
@@ -59,7 +74,7 @@ const CreateCampaign = () => {
             console.error("Error fetching campaign categories:", error);
         }
     };
-    
+
 
     const toggleCategoryDropdown = () => {
         setShowCategoryDropdown(!showCategoryDropdown);
@@ -75,16 +90,18 @@ const CreateCampaign = () => {
     const handleSubCategorySelect = (subCategory) => {
         setSelectedSubCategory(subCategory);
         setShowSubCategoryDropdown(false);
+        setAmount(subCategory.amount);
     };
-    
+
 
     const handleCategorySelect = (category) => {
         setSelectedCategory(category);
         setSubcategories(category.subcategories || []);
         setSelectedSubCategory(null);
         setShowCategoryDropdown(false);
+        setAmount(0);
     };
-    
+
 
 
     const handleWorkerChange = (e) => {
@@ -105,7 +122,6 @@ const CreateCampaign = () => {
         return false;
     };
 
-    const estimatedCost = numberOfWorkers * costPerCampaign;
 
     const renderInformationContent = () => (
         <div className='flex flex-col items-center w-full mx-auto'>
@@ -149,21 +165,21 @@ const CreateCampaign = () => {
                         <img src="/images/select-arrow.png" alt="select dropdown" className="w-6 h-6 ml-2" />
                     </div>
                     {showSubCategoryDropdown && selectedCategory && (
-    <ul
-        className="absolute left-0 z-10 w-full bg-blue-100 border-gray-200 rounded-lg shadow-lg border-lg top-20"
-        style={{ maxHeight: '200px', overflowY: 'auto' }}
-    >
-        {subcategories.map((subCategory) => (
-            <li
-                key={subCategory.id}
-                className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                onClick={() => handleSubCategorySelect(subCategory)}
-            >
-                {subCategory.name}
-            </li>
-        ))}
-    </ul>
-)}
+                        <ul
+                            className="absolute left-0 z-10 w-full bg-blue-100 border-gray-200 rounded-lg shadow-lg border-lg top-20"
+                            style={{ maxHeight: '200px', overflowY: 'auto' }}
+                        >
+                            {subcategories.map((subCategory) => (
+                                <li
+                                    key={subCategory.id}
+                                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                                    onClick={() => handleSubCategorySelect(subCategory)}
+                                >
+                                    {subCategory.name}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
             </div>
 
@@ -195,7 +211,7 @@ const CreateCampaign = () => {
                 </div>
             </div>
             <div className='mx-auto w-[80%]'>
-                <p className="mt-10 text-lg font-semibold">Estimated cost: <span className="text-xl">&#8358; {estimatedCost.toFixed(2)}</span></p>
+                <p className="mt-10 text-lg font-semibold">Estimated cost: <span className="text-xl">&#8358; {finalCost.toFixed(2)}</span></p>
             </div>
         </div>
     );
@@ -284,7 +300,7 @@ const CreateCampaign = () => {
                         <p>Campaign description</p>
                     </button>
                 </div>
-    
+
                 {activeTab === 'information' && (
                     <>
                         <p className="mb-2 text-2xl font-semibold text-center">Campaign information</p>
@@ -320,15 +336,14 @@ const CreateCampaign = () => {
                                     )}
                                 </div>
                             </div>
-    
+
                             <div className='w-[80%] mx-auto'>
                                 <p className="mb-2 text-lg">Sub-category</p>
                                 <div className="relative w-full mx-auto mb-4">
                                     <div
                                         onClick={toggleSubCategoryDropdown}
-                                        className={`flex items-center justify-between w-full px-4 py-4 mb-8 text-left text-gray-900 bg-gray-100 rounded-lg cursor-pointer ${
-                                            !selectedCategory ? 'opacity-50 cursor-not-allowed' : ''
-                                        }`}
+                                        className={`flex items-center justify-between w-full px-4 py-4 mb-8 text-left text-gray-900 bg-gray-100 rounded-lg cursor-pointer ${!selectedCategory ? 'opacity-50 cursor-not-allowed' : ''
+                                            }`}
                                         disabled={!selectedCategory}
                                     >
                                         <span className={`${selectedSubCategory ? 'text-gray-700' : 'text-gray-400'}`}>
@@ -354,7 +369,7 @@ const CreateCampaign = () => {
                                     )}
                                 </div>
                             </div>
-    
+
                             <div className='flex gap-2 mt-16 w-[80%] mx-auto'>
                                 <div className='flex-grow'>
                                     <p className="mb-2">Number of workers</p>
@@ -368,36 +383,37 @@ const CreateCampaign = () => {
                                         />
                                     </div>
                                 </div>
-    
+
                                 <div className='flex-grow'>
-                                    <p className="mb-2">Cost per campaign</p>
-                                    <div className="flex items-center gap-2">
-                                        <input
-                                            type="number"
-                                            value={costPerCampaign}
-                                            onChange={handleCostPerCampaignChange}
-                                            className="w-full px-2 py-4 text-center border-2 border-gray-300 rounded-lg"
-                                            disabled={!selectedCategory || selectedSubCategory?.name === 'Select'}
-                                        />
+                                   
+                                    <div className='flex-grow'>
+                                        <p className="mb-2">Cost per campaign</p>
+                                        <div className="flex items-center gap-2">
+                                            {amount > 0 && (
+                                                <div className="mt-4 text-lg font-bold">
+                                                    {amount}
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-    
+
                             <div className='mx-auto w-[80%]'>
                                 <p className="mt-10 text-lg font-semibold">
-                                    Estimated cost: <span className="text-xl">&#8358; {estimatedCost.toFixed(2)}</span>
+                                    Estimated cost: <span className="text-xl">&#8358; {finalCost.toFixed(2)}</span>
                                 </p>
                             </div>
                         </div>
                     </>
                 )}
-    
+
                 {activeTab === 'description' &&
                     <div className='flex flex-col items-center'>
                         {renderDescriptionContent()}
                     </div>
                 }
-    
+
                 {activeTab === 'information' && (
                     <div className='mx-auto w-[80%]'>
                         <button
