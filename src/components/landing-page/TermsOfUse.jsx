@@ -14,7 +14,7 @@ const TermsOfUse = () => {
     ];
 
     return (
-        <div className="container pt-10 md:pt-20">
+        <div className="container pt-10 md:pt-20 bg-[#F0F8FF]">
             <h1 className="my-8 text-3xl font-bold">Terms of Use</h1>
             <div className="text-base leading-relaxed font-graphik">
                 <ol className="space-y-4 list-decimal list-inside font-graphik">

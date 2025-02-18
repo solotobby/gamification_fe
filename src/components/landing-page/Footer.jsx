@@ -8,7 +8,8 @@ const Footer = () => {
 
                 <span className="flex items-center gap-8 md:gap-8">
                     <img className="w-16 md:w-auto" src="/images/arrow-left.png" alt="left-arrow" />
-                    <Link to="/" className="px-4 py-4 text-base text-white rounded-full bg-customBlue md:px-4 md:py-2 md:text-xl">Sign up for free</Link>
+                    <a href="https://dashboard.freebyz.com/register" rel="noopener noreferrer" className="px-4 py-4 text-base text-white rounded-full bg-customBlue md:px-4 md:py-2 md:text-xl">Sign up for free</a>
+
                     <img className="w-16 md:w-auto" src="/images/arrow2.png" alt="right-arrow" />
                 </span>
             </div>
@@ -26,7 +27,8 @@ const Footer = () => {
                                 <Link to='/' className="text-base font-inter">Home</Link>
                                 {/* <Link to='/make-money' className="text-base font-inter">Make money</Link> */}
                                
-                                <Link to='/' className="text-base font-inter">Sign up</Link>
+                                <a href="https://dashboard.freebyz.com/register" rel="noopener noreferrer" className="text-base font-inter">Sign up</a>
+
                             </div>
                         </div>
 

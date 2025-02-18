@@ -16,8 +16,21 @@ const Header = () => {
                     <Link to="/affiliate" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Affiliate Program</Link>
                     <Link to='/about-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>About us</Link>
                     <Link to='/contact-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Contact</Link>
-                    <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Sign up for free</Link>
-                    <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Login</Link>
+                    <a
+                        href="https://dashboard.freebyz.com/register"
+                        className="block py-2"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
+                        Sign up for free
+                    </a>
+
+                    <a
+                        href="https://dashboard.freebyz.com/login"
+                        className="block py-2"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
+                        Login
+                    </a>
                 </div>
                 <div className="items-center hidden gap-12 md:flex">
                     <Link to="/" className="py-2">Home</Link>
@@ -27,8 +40,11 @@ const Header = () => {
                     <Link to='/contact-us' className="py-2">Contact</Link>
                 </div>
                 <div className="items-center hidden gap-6 md:flex">
-                    <Link to="/" ><button className="py-2">Login</button></Link>
-                    <Link to="/"><button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
+                    <a href="https://dashboard.freebyz.com/login" rel="noopener noreferrer" className="py-2">Login</a>
+
+                    <a href="https://dashboard.freebyz.com/register" rel="noopener noreferrer" className="inline-block p-4 text-white rounded-full bg-customBlue">Sign up for free</a>
+
+
                 </div>
             </div>
         </div>
