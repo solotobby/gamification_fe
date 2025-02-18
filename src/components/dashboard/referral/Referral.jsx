@@ -142,8 +142,8 @@ const Referral = () => {
                                             <button
                                                 className={`relative px-8 w-32 py-2 text-white rounded-md 
                                                     ${referral.status === 'Verified' ? 'bg-green-600' :
-                                                        referral.status === 'Unverified' ? 'bg-red-600' :
-                                                            referral.status === 'pending' ? 'bg-orange-600' :
+                                                        referral.status === 'Unverified' ? 'bg-red-500' :
+                                                            referral.status === 'pending' ? 'bg-orange-500' :
                                                                 'bg-gray-600'}`}
                                             >
                                                 <span className="absolute w-2 h-2 -translate-y-1/2 bg-white rounded-full left-3 top-1/2"></span>
