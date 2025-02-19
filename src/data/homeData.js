@@ -26,7 +26,7 @@ export const kickstartJourney = [
     },
     {
         title: 'Work/Hire',
-        description: 'Hire workers to download your Apps, stream your music, buy your digital & physical products, join your Telegram Channel or drive engagements to your posts on X, TikTok, YouTube, Facebook, etcWork or Hire workers to download your Apps, stream your music, buy your digital & physical products, join your Telegram Channel or drive engagements to your posts on X, TikTok, YouTube, Facebook, etc',
+        description: 'Work or Hire workers to download your Apps, stream your music, buy your digital & physical products, join your Telegram Channel or drive engagements to your posts on X, TikTok, YouTube, Facebook, etc.',
         image: '/images/kickstartImage2.png'
     },
     {
@@ -84,7 +84,7 @@ export const faq = [
     },
     {
         title: 'Can I work and make money on Freebyz without verifying my account?',
-        description: "Yes, you can work and make money on Freebyz without verifying your account but you will only have access to small jobs (not highly paid jobs) and will not be able to withdraw your account because your identity is not verified. Learn more on benefits of verifying your accounts here"
+        description: "Yes, you can work and make money on Freebyz without verifying your account but you will only have access to small jobs (not highly paid jobs) and will not be able to withdraw your account because your identity is not verified."
     },
     {
         title: 'How can I hire workers on FREEBYZ?',

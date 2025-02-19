@@ -33,7 +33,7 @@ const AboutUs = () => {
                         decency and best practices in all our partnership deals.
                     </p>
                     <p className="mt-8">
-                        We have about 4 products currently in the market, we have two Job portals; myhotjobz.com for on-site jobs and freebyz.com for online/remote jobs;
+                        We have about 9 products currently in the market, we have two Job portals; myhotjobz.com for on-site jobs and freebyz.com for online/remote jobs;
                         e-portal for automating teaching and results processing in primary, secondary & tertiary institutions; and a products in pipeline for telecommunication services.
                         We equally offer digital training and certifications to our clients and customers.
                     </p>
