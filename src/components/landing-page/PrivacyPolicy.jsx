@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
     const advertisingPartnersRef = useRef()
     const gdprRef = useRef()
     const goToRef = (ref) => {
-        const offset = 140;
+        const offset = 160;
         const element = ref.current;
         
         if (element) {
