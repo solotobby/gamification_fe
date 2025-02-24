@@ -7,7 +7,14 @@ const Header = () => {
     return (
         <div className="fixed top-0 left-0 right-0 w-full z-[100] bg-white py-3">
             <div className="container flex items-center justify-between md:flex-row">
-                <Link to="/"> <img src="/images/freebyzlogo-blue.png" alt="freebyz-logo" /></Link>
+                <Link to="/">
+                    <img src="/images/freebyzlogo-blue.png"
+                    alt="freebyz-logo"
+                    className="w-24 md:w-auto"
+                    />
+                    
+                </Link>
+                    
                 <img className="flex md:hidden" src="/images/menu-icon.png" onClick={() => setMenuOpen(!menuOpen)} alt="menu-icon" />
                 <div className={`md:hidden side-bar ${menuOpen ? 'show' : ''}`}>
                     <p className="text-3xl text-blue-500" onClick={() => setMenuOpen(!menuOpen)}>x</p>
