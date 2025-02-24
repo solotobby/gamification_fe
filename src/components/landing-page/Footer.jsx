@@ -9,11 +9,16 @@ const Footer = () => {
                 <p className="w-full px-4 mt-8 text-4xl font-medium leading-10 text-center md:w-3/4 md:mt-8 md:text-5xl md:leading-10">Sign up today and start earning in your local currency!</p>
                 <p className="w-full px-4 my-8 text-base text-center md:w-3/4 md:mt-6 md:text-base">Start getting that extra income from the comfort of your home by creating an account for free.</p>
 
-                <span className="flex items-center gap-8 md:gap-8">
-                    <img className="w-16 md:w-auto" src="/images/arrow-left.png" alt="left-arrow" />
-                    <a href="https://dashboard.freebyz.com/register" rel="noopener noreferrer" className="px-4 py-4 text-base text-white rounded-full bg-customBlue md:px-4 md:py-2 md:text-xl">Sign up for free</a>
+                <span className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+                    <img className="w-10 md:w-24" src="/images/arrow-left.png" alt="left-arrow" />
 
-                    <img className="w-16 md:w-auto" src="/images/arrow2.png" alt="right-arrow" />
+                    <a href="https://dashboard.freebyz.com/register"
+                        rel="noopener noreferrer"
+                        className="px-4 py-3 text-sm text-white rounded-full bg-customBlue md:px-6 md:py-3 md:text-lg">
+                        Sign up for free
+                    </a>
+
+                    <img className="w-10 md:w-24" src="/images/arrow2.png" alt="right-arrow" />
                 </span>
             </div>
             <div className="pb-10 mt-8 bg-customBlue">
