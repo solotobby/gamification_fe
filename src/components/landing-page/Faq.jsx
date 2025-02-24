@@ -16,7 +16,7 @@ const Faq = () => {
             <div className="text-center">
                 <p className="mb-8 text-3xl font-medium leading-8 md:text-4xl">Frequently asked questions</p>
                 {faq.slice(0, 4).map((el, i) => ( 
-                    <div key={i} className="p-4 mb-4 bg-customGray">
+                    <div key={i} className="p-4 mb-4 text-left bg-customGray">
                         <div className="flex items-center justify-between">
                             <p className='pb-3 text-base md:text-2xl'>{el.title}</p>
                             <button onClick={() => toggleDescription(i)} className="text-base md:text-2xl">
@@ -24,7 +24,7 @@ const Faq = () => {
                             </button>
                         </div>
                         {isOpen[i] && (
-                            <p className="text-base text-left md:text-base">{el.description}</p>
+                            <p className="text-xs text-left md:text-base">{el.description}</p>
                         )}
                     </div>
                 ))}
