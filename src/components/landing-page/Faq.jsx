@@ -24,7 +24,7 @@ const Faq = () => {
                             </button>
                         </div>
                         {isOpen[i] && (
-                            <p className="text-xs text-left md:text-base">{el.description}</p>
+                            <p className="text-xs text-left md:text-lg">{el.description}</p>
                         )}
                     </div>
                 ))}
