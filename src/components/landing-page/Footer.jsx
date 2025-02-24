@@ -55,7 +55,13 @@ const Footer = () => {
                         <div className="text-base text-white md:text-xl">
                             <h1 className="my-4 font-bold font-inter">Contact</h1>
                             <div className="flex flex-col gap-2">
-                                <Link to='/' className="text-base font-inter">Contact support</Link>
+                                <a
+                                    href="mailto:hello@freebyz.com"
+                                    className="text-base font-inter"
+                                >
+                                    Contact support
+                                </a>
+
                                 <a
                                     href="https://tawk.to/chat/6510bbe9b1aaa13b7a78ae75/1hb4ls2fd"
                                     target="_blank"
@@ -95,7 +101,7 @@ const Footer = () => {
                         >
                             <img
                                 src="/images/freebyz-ig.png"
-                                 alt="instagram-icon"
+                                alt="instagram-icon"
                                 className="w-5 h-5 cursor-pointer"
                             />
                         </a>
@@ -106,8 +112,8 @@ const Footer = () => {
                         >
                             <img
                                 src="/images/freebyz-x.png"
-                                 alt="twitter-icon"
-                               className="w-5 h-5 cursor-pointer"
+                                alt="twitter-icon"
+                                className="w-5 h-5 cursor-pointer"
                             />
                         </a>
                     </div>
