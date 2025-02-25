@@ -75,7 +75,7 @@ export const faq = [
         description: 'You can hire online workers to share your flyers online on Whatsapp status, Whatsapp group, Facebook, Twitter Instagram and other social media platforms at the cheapest rate. Sign up now on freebyz.com to hire workers instantly.'
     },
     {
-        title: 'I have issues with my card. How can I fund my wallet or verify my account without using my debit can?',
+        title: 'I have issues with my card. How can I fund my wallet or verify my account without using my debit card?',
         description: 'You can do Manual Funding by sending the Fee to our account. We will activate/verify your account from our back end. Kindly attach a receipt of payment to info@dominahl.com after payment.'
     },
     {
