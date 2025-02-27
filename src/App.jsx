@@ -12,6 +12,8 @@ import Otp from './components/landing-page/Otp.jsx';
 // import MakeMoney from './components/landing-page/MakeMoney.jsx';
 import ScrollToTop from './components/landing-page/pages/ScrollToTop.jsx';
 import AffiliateProgram from './components/landing-page/AffiliateProgram.jsx';
+import Login from './components/landing-page/Login.jsx';
+import Register from './components/landing-page/Register.jsx';
 
 
 function App() {
@@ -26,12 +28,14 @@ function App() {
         <Route path="/terms-of-use" element={<><Header /><TermsOfUse /><Footer /></>} />
         <Route path="/privacy-policy" element={<><Header /><PrivacyPolicy /><Footer /></>} />
         {/* <Route path="/make-money" element={<><Header /><MakeMoney /><Footer /></>} /> */}
-        <Route path="/affiliate" element={<><Header /><AffiliateProgram /><Footer /></>} />
+        <Route path="/affiliate-program" element={<><Header /><AffiliateProgram /><Footer /></>} />
 
         
        
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/otp" element={<Otp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         
       
       </Routes>
