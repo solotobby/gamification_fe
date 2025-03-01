@@ -12,8 +12,14 @@ const PrivacyPolicy = () => {
     const advertisingPartnersRef = useRef()
     const gdprRef = useRef()
     const goToRef = (ref) => {
-        ref.current.scrollIntoView()
-    }
+        const offset = 160;
+        const element = ref.current;
+        
+        if (element) {
+            const topPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: topPosition, behavior: "smooth" });
+        }
+    };
     return (
         <div className="container relative min-h-screen pt-20">
             <div className="md:fixed flex-col hidden my-8 md:flex w-[15rem] h-full relative">
