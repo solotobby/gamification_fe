@@ -18,11 +18,13 @@ const AffiliateProgram = () => {
                     1. Direct referral program: When you refer a verified user, we pay you for every referral. Using this simple referral principle, users have made millions by making review videos and social media posts using their referral links.
                     <p>Apart from referral commission, We offer amazing special referral bonuses in 3 levels:</p>
                     <p className="mb-8">
-                        i.  Refer 50+ verified users in a month to earn N25k + extra N5000 from Freebyz.<br/>
-                        ii. Refer 20 verified users in a month to earn N10k + extra N1500<br/>
-                        iii. Refer 10 verified users in a month to earn N5k + extra N500 from Freebyz
+                        i.  Refer 50+ verified users in a month to earn N50k + extra N5000 from Freebyz.<br/>
+                        ii. Refer 20 verified users in a month to earn N20k + extra N1500<br/>
+                        iii. Refer 10 verified users in a month to earn N10k + extra N500 from Freebyz
                     </p>
-                    <p className="mb-12"> 2. Third Party referral program: Freebyz has partnered with Wellahealth, an healthcare provider to give you access to referral bonuses when you refer your friends to sign up for an health care (insurance) plan offered by Wellahealth. With this, you can earn up to 200,000 Naira daily by referring your friends to Wellahealth. Wellahealth provide access to affordable health care for access to free drugs, blood tests, medical check-ups, free calls to Doctors, etc. You can gift the health care plan as a birthday gift. Health care will be obtained in the nearest Pharmacy or Hospital closest to the beneficiary.</p>
+                    <p className="mb-10"> 2. Withdrawal commissions: You earn up to 2% on each withdrawal your referrals make (withdrawal bonus) on Freebyz. This applies to all currencies we support on Freebyz. Invite more friends to earn referral bonus and withdrawal bonus only on Freebyz.</p>
+
+                    <p className="mb-10"> 3. Third Party referral program: Freebyz has partnered with Wellahealth, an healthcare provider to give you access to referral bonuses when you refer your friends to sign up for an health care (insurance) plan offered by Wellahealth. With this, you can earn up to 200,000 Naira daily by referring your friends to Wellahealth. Wellahealth provide access to affordable health care for access to free drugs, blood tests, medical check-ups, free calls to Doctors, etc. You can gift the health care plan as a birthday gift. Health care will be obtained in the nearest Pharmacy or Hospital closest to the beneficiary.</p>
                 </p>
 
                 <p className="my-8 italic">
