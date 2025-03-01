@@ -54,7 +54,11 @@ const KickstartJourney = () => {
                         ))}
                     </Swiper>
                 </div>
-                <Link><button to="/registration" className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
+                <a href="https://dashboard.freebyz.com/register">
+                    <button className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">
+                        Sign up for free
+                    </button>
+                </a>
             </div>
         </div>
 
