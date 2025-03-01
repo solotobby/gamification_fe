@@ -10,7 +10,7 @@ const HomeTable = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://freebyz.com/landing/api');
+                const response = await fetch('https://api.codetabs.com/v1/proxy?quest=https://dashboard.freebyz.com/landing/api');
                 const responseData = await response.json();
                 setTransactions(responseData);
             } catch (error) {
