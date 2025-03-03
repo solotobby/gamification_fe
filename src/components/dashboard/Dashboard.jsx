@@ -9,6 +9,7 @@ const Dashboard = () => {
 
     const { referralURL } = useContext(ReferralContext);
     const [isExpanded, setIsExpanded] = useState(false);
+    const { totalReferrals } = useContext(ReferralContext);
     const [isModalOpen, setIsModalOpen] = useState(
         localStorage.getItem("hasCompletedSurvey") ? false : true
     );
@@ -114,8 +115,8 @@ const Dashboard = () => {
                         <div className="flex items-center justify-center w-1/4 gap-4 p-8 bg-white ">
                             <img className="w-8 h-8" src="/images/total-referrals.png" alt="wallet-icon" />
                             <div>
-                                <p>Total referral</p>
-                                <p>100</p>
+                            <p>Total referrals</p>
+                            <p>{totalReferrals}</p>
                             </div>
                         </div>
                     </div>
