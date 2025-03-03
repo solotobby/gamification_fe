@@ -27,6 +27,7 @@ const steps = [
     },
 ];
 
+
 const AboutUs = () => {
     const [activeStep, setActiveStep] = useState(0);
     const controls = useAnimationControls();
@@ -59,7 +60,7 @@ const AboutUs = () => {
         <div>
             <div className="container relative">
                 <div className="absolute top-0 left-0 z-20 w-full text-center md:top-10">
-                    <p className="text-xl font-bold text-blue-500 md:text-2xl">OUR JOURNEY</p>
+                    <p className="text-xl font-bold text-blue-500 md:text-2xl">OUR JOURNEY.</p>
                     <div className="w-32 h-1 mx-auto mt-1 bg-blue-500"></div>
                 </div>
 
