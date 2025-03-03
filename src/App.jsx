@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ReferralProvider } from './components/dashboard/context/ReferralContext.jsx';
 import Header from "./components/landing-page/Header";
 import Home from './components/landing-page/pages/Home.jsx';
 import ContactUs from "./components/landing-page/ContactUs.jsx";
@@ -41,7 +42,8 @@ import Dashboard from './components/dashboard/Dashboard.jsx';
 
 function App() {
   return (
-    <Router>
+    <ReferralProvider>
+      <Router>
       <Routes>
        
         <Route path="/" element={<><Header /><Home /><Footer /></>} />
@@ -86,6 +88,8 @@ function App() {
       
       </Routes>
     </Router>
+    </ReferralProvider>
+    
   );
 }
 
