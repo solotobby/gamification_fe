@@ -47,7 +47,7 @@ const Header = () => {
                     <Link to='/contact-us' className="py-2">Contact</Link>
                 </div>
                 <div className="items-center hidden gap-6 md:flex">
-                    <a href="https://dashboard.freebyz.com/login" rel="noopener noreferrer" className="py-2">Login</a>
+                    <Link to='/login' rel="noopener noreferrer" className="py-2">Login</Link>
 
                     <a href="https://dashboard.freebyz.com/register" rel="noopener noreferrer" className="inline-block p-4 text-white rounded-full bg-customBlue">Sign up for free</a>
 
