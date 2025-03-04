@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ReferralContext } from "./context/ReferralContext";
 import Survey from './Survey';
+import { JobContext } from "./context/JobContext";
 
 const Dashboard = () => {
 
     const { referralURL } = useContext(ReferralContext);
     const [isExpanded, setIsExpanded] = useState(false);
     const { totalReferrals } = useContext(ReferralContext);
+    const { jobs, banners, pagination, selectedJob, setSelectedJob, loading, page, setPage } = useContext(JobContext);
     const [isModalOpen, setIsModalOpen] = useState(
         localStorage.getItem("hasCompletedSurvey") ? false : true
     );
@@ -53,6 +55,10 @@ const Dashboard = () => {
         localStorage.setItem("hasCompletedSurvey", "true");
         setIsModalOpen(false);
     };
+
+    const filteredJobs = selectedJob === "All Jobs"
+        ? jobs
+        : jobs.filter((job) => job.type === selectedJob);
 
     return (
         <Layout className="px-4 pt-4">
@@ -142,10 +148,7 @@ const Dashboard = () => {
                             </button>
                         </div>
                     </div>
-                    <div className="flex justify-between pt-4">
-                        <p>Some available jobs</p>
-                        <p className="text-blue-500">See all jobs</p>
-                    </div>
+                   
 
                     <Link to="/first-job">
                         <div className="p-4 mt-8 bg-white cursor-pointer">
@@ -162,61 +165,76 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </Link>
-                    <div className="p-4 mt-8 bg-white">
-                        <div className="flex justify-between">
-                            <p>UNLOCK ₦15,000 BIG BONUS ON PALMPAY</p>
-                            <p>&#8358;15.00</p>
-                        </div>
-                        <div className="relative w-full h-2 mt-16 bg-gray-300 rounded">
-                            <div className="absolute h-2 bg-blue-600" style={{ width: '50%' }}></div>
-                        </div>
-                        <div className="flex justify-between mt-12">
-                            <p>Facebook jobs</p>
-                            <p>14 / 20 workers completed</p>
-                        </div>
+
+                    <div className="flex justify-end mb-4">
+                    <div className="relative flex items-center">
+                        <select
+                            value={selectedJob}
+                            onChange={(e) => setSelectedJob(e.target.value)}
+                            className="px-4 py-2 pr-8 leading-tight text-gray-700 bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                        >
+                            <option>All Jobs</option>
+                            {Array.from(new Set(jobs.map((job) => job.type))).map((type) => (
+                                <option key={type}>{type}</option>
+                            ))}
+                        </select>
+                        <img
+                            src="/images/dropdown.png"
+                            alt="drop-down-icon"
+                            className="absolute w-4 h-4 pointer-events-none right-3"
+                        />
                     </div>
-                    <div className="p-4 mt-8 bg-white">
-                        <div className="flex justify-between">
-                            <p>UNLOCK ₦15,000 BIG BONUS ON PALMPAY</p>
-                            <p>&#8358;15.00</p>
-                        </div>
-                        <div className="relative w-full h-2 mt-16 bg-gray-300 rounded">
-                            <div className="absolute h-2 bg-blue-600" style={{ width: '50%' }}></div>
-                        </div>
-                        <div className="flex justify-between mt-12">
-                            <p>Facebook jobs</p>
-                            <p>14 / 20 workers completed</p>
-                        </div>
+                </div>
+                    
+                    {loading ? (
+                    <div className="flex justify-center mt-8">
+                        <div className="w-6 h-6 border-4 border-blue-500 rounded-full border-t-transparent animate-spin"></div>
+                        <p className="ml-2 text-gray-600">Loading jobs...</p>
                     </div>
-                    <div>
-                        <img src="/images/advertise.png" alt="advert-banner" className="w-full py-8" />
+                ) : filteredJobs.length > 0 ? (
+                    filteredJobs.map((job, index) => (
+                        <div key={job.id} className="p-4 mt-8 bg-white rounded-lg shadow-md cursor-pointer">
+                            <Link to={`/job/${job.id}`}>
+                                <div className="flex justify-between">
+                                    <p>{job.post_title}</p>
+                                    <p>{job.currency} {job.campaign_amount}</p>
+                                </div>
+                                <div className="relative w-full h-2 mt-4 bg-gray-300 rounded">
+                                    <div className="absolute h-2 bg-blue-600 rounded" style={{ width: `${job.progress}%` }}></div>
+                                </div>
+                                <div className="flex justify-between mt-4 text-sm text-gray-600">
+                                    <p>{job.type}</p>
+                                    <p>{job.completed} / {job.number_of_staff} workers completed</p>
+                                </div>
+                            </Link>
+
+                            {(index + 1) % 5 === 0 && banners.length > index / 5 && (
+                                <img src={banners[Math.floor(index / 5)]?.banner_url || ""} alt="Banner" className="w-full mt-4 rounded" />
+                            )}
+                        </div>
+                    ))
+                ) : (
+                    <p className="text-center text-gray-500">No jobs available</p>
+                )}
+                {pagination && (
+                    <div className="flex justify-between mt-8">
+                        <button
+                            onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+                            disabled={pagination.current_page === 1}
+                            className={`px-4 py-2 text-white rounded ${pagination.current_page === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}`}
+                        >
+                            Previous
+                        </button>
+                        <p className="text-gray-700">Page {pagination.current_page} of {pagination.last_page}</p>
+                        <button
+                            onClick={() => setPage((prev) => Math.min(prev + 1, pagination.last_page))}
+                            disabled={pagination.current_page === pagination.last_page}
+                            className={`px-4 py-2 text-white rounded ${pagination.current_page === pagination.last_page ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}`}
+                        >
+                            Next
+                        </button>
                     </div>
-                    <div className="p-4 mt-8 bg-white">
-                        <div className="flex justify-between">
-                            <p>UNLOCK ₦15,000 BIG BONUS ON PALMPAY</p>
-                            <p>&#8358;15.00</p>
-                        </div>
-                        <div className="relative w-full h-2 mt-16 bg-gray-300 rounded">
-                            <div className="absolute h-2 bg-blue-600" style={{ width: '50%' }}></div>
-                        </div>
-                        <div className="flex justify-between mt-12">
-                            <p>Facebook jobs</p>
-                            <p>14 / 20 workers completed</p>
-                        </div>
-                    </div>
-                    <div className="p-4 mt-8 bg-white">
-                        <div className="flex justify-between">
-                            <p>UNLOCK ₦15,000 BIG BONUS ON PALMPAY</p>
-                            <p>&#8358;15.00</p>
-                        </div>
-                        <div className="relative w-full h-2 mt-16 bg-gray-300 rounded">
-                            <div className="absolute h-2 bg-blue-600" style={{ width: '50%' }}></div>
-                        </div>
-                        <div className="flex justify-between mt-12">
-                            <p>Facebook jobs</p>
-                            <p>14 / 20 workers completed</p>
-                        </div>
-                    </div>
+                )}
                 </div>
 
             </>
