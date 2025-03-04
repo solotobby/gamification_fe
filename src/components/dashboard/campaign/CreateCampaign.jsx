@@ -225,7 +225,7 @@ const CreateCampaign = () => {
                 </div>
                 <p className="mb-2 text-2xl font-semibold text-center">Campaign Description</p>
                 <p className='mb-12 text-center text-gray-500'>Give detailed description of the campaign</p>
-
+    
                 <p className='mb-2 text-lg'>Title</p>
                 <textarea
                     rows="1"
@@ -234,7 +234,7 @@ const CreateCampaign = () => {
                     onChange={(e) => setTitle(e.target.value)}
                 />
                 <p className='mb-6 italic text-gray-500'>Please give a simple campaign title e.g Facebook Like or Youtube comment</p>
-
+    
                 <p className='mt-20 mb-2 text-lg'>External Link</p>
                 <textarea
                     rows="1"
@@ -243,23 +243,29 @@ const CreateCampaign = () => {
                     onChange={(e) => setExternalLink(e.target.value)}
                 />
                 <p className='mb-6 italic text-gray-500'>Please provide an external link for your campaign e.g https://myhotjobz.com</p>
-
-                <p className='mt-20 mb-2 text-lg'>Campaign Description (Ensure you provide simple and clear instruction on task to be done)</p>
+    
+                <p className='mt-20 mb-2 text-lg'>Campaign Description (Ensure you provide simple and clear instructions on tasks to be done)</p>
                 <textarea
                     rows="5"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                     value={campaignDescription}
                     onChange={(e) => setCampaignDescription(e.target.value)}
                 />
-
-                <p className='mt-20 mb-2 text-lg'>Expected Campaign Proof (You can request for social media handle, email or other means of identifying the worker)</p>
-
+    
+                <p className='mt-20 mb-2 text-lg'>Expected Campaign Proof (You can request for social media handle, email, or other means of identifying the worker)</p>
+    
                 <textarea
                     rows="5"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                     value={campaignProof}
                     onChange={(e) => setCampaignProof(e.target.value)}
                 />
+    
+
+                <p className="mt-10 text-lg font-semibold">
+                    Estimated cost: <span className="text-xl">&#8358; {finalCost.toFixed(2)}</span>
+                </p>
+    
                 <label className="flex items-center mt-4">
                     <input
                         type="checkbox"
@@ -267,9 +273,11 @@ const CreateCampaign = () => {
                         checked={agreed}
                         onChange={(e) => setAgreed(e.target.checked)}
                     />
-                    <span className="ml-2 text-base text-gray-600" required >I agree that this campaign will be automatically approved after 24 hours if I fail to approve it.</span>
+                    <span className="ml-2 text-base text-gray-600" required>
+                        I agree that this campaign will be automatically approved after 24 hours if I fail to approve it.
+                    </span>
                 </label>
-
+    
                 <button
                     className={`mt-16 px-4 py-2 rounded-full ${isFormValid() ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-400'}`}
                     disabled={!isFormValid()}
@@ -280,6 +288,7 @@ const CreateCampaign = () => {
             </div>
         </div>
     );
+    
 
     return (
         <Layout className="px-4 pt-4 ">
