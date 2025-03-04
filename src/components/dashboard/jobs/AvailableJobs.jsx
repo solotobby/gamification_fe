@@ -1,45 +1,35 @@
 import Layout from "../../pageLayout";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { fetchJob } from "../../../Services/jobs";
+import Banner from "./Banner";
+import { JobContext } from "../context/JobContext";
 
 const AvailableJobs = () => {
-    const [selectedJob, setSelectedJob] = useState("All Jobs");
-    const [jobs, setJobs] = useState([]);
-    const [banners, setBanners] = useState([]);
-    const [pagination, setPagination] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [page, setPage] = useState(1);
+    const { jobs, banners, pagination, selectedJob, setSelectedJob, loading, page, setPage, setJobs, setBanners, setPagination, setLoading } = useContext(JobContext);
 
     useEffect(() => {
         const getJobs = async () => {
             setLoading(true);
             try {
-                const token = localStorage.getItem("authToken");
-                const jobData = await fetchJob(page, token);
-    
-    
-                if (Array.isArray(jobData)) {
-                    setJobs(jobData);
-                    setBanners([]);
-                    setPagination(null);
-                } else {
-                   
-                    setJobs([]);
-                    setBanners([]);
-                    setPagination(null);
+                const result = await fetchJob(page);
+
+                if (!result || typeof result !== "object") {
+                    throw new Error("Invalid API response format");
                 }
+
+                setJobs(result.data || []);
+                setBanners(result.banners || []);
+                setPagination(result.pagination || null);
             } catch (error) {
-               
-                setJobs([]);
-                setBanners([]);
-                setPagination(null);
+                console.error("Error fetching jobs:", error);
+            } finally {
+                setLoading(false);
             }
-            setLoading(false);
         };
-    
+
         getJobs();
-    }, [page]);
+    }, [page, setJobs, setBanners, setPagination, setLoading]);
 
     const filteredJobs = selectedJob === "All Jobs"
         ? jobs
@@ -93,17 +83,8 @@ const AvailableJobs = () => {
                                     </div>
                                 </Link>
 
-                                {(index + 1) % 5 === 0 && banners[Math.floor(index / 5)] && (
-                                    <>
-                                        
-                                        <div className="my-6">
-                                            <img
-                                                src={banners[Math.floor(index / 5)].banner_url}
-                                                alt={`advert-banner-${Math.floor(index / 5) + 1}`}
-                                                className="w-full rounded-lg shadow-md"
-                                            />
-                                        </div>
-                                    </>
+                                {(index + 1) % 5 === 0 && banners.length > index / 5 && (
+                                    <Banner imageUrl={banners[Math.floor(index / 5)]?.banner_url || ""} />
                                 )}
                             </div>
                         ))}
@@ -117,7 +98,8 @@ const AvailableJobs = () => {
                         <button
                             onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
                             disabled={pagination.current_page === 1}
-                            className={`px-4 py-2 text-white rounded ${pagination.current_page === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}`}
+                            className={`px-4 py-2 text-white rounded ${pagination.current_page === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
+                                }`}
                         >
                             Previous
                         </button>
@@ -125,12 +107,14 @@ const AvailableJobs = () => {
                         <button
                             onClick={() => setPage((prev) => Math.min(prev + 1, pagination.last_page))}
                             disabled={pagination.current_page === pagination.last_page}
-                            className={`px-4 py-2 text-white rounded ${pagination.current_page === pagination.last_page ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}`}
+                            className={`px-4 py-2 text-white rounded ${pagination.current_page === pagination.last_page ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
+                                }`}
                         >
                             Next
                         </button>
                     </div>
                 )}
+
             </div>
         </Layout>
     );
