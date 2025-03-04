@@ -14,6 +14,7 @@ import ScrollToTop from './components/landing-page/pages/ScrollToTop.jsx';
 import AffiliateProgram from './components/landing-page/AffiliateProgram.jsx';
 import Login from './components/landing-page/Login.jsx';
 import Register from './components/landing-page/Register.jsx';
+import RedirectReferral from './components/landing-page/RedirectReferral.jsx';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/otp" element={<Otp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/register/:referral_code" element={<RedirectReferral />} />
         
       
       </Routes>
