@@ -20,7 +20,7 @@ const Header = () => {
                     <p className="text-3xl text-blue-500" onClick={() => setMenuOpen(!menuOpen)}>x</p>
                     <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Home</Link>
                     {/* <Link to="/make-money" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Make money</Link> */}
-                    <Link to="/affiliate" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Affiliate Program</Link>
+                    <Link to="/affiliate-program" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Affiliate Program</Link>
                     <Link to='/about-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>About us</Link>
                     <Link to='/contact-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Contact</Link>
                     <a
@@ -41,7 +41,7 @@ const Header = () => {
                 </div>
                 <div className="items-center hidden gap-12 md:flex">
                     <Link to="/" className="py-2">Home</Link>
-                    <Link to="/affiliate" className="py-2">Affiliate Program</Link>
+                    <Link to="/affiliate-program" className="py-2">Affiliate Program</Link>
                     {/* <Link to="/make-money" className="py-2">Make money</Link> */}
                     <Link to='/about-us' className="py-2">About us</Link>
                     <Link to='/contact-us' className="py-2">Contact</Link>
