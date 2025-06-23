@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LOGIN_URL, SIGNUP_URL } from "../../config/urls";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -15,8 +16,7 @@ const Header = () => {
                     <Link to="/make-money" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Make money</Link>
                     <Link to='/about-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>About us</Link>
                     <Link to='/contact-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Contact</Link>
-                    <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Sign up for free</Link>
-                    <Link to="/" className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Login</Link>
+                    <a href={LOGIN_URL} className="block py-2" onClick={() => setMenuOpen(false)} target="_blank" rel="noopener noreferrer">Login</a>
                 </div>
                 <div className="items-center hidden gap-6 md:flex">
                     <Link to="/" className="py-2">Home</Link>
@@ -25,8 +25,8 @@ const Header = () => {
                     <Link to='/contact-us' className="py-2">Contact</Link>
                 </div>
                 <div className="items-center hidden gap-6 md:flex">
-                    <Link to="/" ><button className="py-2">Login</button></Link>
-                    <Link to="/"><button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
+                    <a href={LOGIN_URL} target="_blank" rel="noopener noreferrer"><button className="py-2">Login</button></a>
+                    <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer"><button className="p-4 text-white rounded-full bg-customBlue">Sign up for free</button></a>
                 </div>
             </div>
         </div>

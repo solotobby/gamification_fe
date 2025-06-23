@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
+import { LOGIN_URL, SIGNUP_URL } from "../../config/urls";
+
 const Footer = () => {
     return (
         <div >
-            <div className="container flex flex-col items-center justify-center mt-20">
-                <p className="w-full px-4 mt-8 text-4xl font-medium leading-10 text-center md:w-3/4 md:mt-8 md:text-5xl md:leading-10">Sign up today and start earning in naira and dollars!</p>
-                <p className="w-full px-4 mt-4 text-base text-center md:w-3/4 md:mt-6 md:text-base">Start getting that extra income from the comfort of your home by creating an account for free.</p>
+            <div className="container flex flex-col justify-center items-center mt-20">
+                <p className="px-4 mt-8 w-full text-4xl font-medium leading-10 text-center md:w-3/4 md:mt-8 md:text-5xl md:leading-10">Sign up today and start earning in naira and dollars!</p>
+                <p className="px-4 mt-4 w-full text-base text-center md:w-3/4 md:mt-6 md:text-base">Start getting that extra income from the comfort of your home by creating an account for free.</p>
 
-                <span className="flex items-center gap-8 md:gap-8">
-                    <img className="w-16 md:w-auto" src="/images/arrow-left.png" alt="left-arrow" />
-                    <Link to="/" className="px-4 py-2 text-base text-white rounded-full bg-customBlue md:px-2 md:py-2 md:text-xl">Sign up for free</Link>
-                    <img className="w-16 md:w-auto" src="/images/arrow2.png" alt="right-arrow" />
+                <span className="flex gap-4 items-center md:gap-8"> {/* Changed gap-8 to gap-4 for mobile */} 
+                    <img className="w-10 md:w-auto" src="/images/arrow-left.png" alt="left-arrow" /> {/* Changed w-16 to w-10 for mobile */} 
+                    <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer" className="px-4 py-2 text-base text-white rounded-full bg-customBlue md:px-2 md:py-2 md:text-xl">Sign up for free</a>
+                    <img className="w-10 md:w-auto" src="/images/arrow2.png" alt="right-arrow" /> {/* Changed w-16 to w-10 for mobile */} 
                 </span>
             </div>
             <div className="pb-4 mt-8 bg-customBlue">
-                <div className="container flex flex-wrap justify-around gap-5 p-10">
+                <div className="container flex flex-wrap gap-5 justify-around p-10">
 
                     <div className="w-full cursor-pointer lg:w-1/4 shrink-0">
                         <Link to='/'><img src="/images/Freebyz-logo-white.png" alt="freebyz-logo" /></Link>
@@ -25,8 +27,8 @@ const Footer = () => {
                                
                                 <Link to='/' className="text-base font-inter">Home</Link>
                                 <Link to='/make-money' className="text-base font-inter">Make money</Link>
-                                <Link to='/' className="text-base font-inter">Login</Link>
-                                <Link to='/' className="text-base font-inter">Sign up</Link>
+                                <a href={LOGIN_URL} className="text-base font-inter">Login</a>
+                                <a href={SIGNUP_URL} className="text-base font-inter">Sign up</a>
                             </div>
                         </div>
 
@@ -59,7 +61,7 @@ const Footer = () => {
 
                 <div className="container my-4 border-t border-white"></div>
 
-                <div className="container flex flex-col justify-between mt-6 md:flex-row ">
+                <div className="container flex flex-col justify-between mt-6 md:flex-row">
                     <div className="mb-4 text-white md:mb-0">
                         <p className="text-base font-inter">All copyright © reserved by Freebyz 2024</p>
                         <p className="text-base font-inter">Freebyz By Dominahl Technology LLC</p>

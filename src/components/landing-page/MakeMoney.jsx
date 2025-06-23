@@ -1,10 +1,11 @@
 import KickstartJourney from "./KickstartJourney";
-import { Link } from "react-router-dom";
+
+import { SIGNUP_URL } from "../../config/urls";
 
 const MakeMoney = () => {
     return (
         <div className="md:pt-8">
-            <div className="container flex flex-col items-center justify-center pt-24 md:flex-row">
+            <div className="container flex flex-col justify-center items-center pt-24 md:flex-row">
                 <div className="container flex flex-col md:flex-row">
                     <div className="overflow-hidden md:w-2/3">
                         <div>
@@ -12,14 +13,14 @@ const MakeMoney = () => {
                                 How to make money on Freebyz
                             </h1>
                         </div>
-                        <p className="max-w-2xl mt-8">
+                        <p className="mt-8 max-w-2xl">
                             Freebyz was created for you to make cool cash every day by doing simple social media jobs on YouTube, Facebook, TikTok, Instagram, and other social media platforms.
                         </p>
-                        <Link to='/'>
+                        <a href={SIGNUP_URL}>
                             <button className="px-4 py-2 mx-auto my-6 text-white rounded-full md:mx-4 bg-customBlue">
                                 Sign up for free
                             </button>
-                        </Link>
+                        </a>
                        
                     </div>
 
@@ -37,36 +38,36 @@ const MakeMoney = () => {
             </div>
 
             <div className="container md:pt-24">
-                <p className="w-48 overflow-hidden text-2xl md:w-96 md:text-5xl font-bricolage-grotesque">Six ways to earn on Freebyz</p>
+                <p className="overflow-hidden w-48 text-2xl md:w-96 md:text-5xl font-bricolage-grotesque">Six ways to earn on Freebyz</p>
                 <div className="grid grid-cols-1 gap-8 pt-12 md:grid-cols-3">
                     <div>
-                        <p className="p-4 text-center text-blue-600 bg-blue-200 border-2 border-blue-500 border-dashed rounded-full w-14">1</p>
+                        <p className="p-4 w-14 text-center text-blue-600 bg-blue-200 rounded-full border-2 border-blue-500 border-dashed">1</p>
                         <p className="py-2 font-semibold">Dollar Wallet</p>
                         <p>You can earn dollars on Freebyz when you have a verified dollar wallet.</p>
                     </div>
                     <div>
-                        <p className="p-4 text-center text-blue-600 bg-blue-200 border-2 border-blue-500 border-dashed rounded-full w-14">2</p>
+                        <p className="p-4 w-14 text-center text-blue-600 bg-blue-200 rounded-full border-2 border-blue-500 border-dashed">2</p>
                         <p className="py-2 font-semibold">Afilliate Links</p>
                         <p>You can promote your Affiliate links to earn big money online.</p>
                     </div>
                     <div>
-                        <p className="p-4 text-center text-blue-600 bg-blue-200 border-2 border-blue-500 border-dashed rounded-full w-14">3</p>
+                        <p className="p-4 w-14 text-center text-blue-600 bg-blue-200 rounded-full border-2 border-blue-500 border-dashed">3</p>
                         <p className="py-2 font-semibold">Lock Money</p>
                         <p>You can lock money (to avoid spending temptations) in your wallet for 3-6 months and earn up to 5% interest.</p>
                     </div>
                     <div> 
-                        <p className="p-4 text-center text-blue-600 bg-blue-200 border-2 border-blue-500 border-dashed rounded-full w-14">4</p>
+                        <p className="p-4 w-14 text-center text-blue-600 bg-blue-200 rounded-full border-2 border-blue-500 border-dashed">4</p>
                         <p className="py-2 font-semibold">Remote Jobs</p>
                         <p>You can do remote jobs by completing tasks and earning. As a verified user, you have access to limitless jobs above ₦10.</p>
                     </div>
                     <div>
-                        <p className="p-4 text-center text-blue-600 bg-blue-200 border-2 border-blue-500 border-dashed rounded-full w-14">5</p>
+                        <p className="p-4 w-14 text-center text-blue-600 bg-blue-200 rounded-full border-2 border-blue-500 border-dashed">5</p>
                         <p className="py-2 font-semibold">Dollar Jobs</p>
                         <p>You can earn more by doing dollar jobs and earn directly to your Paypal account or to your local bank (for the dollar equivalent).
                             Feel free to use any of these methods to earn big time on Freebyz.</p>
                     </div>
                     <div>
-                        <p className="p-4 text-center text-blue-600 bg-blue-200 border-2 border-blue-500 border-dashed rounded-full w-14">6</p>
+                        <p className="p-4 w-14 text-center text-blue-600 bg-blue-200 rounded-full border-2 border-blue-500 border-dashed">6</p>
                         <p className="py-2 font-semibold">Referral Bonuses</p>
                         <p>You can invite your friends using your referral link and earn ₦500 (or $2.5) on each verified friend. Some users have cashed out more than ₦100,000 at a time by just referring friends and not completing tasks at all.</p>
                     </div>
@@ -79,11 +80,11 @@ const MakeMoney = () => {
                 <div className="overflow-hidden md:w-2/3">
                     <p className="py-6 text-2xl font-medium md:text-4xl">How user made millions on Freebyz</p>
                     <p>Last year (2023), a lot of our users became millionaires just by using FREEBYZ and we cannot keep the secrets they used away from you anymore! You can be a millionaire this month as well.</p>
-                    <p className="py-2 ">What’s the secret?: <span className="italic font-medium font-style:">YOUR REFERRAL LINK</span></p>
+                    <p className="py-2">What’s the secret?: <span className="italic font-medium font-style:">YOUR REFERRAL LINK</span></p>
                 </div>
             </div>
 
-            <div className="container flex flex-col items-center justify-between gap-24 pt-20 md:flex-row">
+            <div className="container flex flex-col gap-24 justify-between items-center pt-20 md:flex-row">
                 <img src="/images/man-with-phone.png" alt="man-holding-a-phone" className="md:w-[30%]" />
                 <div className="overflow-hidden md:w-96">
                     <p className="pb-2">Did you know you are sitting and living with potential millions every day?</p>

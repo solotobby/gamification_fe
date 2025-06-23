@@ -1,13 +1,13 @@
 import { kickstartJourney } from "../../data/homeData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { Link } from "react-router-dom";
+import { SIGNUP_URL } from "../../config/urls";
 
 const KickstartJourney = () => {
     return (
         <div className="container mt-8">
             
-            <p className="w-full mt-20 text-2xl font-medium leading-10 font-bricolage-grotesque md:text-5xl md:w-3/4">
+            <p className="mt-20 w-full text-2xl font-medium leading-10 font-bricolage-grotesque md:text-5xl md:w-3/4">
                 Kick-start your journey to financial emancipation
             </p>
             <p className="my-8">Here’s how Freebyz works.</p>
@@ -25,7 +25,7 @@ const KickstartJourney = () => {
 
             
 
-            <div className='relative flex pt-6 pb-6 mt-2 overflow-x-hidden transition-all duration-300 md:hidden'
+            <div className='flex overflow-x-hidden relative pt-6 pb-6 mt-2 transition-all duration-300 md:hidden'
                 >
                     <Swiper
                         slidesPerView={1}
@@ -44,7 +44,7 @@ const KickstartJourney = () => {
 
                     {kickstartJourney.map((el, i) => (
                         <SwiperSlide key={i} >
-                            <div className="w-full p-5 bg-customGray h-120">
+                            <div className="p-5 w-full bg-customGray h-120">
                                 <p className='text-3xl font-medium leading-10 md:text-base'>{el.title}</p>
                                 <p className="md:text-base">{el.description}</p>
                                 <img src={el.image} alt="kickstart-journey-image" />
@@ -58,7 +58,9 @@ const KickstartJourney = () => {
                 
             
             
-                    <Link><button to="/" className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">Sign up for free</button></Link>
+                    <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
+                        <button className="px-4 py-3 my-8 text-white rounded-full bg-customBlue">Sign up for free</button>
+                    </a>
             
         </div>
 

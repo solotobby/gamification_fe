@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { SIGNUP_URL } from "../../config/urls";
 
 const WorkOnline = () => {
     const [imageIndex, setImageIndex] = useState(0);
@@ -9,7 +9,7 @@ const WorkOnline = () => {
             spans: (
                 <>
                     <span className="absolute left-[50%] top-[10%] md:top-[20%] z-10 p-2 md:p-4 flex flex-col items-center shadow-2xl border-[1px] border-slate-100 bg-white rounded-md">
-                        <div className="flex flex-col items-center justify-between gap-2">
+                        <div className="flex flex-col gap-2 justify-between items-center">
                             <h3 className="text-base">Engagement Rate</h3>
                             <img src="/images/engagement-rate.png" alt="engagement-rate-graph" />
                         </div>
@@ -35,7 +35,7 @@ const WorkOnline = () => {
                        
                     </span>
                     <span className="absolute top-[20%] left-0 z-10 shadow-xl border-[1px] border-slate-100 bg-white rounded-md p-2 md:p-4">
-                        <div className="flex items-center justify-between gap-4">
+                        <div className="flex gap-4 justify-between items-center">
                             <img src="/images/yellow-safelock.png" alt="yellow-safelock" />
                             <div>
                                 <h2 className="text-base md:text-base">&#36;750.50</h2>
@@ -56,7 +56,7 @@ const WorkOnline = () => {
                         <p className="text-base md:text-base">Payout successful</p>
                     </span>
                     <span className="absolute bottom-0 left-0 z-10 shadow-xl border-[1px] border-slate-100 bg-white rounded-md p-2 md:p-4">
-                        <div className="flex items-center justify-between gap-4">
+                        <div className="flex gap-4 justify-between items-center">
                             <h3 className="text-base md:text-base">Balance</h3>
                             <button className="px-2 py-1 text-base text-white rounded-full bg-customBlue">Withdraw</button>
                         </div>
@@ -80,21 +80,21 @@ const WorkOnline = () => {
 
     return (
         <div className="flex flex-col justify-center pt-24 background-map">
-            <div className="container relative flex flex-col items-center justify-between md:flex-row">
+            <div className="container flex relative flex-col justify-between items-center md:flex-row">
                 <div className="overflow-hidden md:w-96">
                     <div>
                         <h1 className="mt-2 text-2xl font-medium font-bricolage-grotesque md:mt-20 md:text-5xl">
                             Work online and earn daily in dollar and naira!
                         </h1>
                     </div>
-                    <p className="max-w-2xl mt-8">
+                    <p className="mt-8 max-w-2xl">
                         Hire online workers to increase your business visibility and organic growth through engagements on Facebook, Instagram, YouTube, TikTok, WhatsApp, and Twitter.
                     </p>
-                    <Link to="/">
+                    <a href={SIGNUP_URL}>
                         <button className="px-4 py-2 mx-auto my-6 text-white rounded-full md:mx-4 bg-customBlue">
                             Sign up for free
                         </button>
-                    </Link>
+                    </a>
                     
                 </div>
 
