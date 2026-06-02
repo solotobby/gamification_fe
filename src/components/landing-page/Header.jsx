@@ -24,7 +24,7 @@ const Header = () => {
                     <Link to='/about-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>About us</Link>
                     <Link to='/contact-us' className="block py-2" onClick={() => setMenuOpen(!menuOpen)}>Contact</Link>
                     <a
-                        href="https://dashboard.freebyz.com/register"
+                        href="https://app.freebyz.com/register"
                         className="block py-2"
                         onClick={() => setMenuOpen(!menuOpen)}
                     >
@@ -32,7 +32,7 @@ const Header = () => {
                     </a>
 
                     <a
-                        href="https://dashboard.freebyz.com/login"
+                        href="https://app.freebyz.com/login"
                         className="block py-2"
                         onClick={() => setMenuOpen(!menuOpen)}
                     >
@@ -47,9 +47,9 @@ const Header = () => {
                     <Link to='/contact-us' className="py-2">Contact</Link>
                 </div>
                 <div className="items-center hidden gap-6 md:flex">
-                    <a href="https://dashboard.freebyz.com/login" rel="noopener noreferrer" className="py-2">Login</a>
+                    <a href="https://app.freebyz.com/login" rel="noopener noreferrer" className="py-2">Login</a>
 
-                    <a href="https://dashboard.freebyz.com/register" rel="noopener noreferrer" className="inline-block p-4 text-white rounded-full bg-customBlue">Sign up for free</a>
+                    <a href="https://app.freebyz.com/register" rel="noopener noreferrer" className="inline-block p-4 text-white rounded-full bg-customBlue">Sign up for free</a>
 
 
                 </div>
